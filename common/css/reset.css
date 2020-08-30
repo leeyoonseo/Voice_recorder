@@ -4,8 +4,8 @@
 html,body,div,p,iframe,frameset, h1,h2,h3,h4,h5,h6, strong,span,b,em,var,label,legend, ul,ol,li,dl,dt,dd,
 table,thead,tbody,tfoot,tr,th,td,caption, form,fieldset,input,textarea, sub,sup,img,a,del,button,pre,
 header,footer,section,article,aside {padding:0;margin:0;}
-body {color:#666;font-size:16px;line-height:1.42;letter-spacing:0px;font-family:Malgun Gothic,돋음,Dotum,Arial,Helvetica,sans-serif;}
-button {background:transparent;outline:0;}
+body {color:#333;font-size:16px;line-height:1.42;letter-spacing:0px;font-family:Malgun Gothic,돋음,Dotum,Arial,Helvetica,sans-serif;}
+button {background:transparent;outline:0;cursor:pointer;}
 img,button,fieldset,table {border:0;}
 em, address, del {font-style:normal;}
 label,a {display:inline-block;}

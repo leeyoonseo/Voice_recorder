@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+.recordings_remark_popup { margin:8px; min-width:520px; font-size:12px; }
+.recordings_remark { text-align:center; }
+.recordings_remark table { width:100%; border-collapse:collapse; border-spacing:0; }
+.recordings_remark th { width:80px; height:35px; text-align:center; font-weight:400; box-sizing:border-box; }
+.recordings_remark tr { border:1px solid #ccc; box-sizing:border-box; }
+.recordings_remark td { padding:10px; width:440px; text-align:left; border:1px solid #ccc; box-sizing:border-box; }
+.recordings_remark .highlight { color:#0066e1; }
+.recordings_remark .comments_write { min-width:420px; width:100%; height:71px; border:1px solid #a1a1a1; outline:0; background:#f1f1f1; box-sizing:border-box; }
+.recordings_remark .noti_text { margin-bottom:4px; font-size:11px; text-align:right; color:#808080; }
+
+/* 녹음기 & 플레이어 */
+.ui_type1.ui_box .pie_bg{ width:82px; height:82px; font-size:82px; }
+.ui_type1.ui_box .controls_wrap:before { height:65px; }
+
+/* 녹음기 */
+.ui_type1.recorder.ui_box { padding:23px 18px; min-width:420px; }
+.ui_type1.recorder.ui_box .ui_box_inner { width:384px; }
+.ui_type1.recorder.ui_box .ui_timer_wrap { width:180px; height:83px; }
+.ui_type1.recorder.ui_box .ui_timer_wrap:after { height:66px; }
+.ui_type1.recorder.ui_box .timer { margin-left:13px; font-size:25px; line-height:82px; }
+.ui_type1.recorder .pie_pointer span:before { width:10px; height:10px; }
+.ui_type1.recorder .pie_shadow.recording_c { background-size:27px 42px; }
+
+.ui_type1.recorder.ui_box .controls_wrap { padding:4px 0 4px 25px; width:calc(100% - 180px); height:83px; }
+.ui_type1.recorder.ui_box .control_btns .btns_bg { width:44px; height:44px; }
+.ui_type1.recorder.ui_box .control_btns .btns_bg + .btns_bg{ margin-left:22px; }
+.ui_type1.recorder.ui_box .ui_status_bar { width:175px; height:12px; }
+
+.ui_type1.recorder.ui_box .btn_record:before { width:12px; height:12px; }
+.ui_type1.recorder.ui_box .btn_stop:before { width:15px; height:15px; }
+.ui_type1.recorder.ui_box .btn_play:disabled:before { width:12px; height:14px; }
+.ui_type1.recorder.ui_box.active .btn_record:before,
+.ui_type1.recorder.ui_box.active .btn_record:after { width:6px; height:16px; }
+.ui_type1.recorder.ui_box.active .btn_record:before { margin-right:5px; }
+
+.ui_type1.recorder.active .pie_wrap:before { width:7px; height:7px; }
+
+/* 플레이어 */
+.ui_type1.player.ui_box { padding:22px; }
+.ui_type1.player.ui_box .controls_wrap { display:flex; float:none; padding:0; width:375px; height:auto; align-items: center; }
+.ui_type1.player.ui_box .controls_wrap:before { display:none; }
+.ui_type1.player.ui_box .control_btns { float:left; margin-left:0; width:150px; }
+.ui_type1.player.ui_box .control_btns .btns_bg { width:58px; height:58px; }
+.ui_type1.player.ui_box .control_btns .btns_bg + .btns_bg { margin-left:14px; }
+.ui_type1.player.ui_box .ui_status_bar { float:left; top:0; left:0; margin:0 0 0 20px; width:225px; height:auto; box-sizing:border-box; }
+.ui_type1.player.ui_box .status_bar{ margin-top:3px; float:none; width:225px; }
+.ui_type1.player .ui_status_bar:after{ display:none; }
+.ui_type1.player .current_time { float:none; font-size:13px; }
+
+.remark_btns { margin:10px 0 20px; }
+.remark_btns button { display:inline-block; width:80px; height:22px; border:1px solid #8c8a8c; background:none; box-shadow:-1px -1px 5px rgba(0,0,0,0.3) inset; box-sizing:border-box; cursor:pointer; }
+.remark_btns button + button { margin-left:5px; }
+
+.recordings_help { padding-left:10px; }
+.recordings_help .help_title { margin:0 0 5px 0; }
+.recordings_help ol { margin:0; padding:0; line-height:22px; list-style:none; }
+
+.recordings_help li:before { content:''; display:inline-block; width:3px; height:3px; vertical-align:middle; background-color:#969696; }
+.recordings_help .icon_record,
+.recordings_help .icon_stop { position:relative; display:inline-block; margin:0 4px; width:21px; height:21px; vertical-align:middle; border-radius:50%; border:1px solid #b3b3b3; }
+.recordings_help .icon_record:before { content:''; display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:7px; height:7px; background-color:#dc0e03;  border-radius:50%; }
+.recordings_help .icon_stop:before { content:''; display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:7px; height:7px; background-color:#099af6; }

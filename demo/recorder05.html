@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://school.littlefox.co.kr/favicon.ico">
+    <title>:: 리틀팍스어학원 ::</title>
+
+    <!-- TODO LSCH-17 : 추가되는 CSS -->
+    <link rel="stylesheet" href="../recorder/css/LayerMessageBox.css" type="text/css">
+    <link rel="stylesheet" href="../recorder/css/AudioRecorder.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./littlefox_player.css">
+    <!-- // TODO LSCH-17 : 추가되는 CSS -->
+
+    <style>
+        html,body{ height:100%; }
+    </style>
+</head>
+<body>
+    <div class="homework_memo_popup">
+		<h1 class="subject">1. No Two People Are the Same</h1>
+
+		<div class="homework_memo_inner">
+			<div class="info">
+				<p class="activity_name"><span>[1-1]</span> Word Practice 1</p>
+				<span class="date">2020.06.05 16:16</span>
+			</div>
+
+			<!-- TODO LSCH-17 : 플레이어가 있는 메모인 경우만 플레이어 영역 추가 -->
+            <!-- [D] 플레이어영역 -->
+			<div class="player ui_box sound_player" data-src="../recorder/sample/audio1.mp3">
+				<h3 class="hidden">플레이어</h3>
+
+				<div class="ui_box_inner">
+					<div class="controls_wrap">
+						<div class="control_btns">
+							<button type="button" class="btns_bg btn_play">
+								<span class="hidden">재생 버튼</span>
+							</button>
+							<button type="button" class="btns_bg btn_stop" disabled>
+								<span class="hidden">정지 버튼</span>
+							</button>
+						</div>
+
+						<div class="ui_status_bar">
+							<div class="current_time">00:00</div>
+							<div class="status_bar">
+								<span class="playing">
+									<span class="status_pointer"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- TODO LSCH-17 : 플레이어가 있는 메모인 경우만 플레이어 영역 추가 -->
+
+			<div class="memo_wrap">
+				<p class="teacher_name">
+					Teacher : Caroline
+				</p>
+				<div class="teacher_memo">
+					<p>
+						You recorded it in a good voice.<br />
+						It's beautiful to see you work hard.
+					</p>
+				</div>
+			</div>
+
+			<div class="btn_wrap">
+				<button type="button" class="close_btn">Close</button>
+			</div>
+		</div>
+
+    </div>
+
+    <!-- TODO LSCH-17 : Google Analytics -->
+    <!-- <script src="//www.google-analytics.com/analytics.js"></script> -->
+
+    <script src="http://school.littlefox.co.kr/common/js/jquery-1.11.2.min.js" ></script>
+
+    <!-- TODO LSCH-17 : 녹음기 스크립트 코드 추가 -->
+    <script src="../recorder/js/libs/CheckBrowser-2.0.2.js"></script>
+    <script src="../recorder/js/libs/utils.StringUtil.js"></script>
+    <script src="../recorder/js/AudioPlayer.js"></script>
+    <script src="../recorder/js/ProgressBar.js"></script>
+    <script src="../recorder/js/AudioPlayerManager.js"></script>
+
+    <!-- TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
+    <script>
+        'use strict';
+
+        // 오디오 init
+        var $element = $('.sound_player');
+        var player = new AudioPlayerManager().init({ element : $element });
+
+    </script>
+    <!-- // TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
+
+</body>
+</html>

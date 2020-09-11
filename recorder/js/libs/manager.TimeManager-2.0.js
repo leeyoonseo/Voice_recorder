@@ -1,10 +1,7 @@
 /**
- * 제한시간 관리
- * @author Lee Sang Mi (2019.07.10)
- * @version 2.0.0
- * @update Lee Sang Mi (2019.07.10) v2.0.0
- * ㄴ String Utils 내장
+ * 시간 관리
  */
+ 
 var TimeManager = function(){
 
 	this.version = '2.0.0';

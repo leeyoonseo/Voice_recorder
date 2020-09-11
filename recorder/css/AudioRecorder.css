@@ -1,11 +1,4 @@
-@charset "utf-8";
-
-/*
-soundPlayer = 플레이어 - 단독
-Type1 = 기본형
-Type2 = 펼침형
- */
-
+@charset "euc-kr";
 /* common */
 body{ margin:0; font-family:Tahoma, Arial, "Malgun Gothic", "맑은 고딕", Dotum, "돋움", sans-serif; }
 button { outline:0; color:#333; cursor:pointer; }
@@ -60,7 +53,6 @@ button:disabled { cursor:default; }
 .ui_type1.recorder.active .btn_record:after { content:''; display:block; background-color:#1aa1f7; }
 
 /* Type1 player */
-/* .player.ui_box .pie_bg { position:relative; display:inline-block; width:114px; height:114px; line-height:1em; font-size:114px; vertical-align:middle; } */
 .ui_type1.player .pie_shadow.playing_c{ background-image:url('../img/icon_pie_player.png'); background-size:48px 41px; }
 .ui_type1.player .btn_record:disabled:before { width:16px; height:16px; background-color:#dbdbdb; border-radius:50%; }
 .ui_type1.player .btn_stop:before { width:20px; height:20px; border-radius:3px; background-color:#1aa1f7; }
@@ -170,8 +162,10 @@ button:disabled { cursor:default; }
 .sound_player.ui_box .control_btns .btns_bg{ display:inline-flex; float:left; width:62px; height:62px; justify-content:center; align-items:center; border:1px solid #b2b9c1; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.2); box-sizing:border-box; }
 .sound_player.ui_box .control_btns .btns_bg + .btns_bg{ margin-left: 15px; }
 
-.sound_player.ui_box .btns_bg:before{ content:''; display:block; background-color:#1aa1f7; }
-.sound_player.ui_box .btns_bg:disabled:before{ background-color: #dbdbdb; }
+.sound_player.ui_box .btns_bg:before,
+.sound_player.ui_box .btns_bg:after{ content:''; display:block; background-color:#1aa1f7; }
+.sound_player.ui_box .btns_bg:disabled:before,
+.sound_player.ui_box .btns_bg:disabled:after{ background-color: #dbdbdb; }
 .sound_player.ui_box .btn_play:before{ margin-left:7px; width:17px; height:20px; clip-path:polygon(0 0, 0% 100%, 100% 50%); }
 .sound_player.ui_box .btn_stop:before{ width:20px; height:20px; border-radius:3px; }
 .sound_player.ui_box .ui_status_bar{ margin-left:20px; width:240px; }
@@ -183,4 +177,3 @@ button:disabled { cursor:default; }
 .sound_player.ui_box.active .btn_play:before,
 .sound_player.ui_box.active .btn_play:after { float:left; margin:0; width:7px; height:20px; border-radius:25px; clip-path:none; }
 .sound_player.ui_box.active .btn_play:before { margin-right:6px; }
-.sound_player.ui_box.active .btn_play:after { content:''; display:block; background-color:#1aa1f7; }

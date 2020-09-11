@@ -47,7 +47,7 @@ AudioRecorderManager.RecordView = (function(){
     var progressbar = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new ProgressBar.Circle('.pie_wrap');
+            this.node = this.node || new Circle({ element : '.progress-circle' });
 
             return this;
         },

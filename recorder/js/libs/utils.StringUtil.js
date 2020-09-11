@@ -1,7 +1,5 @@
 /**
  * String 유틸
- * @author Lee Sang Mi(2019.07.10)
- * @version 1.0.0
  */
 window.StringUtils = {
 

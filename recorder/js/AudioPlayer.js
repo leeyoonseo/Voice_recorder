@@ -15,7 +15,6 @@ window.AudioPlayer = function(){
     this.name = "player manager",
     this.version = "1.1.0",
 
-    this.playing = false,
     this.isTouch = CheckBrowser.isTouchScreen,
 
     this.Event = {
@@ -44,8 +43,7 @@ window.AudioPlayer.prototype = {
             wrap : '.player',
             statusBar : '.ui_status_bar',
             audioFileSrc : '',
-            timeFormat : 'mm:ss'
-
+            timeFormat : 'mm:ss',
         }, opts);
 
         this.audio = new Audio();
@@ -72,7 +70,8 @@ window.AudioPlayer.prototype = {
     },
 
     stop : function(){
-        $(this.audio).stop();
+        this.audio.currentTime = 0;
+        this.audio.pause();
 
         return this;
     },
@@ -124,6 +123,7 @@ window.AudioPlayer.prototype = {
                 }
 
                 that.loadeddataCallback(duration);
+                that.totalTime = duration;
             })
 
             // 오디오 타이머 시

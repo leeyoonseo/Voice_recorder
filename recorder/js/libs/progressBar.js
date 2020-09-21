@@ -14,11 +14,12 @@ class Progress {
         
         if(typeof element === 'string'){
             element = document.querySelector(element);
+
         } 
 
+        this.pointer = element.querySelector('.progress-pointer') 
+        this.progress = element.querySelector('.progress');
 
-        this.pointer = element.getElementsByClassName('progress-pointer')[0];
-        this.progress = element.getElementsByClassName('progress')[0];
         this.element = element;
     }
 

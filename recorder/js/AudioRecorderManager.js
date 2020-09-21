@@ -6,6 +6,7 @@
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
 
+//  TODO progress 앞에 대문자로 할 것!!
 'use strict';
 
 var DEFAULT = {
@@ -44,11 +45,13 @@ window.AudioRecorderManager = {
 
 AudioRecorderManager.RecordView = (function(){
     var $UI = $('#recorderArea');
-    var progressbar = {
+    var progress = {
         init : function(){
             this.node && this.node.reset();
             this.node = this.node || new Circle({ element : '.progress-circle' });
-
+          
+            // const { progress } = obj.dataset;
+            // new Progress({ element : obj }).draw(progress);
             return this;
         },
 
@@ -121,7 +124,7 @@ AudioRecorderManager.RecordView = (function(){
         }
 
         AudioRecorderManager.PlayerView.init();
-        progressbar.init();
+        progress.init();
         timer.init();
 
         attachEvent();
@@ -172,7 +175,7 @@ AudioRecorderManager.RecordView = (function(){
      * @param {String} format - 타이머 포맷
      */
     var recording = function(time, format){
-        progressbar.setUp(time);
+        progress.setUp(time);
         $UI.find('.timer').text(format);
 
         return this;
@@ -222,7 +225,7 @@ AudioRecorderManager.RecordView = (function(){
      * @param {Number} volume 
      */
     function inputMicVolume(volume){
-        $bar.css('width', volume + '%');
+        $UI.find('.status_bar').css('width', volume + '%');
     }
 
     // init();
@@ -249,14 +252,11 @@ AudioRecorderManager.PlayerView = (function(){
     var $UI = $('#playerArea');
     var audio;
 
-    var progressbar = {
+    var progress = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new ProgressBar.Linear({
-                wrap : '.player .ui_status_bar',
-                progress : '.playing',
-                thumb : '.status_pointer',
-                bar : '.status_bar'
+            this.node = this.node || new ProgressBar({
+                element : '.progress-linear',
             });
 
             return this;
@@ -310,7 +310,7 @@ AudioRecorderManager.PlayerView = (function(){
 
         setLifeCycle : function(){
             this.node.setLoadeddata(function(duration){
-                progressbar.draw(0);
+                progress.draw(0);
                 $UI.find('.total_time').text(StringUtils.makeTimeString(duration * 1000, DEFAULT.TIME_FORMAT));
             });
 
@@ -318,14 +318,14 @@ AudioRecorderManager.PlayerView = (function(){
                 var barW = $UI.find('.status_bar').outerWidth();
                 var thumbW = $UI.find('.status_bar .status_pointer').outerWidth();
 
-                progressbar.draw((currentTime / duration) * (barW - thumbW));
+                progress.draw((currentTime / duration) * (barW - thumbW));
                 $UI.find('.timer, .current_time')
                    .html(StringUtils.makeTimeString(currentTime * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setEnded(function(){
                 pause();
-                progressbar.draw(0);
+                progress.draw(0);
 
                 $UI.find('.btn_stop').attr('disabled', true).end()
                     .find('.current_time, .timer')
@@ -333,7 +333,7 @@ AudioRecorderManager.PlayerView = (function(){
             });
 
             this.node.setBarEvent(function(e, audio){
-                progressbar.input(e, audio);
+                progress.input(e, audio);
 
                 $UI.find('.btn_stop').prop('disabled', false);
             });
@@ -367,7 +367,7 @@ AudioRecorderManager.PlayerView = (function(){
     var ready = function(audioSrc){
         AudioRecorderManager.status = RM_CYCLE.PLAYER_READY;
 
-        progressbar.init();
+        progress.init();
 
         // TODO 오디오 링크 추가
         player.init(audioSrc).setLifeCycle();

@@ -62,9 +62,7 @@ AudioRecorderManager.RecordView = (function(){
     };
     var timer = {
         init : function(){
-            this.node = this.node || new TimeManager();
-
-            this.node.setup({
+            this.node = this.node || new TimeManager({
                 startTime: 0,
                 endTime: DEFAULT.TIME_LIMIT,
                 intervalGap: 10,
@@ -250,8 +248,6 @@ AudioRecorderManager.RecordView = (function(){
 */
 AudioRecorderManager.PlayerView = (function(){
     var $UI = $('#playerArea');
-    var audio;
-
     var progress = {
         init : function(){
             this.node && this.node.reset();

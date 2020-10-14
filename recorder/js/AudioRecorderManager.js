@@ -251,8 +251,8 @@ AudioRecorderManager.PlayerView = (function(){
     var progress = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new ProgressBar({
-                element : '.progress-linear',
+            this.node = this.node || new Progress({ 
+                element : '.progress-linear' 
             });
 
             return this;

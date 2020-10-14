@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Recorder01</title>
     
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/leeyoonseo/progress/master/src/css/progressBar.css" type="text/css">
+    <link rel="stylesheet" href="../recorder/css/libs/progressBar.css" type="text/css">
     <link rel="stylesheet" href="../recorder/css/AudioRecorder.css" type="text/css">
 </head>
 <body>
@@ -82,7 +82,9 @@
                                 <div class="current_time">00:00</div>
                                 <div class="progress-linear">
                                     <span class="progress-inner">
-                                        <span class="progress"></span>
+                                        <span class="progress">
+                                            <span class="progress-pointer"></span>
+                                        </span>
                                     </span>
                                 </div>
                                 <div class="total_time">00:00</div>
@@ -100,6 +102,10 @@ integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 crossorigin="anonymous"></script>
 
 <!-- <script src="https://raw.githack.com/leeyoonseo/progress/master/progressBar.js"></script> -->
+<!-- [TODO] 라이브러리로 만들거나 내부에 recorder가 기능을 가지거나 -->
+<script src="../recorder/js/libs/CheckBrowser-2.0.2.js"></script>
+<script src="../recorder/js/libs/utils.StringUtil.js"></script>
+
 <script src="../recorder/js/libs/progressBar.js"></script>
 <script src="../recorder/js/libs/TimeManager.js"></script>
 <script src="../recorder/js/AudioPlayer.js"></script>

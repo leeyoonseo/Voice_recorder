@@ -1,5 +1,6 @@
 /**
  * browser check
+ * TODO user agent hints 확인, 도입해보자!
  */
 window.CheckBrowser = (function(){
 

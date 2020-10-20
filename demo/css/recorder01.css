@@ -12,3 +12,6 @@
 .recorder_contents .noti_text { margin-bottom:4px; font-size:12px; text-align:right; color:#808080; }
 .recorder_contents .ui_box { margin-bottom:20px; padding:33px 25px; }
 .ui_box .ui_box_inner { width:533px; }
+
+.progress-circle .progress-shadow{ background-image:url('../../recorder/img/icon_pie_recorder.png'); background-size:38px 58px; }
+.progress-pointer{ border-radius:50%;}

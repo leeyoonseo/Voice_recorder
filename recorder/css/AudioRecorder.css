@@ -1,4 +1,4 @@
-@charset "euc-kr";
+@charset "utf-8";
 /* common */
 body{ margin:0; font-family:Tahoma, Arial, "Malgun Gothic", "맑은 고딕", Dotum, "돋움", sans-serif; }
 button { outline:0; color:#333; cursor:pointer; }
@@ -14,7 +14,7 @@ button:disabled { cursor:default; }
 .ui_type1.ui_box .timer { float:left; margin-left:20px; line-height:114px; font-size:35px; color:#b2b2b2; }
 .ui_type1.ui_box.active .timer{ color:#404040; }
 
-.ui_type1.ui_box .pie_bg{ float:left; position:relative; display:inline-block; width:114px; height:114px; line-height:1em; font-size:114px; vertical-align:middle; }
+.ui_type1.ui_box .pie_bg{ position:relative; display:inline-block; width:114px; height:114px; line-height:1em; font-size:114px; vertical-align:middle; }
 .ui_type1.ui_box .pie_wrap,
 .ui_type1.ui_box .pie_wrap .pie {position:absolute; left:0; top:0; width:100%; height:100%;}
 .ui_type1.ui_box .pie_pointer {display:none; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:50%; z-index:10;}

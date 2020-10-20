@@ -14,7 +14,6 @@ class Progress {
         
         if(typeof element === 'string'){
             element = document.querySelector(element);
-
         } 
 
         this.pointer = element.querySelector('.progress-pointer') 

@@ -49,9 +49,7 @@ AudioRecorderManager.RecordView = (function(){
         init : function(){
             this.node && this.node.reset();
             this.node = this.node || new Circle({ element : '.progress-circle' });
-          
-            // const { progress } = obj.dataset;
-            // new Progress({ element : obj }).draw(progress);
+ 
             return this;
         },
 
@@ -251,22 +249,18 @@ AudioRecorderManager.PlayerView = (function(){
     var progress = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new Progress({ 
-                element : '.progress-linear' 
-            });
+            this.node = this.node || new Progress({ element : '.progress-linear' });
 
             return this;
         },
 
-        draw : function(per){
+        setup : function(per){
             this.node.draw(per);
-
             return this;
         },
 
         input : function(e, audio){
             this.node.input(e, audio);
-
             return this;
         }
     };
@@ -306,22 +300,20 @@ AudioRecorderManager.PlayerView = (function(){
 
         setLifeCycle : function(){
             this.node.setLoadeddata(function(duration){
-                progress.draw(0);
+                progress.setup(0);
                 $UI.find('.total_time').text(StringUtils.makeTimeString(duration * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setTimeupdate(function(currentTime, duration){
-                var barW = $UI.find('.status_bar').outerWidth();
-                var thumbW = $UI.find('.status_bar .status_pointer').outerWidth();
-
-                progress.draw((currentTime / duration) * (barW - thumbW));
+                var barW = $UI.find('.progress-inner').outerWidth();
+                progress.setup((currentTime / duration) * barW);
                 $UI.find('.timer, .current_time')
                    .html(StringUtils.makeTimeString(currentTime * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setEnded(function(){
                 pause();
-                progress.draw(0);
+                progress.setup(0);
 
                 $UI.find('.btn_stop').attr('disabled', true).end()
                     .find('.current_time, .timer')
@@ -329,6 +321,7 @@ AudioRecorderManager.PlayerView = (function(){
             });
 
             this.node.setBarEvent(function(e, audio){
+                console.log('setBarEvent')
                 progress.input(e, audio);
 
                 $UI.find('.btn_stop').prop('disabled', false);

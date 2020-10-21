@@ -12,8 +12,98 @@
     <title>Recorder</title>
 </head>
 <body>
-    <!-- [D] 녹음기 -->
-    <div id="recorderArea" class="recorder ui_box ui_type1">
+    
+    <section class="demo_wrap">
+        <h1>Recorder Demo</h1>
+
+        <article>
+            <h2>Default <strong>Recorder</strong>, Player</h2>
+
+            <div id="recorderArea" class="recorder_wrap ui_box">
+                <div class="ui_box_inner">
+                    <div class="ui_timer_wrap">
+                        <h3 class="hidden">타이머 영역</h3>
+                        <div class="pie_bg">
+                            <div class="pie_wrap">
+                                <div class="pie"></div>
+                                <div class="pie_shadow recording_c"></div>
+                                <div class="pie_pointer"><span></span></div>
+                            </div>
+                        </div>
+        
+                        <div class="timer">00:00</div>
+                    </div>
+        
+                    <div class="controls_wrap">
+                        <div class="control_btns">
+                            <h3 class="hidden">컨트롤 버튼 영역</h3>
+                            <button type="button" class="btns_bg btn_record">
+                                <span class="hidden">녹음, 일시정지 버튼</span>
+                            </button>
+                            <button type="button" class="btns_bg btn_stop" disabled>
+                                <span class="hidden">정지 버튼</span>
+                            </button>
+                            <button type="button" class="btns_bg btn_play" disabled>
+                                <span class="hidden">재생 버튼</span>
+                            </button>
+                        </div>
+        
+                        <div class="ui_status_bar">
+                            <h3 class="hidden">상태바 영역</h3>
+                            <div class="status_bg"></div>
+                            <div class="status_bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+        <article>
+            <h2>Default Recorder, <strong>Player</strong></h2>
+
+            <div id="playerArea" class="player_wrap ui_box">
+                <div class="ui_box_inner">
+                    <div class="ui_timer_wrap">
+                        <div class="pie_bg">
+                            <div class="pie_shadow playing_c"></div>
+                        </div>
+                    </div>
+        
+                    <div class="controls_wrap">
+                        <div class="control_btns">
+                            <h3 class="hidden">컨트롤 버튼 영역</h3>
+                            <button type="button" class="btns_bg btn_record" disabled>
+                                <span class="hidden">녹음, 일시정지 버튼</span>
+                            </button>
+                            <button type="button" class="btns_bg btn_stop" disabled>
+                                <span class="hidden">정지 버튼</span>
+                            </button>
+                            <button type="button" class="btns_bg btn_play">
+                                <span class="hidden">재생 버튼</span>
+                            </button>
+                        </div>
+        
+                        <div class="ui_status_bar">
+                            <h3 class="hidden">타이머 및 상태바 영역</h3>
+                            <div class="current_time">00:00</div>
+                            <div class="status_bar">
+                                <span class="playing">
+                                    <span class="status_pointer"></span>
+                                </span>
+                            </div>
+                            <div class="total_time">00:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    
+
+
+    <!-- 녹음기 -->
+    <!-- <div id="recorderArea" class="recorder ui_box ui_type1">
         <h3 class="hidden">녹음기</h3>
 
         <div class="ui_box_inner">
@@ -48,10 +138,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- [D] 플레이어 -->
-    <div id="playerArea" class="player ui_box ui_type1">
+    <!-- <div id="playerArea" class="player ui_box ui_type1">
         <h3 class="hidden">플레이어</h3>
 
         <div class="ui_box_inner">
@@ -85,6 +175,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

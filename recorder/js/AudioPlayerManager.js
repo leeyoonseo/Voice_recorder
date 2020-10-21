@@ -1,5 +1,5 @@
 /**
- * ì˜¤ë””ì˜¤ í˜ì´ì§€ ë§¤ë‹ˆì €
+ * ¿Àµğ¿À ÆäÀÌÁö ¸Å´ÏÀú
  * @author Lee Yoon Seo (2019.09)
  * @version 1.1.0
  * @see utils.StringUtil.js
@@ -9,190 +9,194 @@
  */
 
 var PM_CYCLE = {
-    ON_RESUME : 'pm-player-resume',
+    WAITING : 'waiting',
+    LOADED : 'loaded',
+    TIME_UPDATE : 'timeupdate',
+    RESUME : 'resume',
+    STOP : 'stop',
+    PLAY : 'play',
 };
 
 window.AudioPlayerManager = function(){
-   this.name = "AudioPlayerManager",
-   this.version = "1.1.0"
+    this.name = "AudioPlayerManager",
+    this.version = "1.1.0"
 };
 
 window.AudioPlayerManager.prototype = {
-   constructor : AudioPlayerManager,
-   /**
-    * í˜¸ì¶œ ì‹œ ì„¸íŒ…
-    * @param {Object} opts  ìœ ì €ê°€ ì…‹ì—… ì‹œ ì‚½ì…í•˜ëŠ” ì˜µì…˜ ê°’
-    * @param {String} opts.element  í”Œë ˆì´ì–´ íƒœê·¸ì˜ í´ë˜ìŠ¤ë‚˜ ì•„ì´ë””
-    * @param {String} opts.timeFormat  íƒ€ì´ë¨¸ í¬ë§·
-    */
-   init : function(opts){
-       this.options = $.extend(true, {
-           element : '.sound_player',
-           timeFormat : 'mm:ss'
+    constructor : AudioPlayerManager,
+    /**
+     * È£Ãâ ½Ã ¼¼ÆÃ
+     * @param {Object} opts  À¯Àú°¡ ¼Â¾÷ ½Ã »ğÀÔÇÏ´Â ¿É¼Ç °ª
+     * @param {String} opts.element  ÇÃ·¹ÀÌ¾î ÅÂ±×ÀÇ Å¬·¡½º³ª ¾ÆÀÌµğ
+     * @param {String} opts.timeFormat  Å¸ÀÌ¸Ó Æ÷¸Ë
+     */
+    init : function(opts){
+        this.options = $.extend(true, {
+            element : '.sound_player',
+            timeFormat : 'mm:ss',
+        }, opts);
 
-       }, opts);
+        this.playerStatus = PM_CYCLE.WAITING;
+        this.element = $(this.options.element);
+        this.playBtn = this.element.find('.btn_play');
+        this.stopBtn = this.element.find('.btn_stop');
+        this.bar = this.element.find('.status_bar');
 
-       this.element = $(this.options.element);
-       this.playBtn = this.element.find('.btn_play');
-       this.stopBtn = this.element.find('.btn_stop');
-       this.bar = this.element.find('.status_bar');
+        this.ready();
 
-       this.ready();
+        return this;
+    },
 
-       return this;
-   },
+    // AudioPlayer, ProgressBar »ı¼ºÀÚ È£Ãâ
+    ready : function(){
+        // ie8ÀÌÇÏ return false;
+        var isNotSupportBrowser = this.isNotSupportBrowser();
+        if(isNotSupportBrowser) return false;
 
-   // AudioPlayer, ProgressBar ìƒì„±ì í˜¸ì¶œ
-   ready : function(){
-       // ie8ì´í•˜ return false;
-       var isNotSupportBrowser = this.isNotSupportBrowser();
-       if(isNotSupportBrowser) return false;
+        // this.audioEl = new Audio();
+        this.player = new AudioPlayer();
 
-       // this.audioEl = new Audio();
-       this.player = new AudioPlayer();
+        this.player.init({
+            wrap : this.element,
+            audio : new Audio(),
+            audioFileSrc : this.element.data('src'),
+        });
 
-       this.player.init({
-           wrap : this.element,
-           audio : new Audio(),
-           audioFileSrc : this.element.data('src')
-       });
+        this.progressbar = new ProgressBar.Linear({
+            wrap : this.element,
+            progress : '.playing',
+            thumb : '.status_pointer',
+            bar : '.status_bar',
+        });
 
-       this.progressbar = new ProgressBar.Linear({
-           wrap : this.element,
-           progress : '.playing',
-           thumb : '.status_pointer',
-           bar : '.status_bar'
-       });
+        this.setAudio();
+        this.attachEvent();
 
-       this.setAudio();
-       this.attachEvent();
+        return this;
+    },
 
-       return this;
-   },
+    /* ¿Àµğ¿À »çÀÌÅ¬ callback ÇÔ¼ö ¼¼ÆÃ */
+    setAudio : function(){
+        var that = this;
+        var barW = this.player.bar.outerWidth();
+        var pointerWidth = this.player.pointer.outerWidth();
 
-   /* ì˜¤ë””ì˜¤ ì‚¬ì´í´ callback í•¨ìˆ˜ ì„¸íŒ… */
-   setAudio : function(){
-       var that = this;
-       var barW = this.player.bar.outerWidth();
-       var pointerWidth = this.player.pointer.outerWidth();
+        // ¿Àµğ¿À ·Îµå
+        this.player.setLoadeddata(function(duration){
+            that.playerStatus = PM_CYCLE.LOADED;
+            that.setTimer(duration * 1000, 0);
+        });
 
-       var t = this.player;
-       // ì˜¤ë””ì˜¤ ë¡œë“œ
-       this.player.setLoadeddata(function(duration){
-           that.setTimer(duration * 1000, 0);
-       });
+        // ¿Àµğ¿À Å¸ÀÌ¸Ó ÁøÇà
+        this.player.setTimeupdate(function(currentTime, duration){
+            if(that.playerStatus === PM_CYCLE.STOP){
+                that.setTimer(duration * 1000, 0);
+            }else{
+                that.playerStatus = PM_CYCLE.TIME_UPDATE;
+                that.setTimer(currentTime * 1000, (currentTime / duration) * (barW - pointerWidth));
+            }
+        });
 
-       // ì˜¤ë””ì˜¤ íƒ€ì´ë¨¸ ì§„í–‰
-       this.player.setTimeupdate(function(currentTime, duration){
-           that.setTimer(currentTime * 1000, (currentTime / duration) * (barW - pointerWidth));
-       });
+        // ¿Àµğ¿À Á¾·á
+        this.player.setEnded(function(duration){
+            that.playerStatus = PM_CYCLE.STOP;
+            that.stop(duration);
+        });
 
-       // ì˜¤ë””ì˜¤ ì¢…ë£Œ
-       this.player.setEnded(function(duration){
-           that.resume(false);
-           that.setTimer(duration * 1000, 0);
-       });
+        // ¿Àµğ¿À ¹Ù ÀÌº¥Æ®
+        this.player.setBarEvent(function(e, audio){
+            that.progressbar.input(e, audio);
+            that.stopBtn.prop('disabled', false);
+        });
 
-       // ì˜¤ë””ì˜¤ ë°” ì´ë²¤íŠ¸
-       this.player.setBarEvent(function(e, audio){
-           that.progressbar.input(e, audio);
-           that.stopBtn.prop('disabled', false);
-       });
+        return this;
+    },
 
-       return this;
-   },
+    attachEvent : function(){
+        var that = this;
 
-   attachEvent : function(){
-       var that = this;
+        this.playBtn.on('click', function(e){
+            e.preventDefault();
+            that.playerStatus = PM_CYCLE.PLAY;
+            that.resume();
 
-       this.playBtn.on('click', function(e){
-           e.preventDefault();
-           that.resume();
+            $(document).trigger(PM_CYCLE.RESUME, that.player);
+        });
 
-           $(document).trigger(PM_CYCLE.ON_RESUME, that.player);
-       });
+        this.stopBtn.on('click', function(e){
+            e.preventDefault();
+            that.playerStatus = PM_CYCLE.STOP;
 
-       this.stopBtn.on('click', function(e){
-           e.preventDefault();
+            that.stop();
+            this.disabled = true;
 
-           // ìˆœì„œì— ìœ ì˜í•  ê²ƒ
-           that.stop();
+            $(document).trigger(PM_CYCLE.RESUME, that.player);
+        });
 
-           $(document).trigger(PM_CYCLE.ON_RESUME, that.player);
-           this.disabled = true;
-       });
+        return this;
+    },
 
-       return this;
-   },
+    resume : function(){
+        (this.player.audio.paused) ? this.play() : this.pause();
 
+        return this;
+    },
 
+    play : function(){
+        this.stopBtn.is('[disabled]') && this.stopBtn.attr('disabled', false);
+        this.element.addClass('active');
+        this.player.audio.play();
 
-   resume : function(){
-       (!this.player.playing) ? this.play() : this.pause();
+        return this;
+    },
 
-       return this;
-   },
+    pause : function(){
+        this.element.removeClass('active');
+        this.player.audio.pause();
 
-   play : function(){
-       this.element.addClass('active');
-       this.stopBtn.is('[disabled]') && this.stopBtn.removeAttr('disabled');
+        return this;
+    },
 
-       this.player.audio.play();
-       this.player.playing = true;
+    stop : function(){
+        this.pause();
+        this.player.stop();
 
-       return this;
-   },
+        $(document).trigger(PM_CYCLE.STOP, this.player);
+        return this;
+    },
 
-   pause : function(){
-       this.element.removeClass('active');
+    /** Å¸ÀÌ¸Ó ½Ã°£ °ª ¼ÂÆÃ
+     * @param {Number} time ½Ã°£ °ª
+     * @param {Number} currentW ¹Ù¸¦ ±×¸®±â À§ÇÑ ½Ã°£ ´ç width °ª
+     */
+    setTimer : function(time, currentW){
+        this.progressbar.draw(currentW);
+        this.element.find('.current_time').html(StringUtils.makeTimeString(time, this.options.timeFormat));
 
-       this.player.audio.pause();
-       this.player.playing = false;
+        return this;
+    },
 
-       return this;
-   },
+    /**
+     * ÇÏÀ§ ºê¶ó¿ìÀú¸¦ ºĞ±âÇÏ¿© Å¬¸¯ ÀÌº¥Æ®¿¡ ¾È³» ¾Ë¸²Ã¢ ¶ç¿ì±â
+     * @return {Boolean} IE8ÀÌÇÏ ºê¶ó¿ìÀú ¿©ºÎ
+     */
+    isNotSupportBrowser : function(){
+        var isNotSupport = ($('html').hasClass('lt-ie9')) ? true : false;
 
-   stop : function(){
-       this.pause();
-       this.player.audio.currentTime = 0;
+        if(isNotSupport){
+            this.bar.on('click', function(){
+                alert("Áö¿øÇÏÁö ¾Ê´Â ÀÎÅÍ³İ ºê¶ó¿ìÀúÀÔ´Ï´Ù.\n³ìÀ½±â ¼­ºñ½º´Â Å©·Ò¿¡ ÃÖÀûÈ­ µÇ¾î ÀÖ½À´Ï´Ù.")
+            });
 
-       return this;
-   },
+            this.playBtn.on('click', function(){
+                alert("Áö¿øÇÏÁö ¾Ê´Â ÀÎÅÍ³İ ºê¶ó¿ìÀúÀÔ´Ï´Ù.\n³ìÀ½±â ¼­ºñ½º´Â Å©·Ò¿¡ ÃÖÀûÈ­ µÇ¾î ÀÖ½À´Ï´Ù.")
+            });
 
-   /** íƒ€ì´ë¨¸ ì‹œê°„ ê°’ ì…‹íŒ…
-    * @param {Number} time ì‹œê°„ ê°’
-    * @param {Number} currentW ë°”ë¥¼ ê·¸ë¦¬ê¸° ìœ„í•œ ì‹œê°„ ë‹¹ width ê°’
-    */
-  setTimer : function(time, currentW){
-       this.progressbar.draw(currentW);
-       this.element.find('.current_time').html(StringUtils.makeTimeString(time, this.options.timeFormat));
+            return true;
 
-       return this;
-   },
+        }else{
+            return false;
 
-   /**
-    * í•˜ìœ„ ë¸Œë¼ìš°ì €ë¥¼ ë¶„ê¸°í•˜ì—¬ í´ë¦­ ì´ë²¤íŠ¸ì— ì•ˆë‚´ ì•Œë¦¼ì°½ ë„ìš°ê¸°
-    * @return {Boolean} IE8ì´í•˜ ë¸Œë¼ìš°ì € ì—¬ë¶€
-    */
-   isNotSupportBrowser : function(){
-       var isNotSupport = ($('html').hasClass('lt-ie9')) ? true : false;
-
-       if(isNotSupport){
-           this.bar.on('click', function(){
-               alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¸í„°ë„· ë¸Œë¼ìš°ì €ì…ë‹ˆë‹¤.\në…¹ìŒê¸° ì„œë¹„ìŠ¤ëŠ” í¬ë¡¬ì— ìµœì í™” ë˜ì–´ ìˆìŠµë‹ˆë‹¤.")
-
-           });
-
-           this.playBtn.on('click', function(){
-               alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¸í„°ë„· ë¸Œë¼ìš°ì €ì…ë‹ˆë‹¤.\në…¹ìŒê¸° ì„œë¹„ìŠ¤ëŠ” í¬ë¡¬ì— ìµœì í™” ë˜ì–´ ìˆìŠµë‹ˆë‹¤.")
-
-           });
-
-           return true;
-
-       }else{
-           return false;
-
-       }
-   },
+        }
+    },
 };

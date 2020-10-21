@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Cache-Control" content="No-Cache">
     <meta HTTP-EQUIV="Expires" CONTENT="-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://school.littlefox.co.kr/favicon.ico">
-    <title>:: ë¦¬í‹€íŒìŠ¤ì–´í•™ì› ::</title>
+    <title>:: ¸®Æ²ÆÅ½º¾îÇĞ¿ø ::</title>
 
-    <!-- TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+    <!-- TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
     <link rel="stylesheet" href="../recorder/css/LayerMessageBox.css" type="text/css">
     <link rel="stylesheet" href="../recorder/css/AudioRecorder.css" type="text/css">
-    <!-- // TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+    <!-- // TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
 
-    <!-- TODO LSCH-17 : ìˆ˜ì •ëœ CSS -->
+    <!-- TODO LSCH-17 : ¼öÁ¤µÈ CSS -->
 	<link rel="stylesheet" type="text/css" href="./littlefox_player.css">
-    <!-- // TODO LSCH-17 : ìˆ˜ì •ëœ CSS -->
+    <!-- // TODO LSCH-17 : ¼öÁ¤µÈ CSS -->
 
 	<link rel="stylesheet" type="text/css" href="https://school.littlefox.co.kr/common/css/student.css">
 
@@ -34,18 +34,18 @@
 				<span class="date">2020.06.05 16:16</span>
 			</div>
 
-            <!-- [D] data-srcì— ì˜¤ë””ì˜¤ë§í¬ ì¶”ê°€ -->
+            <!-- [D] data-src¿¡ ¿Àµğ¿À¸µÅ© Ãß°¡ -->
 			<div class="player ui_box sound_player" data-src="../recorder/sample/audio1.mp3">
-				<h3 class="hidden">í”Œë ˆì´ì–´</h3>
+				<h3 class="hidden">ÇÃ·¹ÀÌ¾î</h3>
 
 				<div class="ui_box_inner">
 					<div class="controls_wrap">
 						<div class="control_btns">
 							<button type="button" class="btns_bg btn_play">
-								<span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+								<span class="hidden">Àç»ı ¹öÆ°</span>
 							</button>
 							<button type="button" class="btns_bg btn_stop" disabled>
-								<span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+								<span class="hidden">Á¤Áö ¹öÆ°</span>
 							</button>
 						</div>
 
@@ -72,14 +72,14 @@
 
     <script src="http://school.littlefox.co.kr/common/js/jquery-1.11.2.min.js" ></script>
 
-    <!-- TODO LSCH-17 : ë…¹ìŒê¸° ìŠ¤í¬ë¦½íŠ¸ ì½”ë“œ -->
+    <!-- TODO LSCH-17 : ³ìÀ½±â ½ºÅ©¸³Æ® ÄÚµå -->
     <script src="../recorder/js/libs/CheckBrowser-2.0.2.js"></script>
     <script src="../recorder/js/libs/utils.StringUtil.js"></script>
     <script src="../recorder/js/AudioPlayer.js"></script>
     <script src="../recorder/js/ProgressBar.js"></script>
     <script src="../recorder/js/AudioPlayerManager.js"></script>
 
-    <!-- TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+    <!-- TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
     <script>
   	  'use strict';
 
@@ -87,7 +87,7 @@
   	  var players;
   	  var playerArr = [];
 
-	  // ì˜¤ë””ì˜¤ init
+	  // ¿Àµğ¿À init
   	  $.each($element, function(_, obj){
   		  players = new AudioPlayerManager().init({ element : obj });
   		  playerArr.push(players);
@@ -97,7 +97,7 @@
   		  var isPlayStatus = player.playing;
 
   		  playerArr.map(function(el){
-  			  // ì¬ìƒ ë²„íŠ¼
+  			  // Àç»ı ¹öÆ°
   			  if(isPlayStatus){
   				  if(!el.player.playing) {
   					  el.player.eventDisabled(true);
@@ -105,7 +105,7 @@
   					  el.stopBtn.attr('disabled', true);
   				  }
 
-  			  // ì¼ì‹œì •ì§€, ì •ì§€ ë²„íŠ¼
+  			  // ÀÏ½ÃÁ¤Áö, Á¤Áö ¹öÆ°
   			  }else{
   				  el.player.eventDisabled(false);
   				  el.playBtn.attr('disabled', false);
@@ -120,6 +120,6 @@
   		  });
   	  });
     </script>
-	<!-- // TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+	<!-- // TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
 </body>
 </html>

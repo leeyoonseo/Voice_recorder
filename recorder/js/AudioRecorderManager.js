@@ -1,12 +1,11 @@
 /**
- * 녹음기, 플레이어 페이지 매니저
+ * ������, �÷��̾� ������ �Ŵ���
  * @author Lee Yoon Seo (2019.09)
  * @update Lee Yoon Seo (2020.08)
  * @version 1.1.0
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
 
-//  TODO progress 앞에 대문자로 할 것!!
 'use strict';
 
 var DEFAULT = {
@@ -14,7 +13,7 @@ var DEFAULT = {
     TIME_FORMAT : 'mm:ss',
 };
 
-// AudioRecorderManager 진행 사이클
+// AudioRecorderManager ���� ����Ŭ
 var RM_CYCLE = {
     RECORDER_READY : 'rm-recorder-ready',
     RECORDER_RECORD : 'rm-recorder-record',
@@ -30,8 +29,8 @@ var RM_CYCLE = {
 };
 
 /**
- * 녹음기, 플레이어 매니저
- * @status 녹음기 상태 (*RM_CYCLE 참고)
+ * ������, �÷��̾� �Ŵ���
+ * @status ������ ���� (*RM_CYCLE ����)
  */
 window.AudioRecorderManager = {
     name : "AudioRecorderManager",
@@ -45,11 +44,11 @@ window.AudioRecorderManager = {
 
 AudioRecorderManager.RecordView = (function(){
     var $UI = $('#recorderArea');
-    var progress = {
+    var progressbar = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new Circle({ element : '.progress-circle' });
- 
+            this.node = this.node || new ProgressBar.Circle('.pie_wrap');
+
             return this;
         },
 
@@ -60,7 +59,9 @@ AudioRecorderManager.RecordView = (function(){
     };
     var timer = {
         init : function(){
-            this.node = this.node || new TimeManager({
+            this.node = this.node || new TimeManager();
+
+            this.node.setup({
                 startTime: 0,
                 endTime: DEFAULT.TIME_LIMIT,
                 intervalGap: 10,
@@ -107,10 +108,10 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     /**
-     * 녹음기 준비
-     * @param {Object} options - 자동시작여부, 플레이어 자동 전환여부등의 옵션값이 담긴 객체
-     * @param {boolean} options.autoStart - 자동시작 여부
-     * @param {boolean} options.autoNextStep - 플레이어 자동전환 여부
+     * ������ �غ�
+     * @param {Object} options - �ڵ����ۿ���, �÷��̾� �ڵ� ��ȯ���ε��� �ɼǰ��� ��� ��ü
+     * @param {boolean} options.autoStart - �ڵ����� ����
+     * @param {boolean} options.autoNextStep - �÷��̾� �ڵ���ȯ ����
      */
     var ready = function(options){
         AudioRecorderManager.status = RM_CYCLE.RECORDER_READY;
@@ -120,7 +121,7 @@ AudioRecorderManager.RecordView = (function(){
         }
 
         AudioRecorderManager.PlayerView.init();
-        progress.init();
+        progressbar.init();
         timer.init();
 
         attachEvent();
@@ -166,12 +167,12 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     /**
-     * 녹음 중 타이머, 진행 바를 설정 함수
-     * @param {Number} time - 시간 값 
-     * @param {String} format - 타이머 포맷
+     * ���� �� Ÿ�̸�, ���� �ٸ� ���� �Լ�
+     * @param {Number} time - �ð� �� 
+     * @param {String} format - Ÿ�̸� ����
      */
     var recording = function(time, format){
-        progress.setUp(time);
+        progressbar.setUp(time);
         $UI.find('.timer').text(format);
 
         return this;
@@ -217,7 +218,7 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     /**
-     * 마이크 볼륨 값
+     * ����ũ ���� ��
      * @param {Number} volume 
      */
     function inputMicVolume(volume){
@@ -241,37 +242,45 @@ AudioRecorderManager.RecordView = (function(){
 //FoxRecordUI.RecordView
 
 /**
-* 재생 화면
+* ��� ȭ��
 * @constructor AudioRecorderManager
 */
 AudioRecorderManager.PlayerView = (function(){
     var $UI = $('#playerArea');
-    var progress = {
+
+    var progressbar = {
         init : function(){
             this.node && this.node.reset();
-            this.node = this.node || new Progress({ element : '.progress-linear' });
+            this.node = this.node || new ProgressBar.Linear({
+                wrap : '.player .ui_status_bar',
+                progress : '.playing',
+                thumb : '.status_pointer',
+                bar : '.status_bar'
+            });
 
             return this;
         },
 
-        setup : function(per){
+        draw : function(per){
             this.node.draw(per);
+
             return this;
         },
 
         input : function(e, audio){
             this.node.input(e, audio);
+
             return this;
         }
     };
 
     var player = {
         init : function(audioSrc){
-            // TODO audioSrc 삽입 후 아래 if문 삭제 요청
+            // TODO audioSrc ���� �� �Ʒ� if�� ���� ��û
             if(!audioSrc || $.trim(audioSrc)){
                 audioSrc = '../recorder/sample/audio0.mp3';
             }
-            // // TODO audioSrc 삽입 후 아래 if문 삭제 요청
+            // // TODO audioSrc ���� �� �Ʒ� if�� ���� ��û
 
             this.node = this.node || new AudioPlayer();
             this.node.init({
@@ -292,7 +301,7 @@ AudioRecorderManager.PlayerView = (function(){
             return this.node.playing ? true : false;
         },
 
-        setCurrentTime(time){
+        setCurrentTime(){
             this.node.audio.currentTime = 0;
 
             return this;
@@ -300,20 +309,22 @@ AudioRecorderManager.PlayerView = (function(){
 
         setLifeCycle : function(){
             this.node.setLoadeddata(function(duration){
-                progress.setup(0);
+                progressbar.draw(0);
                 $UI.find('.total_time').text(StringUtils.makeTimeString(duration * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setTimeupdate(function(currentTime, duration){
-                var barW = $UI.find('.progress-inner').outerWidth();
-                progress.setup((currentTime / duration) * barW);
+                var barW = $UI.find('.status_bar').outerWidth();
+                var thumbW = $UI.find('.status_bar .status_pointer').outerWidth();
+
+                progressbar.draw((currentTime / duration) * (barW - thumbW));
                 $UI.find('.timer, .current_time')
                    .html(StringUtils.makeTimeString(currentTime * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setEnded(function(){
                 pause();
-                progress.setup(0);
+                progressbar.draw(0);
 
                 $UI.find('.btn_stop').attr('disabled', true).end()
                     .find('.current_time, .timer')
@@ -321,8 +332,7 @@ AudioRecorderManager.PlayerView = (function(){
             });
 
             this.node.setBarEvent(function(e, audio){
-                console.log('setBarEvent')
-                progress.input(e, audio);
+                progressbar.input(e, audio);
 
                 $UI.find('.btn_stop').prop('disabled', false);
             });
@@ -351,14 +361,14 @@ AudioRecorderManager.PlayerView = (function(){
     };
 
     /**
-     * @param {String} audioSrc - 오디오 경로 
+     * @param {String} audioSrc - ����� ��� 
      */
     var ready = function(audioSrc){
         AudioRecorderManager.status = RM_CYCLE.PLAYER_READY;
 
-        progress.init();
+        progressbar.init();
 
-        // TODO 오디오 링크 추가
+        // TODO ����� ��ũ �߰�
         player.init(audioSrc).setLifeCycle();
 
         AudioRecorderManager.RecordView.init();
@@ -430,11 +440,22 @@ AudioRecorderManager.PlayerView = (function(){
         return this;
     };
 
+    // TODO LSCH-181 HTML5 ������ �ۺ����� ���� �� ����߰�(�����)
+    var restart = function(){
+        stop();
+        dettachEvent();
+
+        AudioRecorderManager.RecordView.ready();
+        player.setCurrentTime(0);
+    };
+
     function handlerResume(){
         player.getPlayStatus() ? pause() : play();
     }
 
+    // TODO LSCH-181 HTML5 ������ �ۺ����� ���� �� ����߰�(�����)
     return {
+        restart,
         init,
         ready,
         play,

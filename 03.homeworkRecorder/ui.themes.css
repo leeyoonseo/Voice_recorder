@@ -1,0 +1,552 @@
+@charset "UTF-8";
+/**
+ * 학습액티비티의 코스별 테마 스타일
+ * @author Lee Sang-mi(2019.04.10)
+ * @version 2.0.0
+ */
+
+/* title bar */
+.title_bar 	 { position:fixed; left:0; right:0; top:0; background:#ff0000; color:#fff; font-family:Arial, sans-serif; }
+	.title_bar > .inside { position:relative; padding:8px 28px 9px; }
+	.title_bar .option { position:absolute; right:28px; top:12px; font-size:21px; font-weight:bolder; line-height:1em; }
+	.title_bar h1 { font-size:21px; line-height:1em; text-align:left; margin-right:100px; }
+	.title_bar h1 > .ttl { margin-left: 10px; }
+	.title_bar h1 > * { vertical-align:middle; }
+	.title_bar img.logo { height:29px; }
+
+	.C1 .title_bar 	 { background:#0062b1; color:#fff; }
+	.C2 .title_bar 	 { background:#00853c; color:#fff; }
+	.C3 .title_bar 	 { background:#ea5504; color:#fff; }
+	.C4 .title_bar 	 { background:#b71a86; color:#fff; }
+
+	.D1 .title_bar 	 { background:#006c96; color:#fff; }
+	.D2 .title_bar 	 { background:#5e8535; color:#fff; }
+	.D3 .title_bar 	 { background:#9b583b; color:#fff; }
+	.D4 .title_bar 	 { background:#7e2f6a; color:#fff; }
+
+	.E1 .title_bar 	 { background:#005b74; color:#fff; }
+	.E2 .title_bar   { background:#397c2c; color:#fff; }
+	.E3 .title_bar   { background:#cf8e32; color:#fff; }
+	.E4 .title_bar   { background:#685f8c; color:#fff; }
+
+
+/* pop layer */
+.pop_inside { background:#fff; overflow:hidden; border:3px solid; border-radius:1em; }
+
+.btn_pop_close { position:absolute; top:-.7em; right:-.7em; width:2.8em; height:2.8em; z-index:2; border-radius:50%; box-shadow:2px 2px 2px 0 rgba(0, 0, 0, .5); }
+.btn_pop_close > img { width:100%; }
+
+.pop { display:none; position:fixed; left:0; right:0; top:0; bottom:0; background:url('http://school.littlefox.co.kr/common/images/eLearning/bg_transparent.png'); }
+.pop .pop_content { position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); box-sizing:border-box; }
+
+.pop_head { box-shadow:0px 10px 20px 0px rgba(255,255,255,.1) inset; }
+.pop_head > p { font-family:Arial, sans-serif; font-size:1.2em; height:2.46em; line-height:2.46em; text-align:center; color:#fff; font-weight:bolder; }
+
+.pop_foot { text-align:center; padding:0 0 3em; }
+
+
+.pop.help .pop_content { width:35em; height:auto; }
+.pop.help .pop_inside { box-shadow: 0px 0px 40px 0px rgba(0,0,0,.3) inset; }
+.pop.help .pop_body { padding :1.5em; border-radius:0 0 1em 1em; }
+.pop.help .pop_body .text > li { font-family:Tahoma, "Malgun Gothic", "맑은고딕", sans-serif; position:relative; padding-left:1em; }
+.pop.help .pop_body .text > li:before { position:absolute; display:block; content:''; width:.25em; height:.25em; background:#969696; left:0; top:.75em; }
+.pop.help .pop_body .text  img.s_btn { height:1.5em; vertical-align:middle; }
+.pop.help .pop_body .text  .eng { font-size:1.1em; }
+.pop.help .pop_body .text  .kor + .eng { margin-top:1em; }
+.pop.help .pop_body .text  .kor { margin-top:.5em; }
+
+
+.pop.tip .pop_content { width:30em; height:auto; }
+
+
+.pop.full_layer { background:#666; }
+.pop.full_layer .pop_content { width:100%; height:100%; }
+
+
+.pop.zoom_out .pop_content { width:auto; height:auto; top:2.875em; left:4em; right:4em; bottom:0; transform:none; }
+.pop.zoom_out .submit_field { background:none; padding:1.6em 0; }
+.pop.zoom_out .submit_field button { position:static; width:auto; }
+.pop.zoom_out .zoom_viewer { /* background:rgba(255,0,0,.5); */ }
+
+.D3 .pop.zoom_out .zoom_viewer .world_contents_ttl{ color:#5b0000; }
+
+/* pop : combo */
+.score_display { display:none; }
+.score_display .lbl > img { width:100%; }
+.score_display.score { position:absolute; top:2em; right:1em; z-index:8; }
+
+.score_display.combo {
+	position:absolute; z-index:9; left:0; right:0; top:0; bottom:0; width:16em; height:10.5em; margin:auto;
+	background:#fff; border:3px solid; border-radius:1em; overflow:hidden;
+	box-shadow: 0px 0px 1em 0px rgba(0,0,0,.5);
+	text-align:center;
+}
+
+
+/* pop head */
+.pop_head { background:#ff0000; }
+	.C1 .pop_head { background:#0062b1; }
+	.C2 .pop_head { background:#00853c; }
+	.C3 .pop_head { background:#ea5504; }
+	.C4 .pop_head { background:#b71a86; }
+
+	.D1 .pop_head { background:#006c96; }
+	.D2 .pop_head { background:#5e8535; }
+	.D3 .pop_head { background:#9b583b; }
+	.D4 .pop_head { background:#7e2f6a; }
+
+	.E1 .pop_head { background:#005b74; }
+	.E2 .pop_head { background:#397c2c; }
+	.E3 .pop_head { background:#cf8e32; }
+	.E4 .pop_head { background:#685f8c; }
+
+
+/* pop border */
+.pop_inside { border-color:#ff0000; }
+	.C1 .pop_inside { border-color:#00457d; }
+	.C2 .pop_inside { border-color:#005225; }
+	.C3 .pop_inside { border-color:#b33e00; }
+	.C4 .pop_inside { border-color:#851360; }
+
+	.D1 .pop_inside { border-color:#004763; }
+	.D2 .pop_inside { border-color:#3a5221; }
+	.D3 .pop_inside { border-color:#693b28; }
+	.D4 .pop_inside { border-color:#4a1b3e; }
+
+	.E1 .pop_inside { border-color:#00465a; }
+	.E2 .pop_inside { border-color:#0b500f; }
+	.E3 .pop_inside { border-color:#985b00; }
+	.E4 .pop_inside { border-color:#493b6f; }
+
+/* pop close button */
+.btn_pop_close { background-color:#ff0000;  }
+	.C1 .btn_pop_close { background-color:#00457d; }
+	.C2 .btn_pop_close { background-color:#005225; }
+	.C3 .btn_pop_close { background-color:#b33e00; }
+	.C4 .btn_pop_close { background-color:#851360; }
+
+	.D1 .btn_pop_close { background-color:#004763; }
+	.D2 .btn_pop_close { background-color:#3a5221; }
+	.D3 .btn_pop_close { background-color:#693b28; }
+	.D4 .btn_pop_close { background-color:#4a1b3e; }
+
+	.E1 .btn_pop_close { background-color:#00465a; }
+	.E2 .btn_pop_close { background-color:#0b500f; }
+	.E3 .btn_pop_close { background-color:#985b00; }
+	.E4 .btn_pop_close { background-color:#493b6f; }
+
+/* strong color */
+#popHelp .pop_body .text strong { color:#ff0000; }
+	.C1 #popHelp .pop_body .text strong { color:#004b9d; }
+	.C2 #popHelp .pop_body .text strong { color:#00723c; }
+	.C3 #popHelp .pop_body .text strong { color:#d1291a; }
+	.C4 #popHelp .pop_body .text strong { color:#9e1975; }
+
+	.D1 #popHelp .pop_body .text strong { color:#16698a; }
+	.D2 #popHelp .pop_body .text strong { color:#3d7303; }
+	.D3 #popHelp .pop_body .text strong { color:#874c33; }
+	.D4 #popHelp .pop_body .text strong { color:#7e2f6a; }
+
+	.E1 #popHelp .pop_body .text strong { color:#0072ba; }
+	.E2 #popHelp .pop_body .text strong { color:#0b8512; }
+	.E3 #popHelp .pop_body .text strong { color:#a26100; }
+	.E4 #popHelp .pop_body .text strong { color:#713eb2; }
+
+.pop.help .pop_body .text  .green { color:#00953c !important; }
+.pop.help .pop_body .text  .red { color:#ff3939 !important; }
+
+
+/* timer popup */
+#popTimer{ font-family:Arial, sans-serif; }
+#popTimer.on{ display:block; }
+#popTimer .pop_content { width:36.875em; height:23em; }
+
+#popTimer .timer_txt { font-size:5em; font-weight:600; text-align:center; margin:.9em 0; line-height:1; }
+#popTimer .timer { position:relative; }
+#popTimer .timer button[class*="btn_time"] { position:absolute; margin:auto 0; top:0; bottom:0; font-size:1em; width:2.5em; height:2.5em; border-radius:50%; overflow:hidden; padding:0; }
+#popTimer .timer button[class*="btn_time"] > img { width:100%; height:100%; }
+#popTimer .timer button.btn_time_up { right:20% }
+#popTimer .timer button.btn_time_down { left:20% }
+#popTimer .pop_foot button { font-size:1.3em; }
+
+
+/* 지시문 영역 */
+.world_ttl_div	{ background-color:#fc9f9f; }
+	.C1 .world_ttl_div	{ background-color:#eaf6fd; }
+	.C2 .world_ttl_div	{ background-color:#f2f6da; }
+	.C3 .world_ttl_div	{ background-color:#fff4cd; }
+	.C4 .world_ttl_div	{ background-color:#fcebf3; }
+
+	.D1 .world_ttl_div	{ background-color:#ebf4f7; }
+	.D2 .world_ttl_div	{ background-color:#f0f7e9; }
+	.D3 .world_ttl_div	{ background-color:#faf3f0; }
+	.D4 .world_ttl_div	{ background-color:#faf0f7; }
+
+	.E1 .world_ttl_div	{ background-color:#ebf2f9; }
+	.E2 .world_ttl_div	{ background-color:#f1f5e9; }
+	.E3 .world_ttl_div	{ background-color:#f8f2e5; }
+	.E4 .world_ttl_div	{ background-color:#f4f2f9; }
+
+.question_order { color:#ff0000; }
+	.C1 .question_order { color:#004b9d; }
+	.C2 .question_order { color:#00723c; }
+	.C3 .question_order { color:#d1291a; }
+	.C4 .question_order { color:#9e1975; }
+
+	.D1 .question_order { color:#16698a; }
+	.D2 .question_order { color:#3d7303; }
+	.D3 .question_order { color:#874c33; }
+	.D4 .question_order { color:#7e2f6a; }
+
+	.E1 .question_order { color:#00465a; }
+	.E2 .question_order { color:#0b500f; }
+	.E3 .question_order { color:#773e04; }
+	.E4 .question_order { color:#493b6f; }
+
+
+/* signature color */
+.txt_color_fixed { color:#ff0000; }
+	.C1 .txt_color_fixed { color:#0073de; }
+	.C2 .txt_color_fixed { color:#02993b; }
+	.C3 .txt_color_fixed { color:#ed6c00; }
+	.C4 .txt_color_fixed { color:#dc4191; }
+
+	.D1 .txt_color_fixed { color:#0073de; }
+	.D2 .txt_color_fixed { color:#0c9400; }
+	.D3 .txt_color_fixed { color:#ab4929; }
+	.D4 .txt_color_fixed { color:#b21b8d; }
+
+	.E1 .txt_color_fixed { color:#0072ba; }
+	.E2 .txt_color_fixed { color:#0b8512; }
+	.E3 .txt_color_fixed { color:#a26100; }
+	.E4 .txt_color_fixed { color:#713eb2; }
+
+
+.txt_bg_fixed, .round_bg_fixed, .ux-listen:hover, .D1 .ux-listen.on { background-color:#ff0000; }
+	.C1 .txt_bg_fixed, .C1 .round_bg_fixed, .C1 .ux-listen:hover, .C1 .ux-listen.on { background:#dff2fc; }
+	.C2 .txt_bg_fixed, .C2 .round_bg_fixed, .C2 .ux-listen:hover, .C2 .ux-listen.on { background:#ecf3cf; }
+	.C3 .txt_bg_fixed, .C3 .round_bg_fixed, .C3 .ux-listen:hover, .C3 .ux-listen.on { background:#fcf0c2; }
+	.C4 .txt_bg_fixed, .C4 .round_bg_fixed, .C4 .ux-listen:hover, .C4 .ux-listen.on { background:#f6e2ee; }
+
+	.D1 .txt_bg_fixed, .D1 .round_bg_fixed, .D1 .ux-listen:hover, .D1 .ux-listen.on { background:#d3ebf5; }
+	.D2 .txt_bg_fixed, .D2 .round_bg_fixed, .D2 .ux-listen:hover, .D2 .ux-listen.on { background:#e7f7d5; }
+	.D3 .txt_bg_fixed, .D3 .round_bg_fixed, .D3 .ux-listen:hover, .D3 .ux-listen.on { background:#fae3d9; }
+	.D4 .txt_bg_fixed, .D4 .round_bg_fixed, .D4 .ux-listen:hover, .D4 .ux-listen.on { background:#f5e4f1; }
+
+	.E1 .txt_bg_fixed, .E1 .round_bg_fixed, .E1 .ux-listen:hover, .E1 .ux-listen.on { background:#d3e7f7; }
+	.E2 .txt_bg_fixed, .E2 .round_bg_fixed, .E2 .ux-listen:hover, .E2 .ux-listen.on { background:#ecf5ca; }
+	.E3 .txt_bg_fixed, .E3 .round_bg_fixed, .E3 .ux-listen:hover, .E3 .ux-listen.on { background:#f7e3be; }
+	.E4 .txt_bg_fixed, .E4 .round_bg_fixed, .E4 .ux-listen:hover, .E4 .ux-listen.on { background:#e5e0f5; }
+
+
+.bg_color_fixed { background-color:#ff0000; }
+	.C1 .bg_color_fixed	{ background-color:#eaf6fd; }
+	.C2 .bg_color_fixed	{ background-color:#f6f9de; }
+	.C3 .bg_color_fixed	{ background-color:#fff4cd; }
+	.C4 .bg_color_fixed	{ background-color:#fcebf3; }
+
+	.D1 .bg_color_fixed	{ background-color:#f0f7fa; }
+	.D2 .bg_color_fixed	{ background-color:#f0f5eb; }
+	.D3 .bg_color_fixed	{ background-color:#f7f0ed; }
+	.D4 .bg_color_fixed	{ background-color:#faf2f8; }
+
+	.E1 .bg_color_fixed { background-color:#ebf2f9; }
+	.E2 .bg_color_fixed { background-color:#f1f5e9; }
+	.E3 .bg_color_fixed { background-color:#f8f2e5; }
+	.E4 .bg_color_fixed { background-color:#f4f2f9; }
+
+
+[class*="_line_fixed"] { border-color:#ff0000; }
+	.C1 [class*="_line_fixed"] { border-color:#0073de; }
+	.C2 [class*="_line_fixed"] { border-color:#02993b; }
+	.C3 [class*="_line_fixed"] { border-color:#ed6c00; }
+	.C4 [class*="_line_fixed"] { border-color:#dc4191; }
+
+	.D1 [class*="_line_fixed"] { border-color:#0073de; }
+	.D2 [class*="_line_fixed"] { border-color:#0c9400; }
+	.D3 [class*="_line_fixed"] { border-color:#ab4929; }
+	.D4 [class*="_line_fixed"] { border-color:#b21b8d; }
+
+	.E1 [class*="_line_fixed"] { border-color:#0072ba; }
+	.E2 [class*="_line_fixed"] { border-color:#0b8512; }
+	.E3 [class*="_line_fixed"] { border-color:#a26100; }
+	.E4 [class*="_line_fixed"] { border-color:#713eb2; }
+
+
+.under_line_fixed { border-color:#000 !important; }
+
+.border_color_fixed { border-color:#ded1c1; }
+[class*="list_"] > li:before,
+[class*="list_"] > dd:before,
+[class*="bullet"]:before { color:#a7a9ac; }
+
+
+
+/* SR 듣기버튼 영역 */
+.SR .aside { background:#ff0000; }
+	.C1 .SR .aside	{ background-color:#eaf6fd; }
+	.C2 .SR .aside	{ background-color:#f2f6da; }
+	.C3 .SR .aside	{ background-color:#fff4cd; }
+	.C4 .SR .aside	{ background-color:#fcebf3; }
+
+	.D1 .SR .aside	{ background-color:#ebf4f7; }
+	.D2 .SR .aside	{ background-color:#f0f7e9; }
+	.D3 .SR .aside	{ background-color:#faf3f0; }
+	.D4 .SR .aside	{ background-color:#faf0f7; }
+
+	.E1 .SR .aside { background:#ebf2f9; }
+	.E2 .SR .aside { background:#f1f5e9; }
+	.E3 .SR .aside { background:#f8f2e5; }
+	.E4 .SR .aside { background:#f4f2f9; }
+
+.SR .aside_title { color:#ff0000; }
+	.C1 .SR .aside_title { color:#004b9d; }
+	.C2 .SR .aside_title { color:#00723c; }
+	.C3 .SR .aside_title { color:#d1291a; }
+	.C4 .SR .aside_title { color:#9e1975; }
+
+	.D1 .SR .aside_title { color:#16698a; }
+	.D2 .SR .aside_title { color:#3d7303; }
+	.D3 .SR .aside_title { color:#874c33; }
+	.D4 .SR .aside_title { color:#7e2f6a; }
+
+	.E1 .SR .aside_title { color:#0072ba; }
+	.E2 .SR .aside_title { color:#0b8512; }
+	.E3 .SR .aside_title { color:#a26100; }
+	.E4 .SR .aside_title { color:#713eb2; }
+
+
+/* E3 > RWO > RP > A */
+.quest_explanation .label { background:#ff0000; }
+	.C1 .quest_explanation .label { background-color:#eaf6fd; }
+	.C2 .quest_explanation .label { background-color:#f2f6da; }
+	.C3 .quest_explanation .label { background-color:#fff4cd; }
+	.C4 .quest_explanation .label { background-color:#fcebf3; }
+
+	.D1 .quest_explanation .label { background-color:#ebf4f7; }
+	.D2 .quest_explanation .label { background-color:#f0f7e9; }
+	.D3 .quest_explanation .label { background-color:#faf3f0; }
+	.D4 .quest_explanation .label { background-color:#faf0f7; }
+
+	.E1 .quest_explanation .label { background:#ebf2f9; }
+	.E2 .quest_explanation .label { background:#f1f5e9; }
+	.E3 .quest_explanation .label { background:#f8f2e5; }
+	.E4 .quest_explanation .label { background:#f4f2f9; }
+
+.bullet.bg_color_fixed{ background-color:#ff0000; color:#fff !important; text-align:center !important; }
+	.C1 .bullet.bg_color_fixed { background-color:#0073de !important; }
+	.C2 .bullet.bg_color_fixed { background-color:#02993b !important; }
+	.C3 .bullet.bg_color_fixed { background-color:#ed6c00 !important; }
+	.C4 .bullet.bg_color_fixed { background-color:#dc4191 !important; }
+
+	.D1 .bullet.bg_color_fixed { background-color:#0073de !important; }
+	.D2 .bullet.bg_color_fixed { background-color:#0c9400 !important; }
+	.D3 .bullet.bg_color_fixed { background-color:#ab4929 !important; }
+	.D4 .bullet.bg_color_fixed { background-color:#b21b8d !important; }
+
+	.E1 .bullet.bg_color_fixed { background-color:#0072ba !important; }
+	.E2 .bullet.bg_color_fixed { background-color:#0b8512 !important; }
+	.E3 .bullet.bg_color_fixed { background-color:#a26100 !important; }
+	.E4 .bullet.bg_color_fixed { background-color:#713eb2 !important; }
+
+.article_label{ color:#fff; background:#ff0000; }
+.article_label:first-child{ margin-top:0; }
+	.E1 .article_label{ background-color:#1d8bbc; }
+	.E2 .article_label{ background-color:#6f9331; }
+	.E3 .article_label{ background-color:#cf8e32; }
+	.E4 .article_label{ background-color:#8071b3; }
+
+
+/* 프린트용 스크립트 페이지  */
+.script .page_title { color:#ff0000; }
+	.C1 .page_title { color:#004b9d; }
+	.C2 .page_title { color:#00723c; }
+	.C3 .page_title { color:#d1291a; }
+	.C4 .page_title { color:#9e1975; }
+
+	.D1 .page_title { color:#16698a; }
+	.D2 .page_title { color:#3d7303; }
+	.D3 .page_title { color:#874c33; }
+	.D4 .page_title { color:#7e2f6a; }
+
+	.E1 .page_title { color:#0072ba; }
+	.E2 .page_title { color:#0b500f; }
+	.E3 .page_title { color:#985b00; }
+	.E4 .page_title { color:#713eb2; }
+
+.script .hgroup { border-color:#ff0000; }
+	.C1 .script .hgroup { border-color:#0073de; }
+	.C2 .script .hgroup { border-color:#02993b; }
+	.C3 .script .hgroup { border-color:#ed6c00; }
+	.C4 .script .hgroup { border-color:#dc4191; }
+
+	.D1 .script .hgroup { border-color:#0073de; }
+	.D2 .script .hgroup { border-color:#0c9400; }
+	.D3 .script .hgroup { border-color:#ab4929; }
+	.D4 .script .hgroup { border-color:#b21b8d; }
+
+	.E1 .script .hgroup { border-color:#0072ba; }
+	.E2 .script .hgroup { border-color:#0b8512; }
+	.E3 .script .hgroup { border-color:#cf8e32; }
+	.E4 .script .hgroup { border-color:#713eb2; }
+
+.script .ttl,
+.script .course_name,
+.script .story_title,
+.script .dialog .mq,
+.script .section_title { color:#ff0000 }
+
+	.C1 .script .ttl {color:#0073de;}
+	.C1 .script .course_name {color:#073052;}
+	.C1 .script .story_title {color:#1c82b1;}
+	.C1 .script .dialog .mq {color:#0073de;}
+	.C1 .script .section_title { color:#0073de }
+
+	.C2 .script .ttl {color:#02993b;}
+	.C2 .script .course_name {color:#04351a;}
+	.C2 .script .story_title {color:#008574;}
+	.C2 .script .dialog .mq {color:#02993b;}
+	.C2 .script .section_title { color:#02993b }
+
+	.C3 .script .ttl {color:#ed6c00;}
+	.C3 .script .course_name {color:#59130d;}
+	.C3 .script .story_title {color:#d59e0a;}
+	.C3 .script .dialog .mq {color:#ed6c00;}
+	.C3 .script .section_title { color:#ed6c00 }
+
+	.C4 .script .ttl {color:#dc4191;}
+	.C4 .script .course_name {color:#490935;}
+	.C4 .script .story_title {color:#d44869;}
+	.C4 .script .dialog .mq {color:#dc4191;}
+	.C4 .script .section_title { color:#dc4191 }
+
+	.D1 .script .ttl {color:#0073de;}
+	.D1 .script .course_name {color:#003566;}
+	.D1 .script .story_title {color:#2aa6bf;}
+	.D1 .script .dialog .mq {color:#0073de;}
+	.D1 .script .section_title { color:#0073de }
+
+	.D2 .script .ttl {color:#0c9400;}
+	.D2 .script .course_name {color:#054000;}
+	.D2 .script .story_title {color:#849c10;}
+	.D2 .script .dialog .mq {color:#0c9400;}
+	.D2 .script .section_title { color:#0c9400 }
+
+	.D3 .script .ttl {color:#ab4929;}
+	.D3 .script .course_name {color:#401000;}
+	.D3 .script .story_title {color:#b5872b;}
+	.D3 .script .dialog .mq {color:#ab4929;}
+    .D3 .script .section_title { color:#ab4929 }
+
+	.D4 .script .ttl {color:#b21b8d;}
+	.D4 .script .course_name {color:#400030;}
+	.D4 .script .story_title {color:#b05fc2;}
+	.D4 .script .dialog .mq {color:#b21b8d;}
+	.D4 .script .section_title { color:#b21b8d }
+
+
+	.E1 .script .ttl {color:#0072ba;}
+	.E1 .script .course_name {color:#00465a;}
+	.E1 .script .story_title {color:#1d8bbc;}
+	.E1 .script .dialog .mq {color:#0072ba;}
+	.E1 .script .section_title { color:#0072ba }
+
+	.E2 .script .ttl {color:#0b8512;}
+	.E2 .script .course_name {color:#0b500f;}
+	.E2 .script .story_title {color:#6f9331;}
+	.E2 .script .dialog .mq {color:#0b8512;}
+	.E2 .script .section_title { color:#0b8512 }
+
+	.E3 .script .ttl {color:#985b00;}
+	.E3 .script .course_name {color:#773e04;}
+	.E3 .script .story_title {color:#cf8e32;}
+	.E3 .script .dialog .mq {color:#985b00;}
+	.E3 .script .section_title { color:#985b00 }
+
+	.E4 .script .ttl {color:#713eb2;}
+	.E4 .script .course_name {color:#493b6f;}
+	.E4 .script .story_title {color:#8071b3;}
+	.E4 .script .dialog .mq {color:#713eb2;}
+	.E4 .script .section_title { color:#713eb2 }
+
+.test_sheet .hgroup .ttl,
+.test_sheet .section_title { color:#ff0000; }
+
+	.E1 .test_sheet .hgroup .ttl { color:#0072ba; }
+	.E2 .test_sheet .hgroup .ttl { color:#0b8512; }
+	.E3 .test_sheet .hgroup .ttl { color:#c38836; }
+	.E4 .test_sheet .hgroup .ttl { color:#713eb2; }
+
+	.E1 .test_sheet .section_title { color:#0072ba; }
+	.E2 .test_sheet .section_title { color:#0b8512; }
+	.E3 .test_sheet .section_title { color:#c98b35; }
+	.E4 .test_sheet .section_title { color:#713eb2; }
+
+
+/* D > SP 섬네일 상자 */
+
+/* 활성화 표현시 테두리 */
+.thumb_border { border-color:#ff0000; }
+	.C1 .thumb_border { border-color:#0062b1; }
+	.C2 .thumb_border { border-color:#00853c; }
+	.C3 .thumb_border { border-color:#ea5504; }
+	.C4 .thumb_border { border-color:#b71a86; }
+
+	.D1 .thumb_border { border-color:#006c96; }
+	.D2 .thumb_border { border-color:#53752f; }
+	.D3 .thumb_border { border-color:#9b583b; }
+	.D4 .thumb_border { border-color:#7e2f6a; }
+
+/* 상자영역 */
+.overlay_card .card { background:#ff0000; }
+	.C1 .overlay_card .card { background:#dff2fc; }
+	.C2 .overlay_card .card { background:#ecf3cf; }
+	.C3 .overlay_card .card { background:#fff4cd; }
+	.C3 .overlay_card .card { background:#fcebf3; }
+
+	.D1 .overlay_card .card { background:#9bcae0; }
+	.D2 .overlay_card .card { background:#ccd255; }
+	.D3 .overlay_card .card { background:#f7c859; }
+	.D4 .overlay_card .card { background:; }
+
+/* 정답 오버레이 여는 동그란 'A' 버튼 */
+.btn_overlay_answer { border-color:#ff0000; color:#ff0000; background:#fff; }
+	.D1 .btn_overlay_answer { border-color:#006c96; color:#006c96; }
+	.D2 .btn_overlay_answer { border-color:#53752f; color:#53752f; }
+	.D3 .btn_overlay_answer { border-color:#9b583b; color:#9b583b; }
+	.D4 .btn_overlay_answer { border-color:#7e2f6a; color:#7e2f6a; }
+
+
+/* world title */
+.D2 .rc_c .world_contents_ttl { color:#2f4936; }
+.D3 .rc_c .world_contents_ttl,
+.D3 .rc_d .world_contents_ttl { color:#711515; }
+.D4 .rc_c .world_contents_ttl,
+.D4 .rc_d .world_contents_ttl { color:#71145a; }
+
+/* bg code */
+.bg_code_violet1 { background:#b689b2 !important; }
+.bg_code_violet2 { background:#e9d9eb !important; }
+.bg_code_violet3 { background:#f1eaf2 !important; }
+
+.bg_code_orange1 { background:#f5a75f !important; }
+.bg_code_orange2 { background:#fae3c5 !important; }
+.bg_code_orange3 { background:#fcefde !important; }
+
+.bg_code_green1 { background:#bdbd4d !important; }
+.bg_code_green2 { background:#e8ebb0 !important; }
+.bg_code_green3 { background:#f4f5d5 !important; }
+
+.bg_code_blue1 { background:#8cb6d5 !important; }
+.bg_code_blue2 { background:#d3e4f0 !important; }
+.bg_code_blue3 { background:#e9f1f7 !important; }
+
+.bg_code_indigo1 { background:#96a6d4 !important; }
+.bg_code_indigo2 { background:#c7d0eb !important; }
+.bg_code_indigo3 { background:#e6eaf7 !important; }
+
+.bg_code_pink1 { background:#ed9fad !important; }
+.bg_code_pink2 { background:#f7edef !important; }
+
+.bg_code_gray1 { background:#afb1b0 !important; }
+.bg_code_gray2 { background:#eeeff3 !important; }

@@ -1,0 +1,296 @@
+@CHARSET "EUC-KR";
+/**
+ * placement test \ test common
+ * @author Lee Sang-mi(2017.04.07)
+ */
+
+
+html  { font-family: Arial, "Malgun Gothic", "¸¼Àº°íµñ", 'Dotum', 'µ¸¿ò', sans-serif; font-size:100%; color:#333; }
+p, ul, dl, ol, dt, dd, li { margin:0; padding:0; }
+ul > li, ol > li { list-style-type:none; }
+h1,h2,h3,h4,h5,h6 { font-weight:600; margin:0; }
+em { font-style:normal; }
+
+
+button,
+*[role="button"],
+input[type="submit"] { cursor:pointer; }
+
+button:focus,
+*[role="button"]:focus,
+input[type="submit"]:focus { outline:none; }
+
+button:disabled,
+*[role="button"]:disabled,
+input[type="submit"]:disabled { cursor:default; }
+.lt-ie9 button[disabled],
+.lt-ie9 *[role="button"][disabled],
+.lt-ie9 input[type="submit"][disabled] { cursor:default; }
+
+.btn-icon { border:0; background:none; padding:0; margin:0; }
+.btn-icon > span { display:none; }
+
+.align-left { text-align:left; }
+.align-center { text-align:center; }
+.align-right { text-align:right; }
+
+.strong, strong { font-weight:bolder; }
+.ui-hidden { position:absolute !important; top:-9999em !important; left:-9999em !important; height:1px !important; padding:0 !important; margin:0 !important; }
+.no-lineheight { line-height:0; }
+
+.asset-btns { background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/assets_btn.png') no-repeat; }
+
+.btn-default 		{ border:1px solid #b3b3b3; background-color:#fff; border-radius:3px; padding:7px 10px; font-size:1em; line-height:1em; }
+.btn-default.on,
+.btn-default:hover 	{ background-color:#00479d; color:#fff; }
+
+.submit_field { text-align:center; }
+.submit_field button { display:inline-block; width:215px; height:63px; }
+.submit_field button + button { margin-left:40px; }
+
+	.submit_field .btn_start 		{ background-position:-302px 0; }
+	.submit_field .btn_start:hover 	{ background-position:-302px -63px; }
+	.submit_field .btn_start:active { background-position:-302px -126px; }
+
+	.submit_field .btn_next 		{ background-position:-549px 0; }
+	.submit_field .btn_next:hover 	{ background-position:-549px -63px; }
+	.submit_field .btn_next:active 	{ background-position:-549px -126px; }
+
+	.submit_field .btn_ok 			{ background-position:-796px 0; }
+	.submit_field .btn_ok:hover 	{ background-position:-796px -63px; }
+	.submit_field .btn_ok:active	{ background-position:-796px -126px; }
+
+	.submit_field .btn_submit 		{ background-position:-1043px 0; }
+	.submit_field .btn_submit:hover { background-position:-1043px -63px; }
+	.submit_field .btn_submit:active{ background-position:-1043px -126px; }
+
+	.submit_field .btn_checkAnswers 		{ width:260px; height:63px; background-position:0 -279px; }
+	.submit_field .btn_checkAnswers:hover 	{ background-position:0 -342px; }
+	.submit_field .btn_checkAnswers:active  { background-position:0 -405px; }
+
+	.submit_field .btn_answers 		 	{ background-position:-549px -279px; }
+	.submit_field .btn_answers:hover 	{ background-position:-549px -342px; }
+	.submit_field .btn_answers:active  	{ background-position:-549px -405px; }
+
+	.submit_field .btn_prev 		{ background-position:-1280px -279px; }
+	.submit_field .btn_prev:hover 	{ background-position:-1280px -342px; }
+	.submit_field .btn_prev:active 	{ background-position:-1280px -405px; }
+
+	.submit_field .btn_cancel 			{ background-position:-549px -508px; }
+	.submit_field .btn_cancel:hover 	{ background-position:-549px -571px; }
+	.submit_field .btn_cancel:active	{ background-position:-549px -634px; }
+
+	.submit_field .btn_close 		{ background-position:-796px -508px; }
+	.submit_field .btn_close:hover 	{ background-position:-796px -571px; }
+	.submit_field .btn_close:active { background-position:-796px -634px; }
+
+	.submit_field .btn_text 		{ width:215px; height:63px; background-position:-302px -508px; }
+	.submit_field .btn_text:hover 	{ background-position:-302px -571px; }
+	.submit_field .btn_text:active  { background-position:-302px -634px; }
+
+.submit_field .big_btn { width:270px; height:78px; }
+	.submit_field .big_btn.btn_start 		{ background-position:0 0; }
+	.submit_field .big_btn.btn_start:hover 	{ background-position:0 -78px; }
+	.submit_field .big_btn.btn_start:active { background-position:0 -156px; }
+
+	.submit_field .big_btn.start 			{ background-position:-1280px 0; }
+	.submit_field .big_btn.start:hover 		{ background-position:-1280px -78px; }
+	.submit_field .big_btn.start:active		{ background-position:-1280px -156px; }
+
+	.submit_field .big_btn.finish 			{ background-position:-1580px 0; }
+	.submit_field .big_btn.finish:hover 	{ background-position:-1580px -78px; }
+	.submit_field .big_btn.finish:active	{ background-position:-1580px -156px; }
+
+/* listen speaker */
+.btn_sound { width:52px; height:52px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/btn_sound.png') no-repeat 0 0; }
+.btn_sound:hover  { background-position:0 -52px; }
+.btn_sound:active { background-position:0 -104px; }
+
+/*Áú¹®µè±â*/
+.btn_listen { width:148px; height:44px; background:url('http://school.littlefox.co.kr/student/placement/record_new/images/btn_listen.png') no-repeat 0 0; }
+.btn_listen:hover  { background-position:0 -44px; }
+.btn_listen:active { background-position:0 -88px; }
+
+/*Áö¹®µè±â*/
+.btn_listen.script  			{ background-position:-148px 0; }
+.btn_listen.script:hover  		{ background-position:-148px -44px; }
+.btn_listen.script:active 		{ background-position:-148px -88px; }
+
+/*´ëÈ­µè±â*/
+.btn_listen.conversation  		{ background-position:-296px 0; }
+.btn_listen.conversation:hover  { background-position:-296px -44px; }
+.btn_listen.conversation:active { background-position:-296px -88px; }
+
+/*´Ù½Ãµè±â*/
+.btn_listen.repeat  			{ background-position:-444px 0; }
+.btn_listen.repeat:hover  		{ background-position:-444px -44px; }
+.btn_listen.repeat:active 		{ background-position:-444px -88px; }
+
+/*¹®Àåµè±â*/
+.btn_listen.sentence  			{ background-position:-593px 0; }
+.btn_listen.sentence:hover  	{ background-position:-593px -44px; }
+.btn_listen.sentence:active 	{ background-position:-593px -88px; }
+
+
+.lms_submit_area { position:absolute; top:46px; right:60px; z-index:99; width:135px; text-align:center; background:url('http://school.littlefox.co.kr/student/placement/record_new/images/bg_lms_buttons.png') repeat; border-radius:0 0 20px 20px; padding:112px 0 20px;}
+.lms_submit_area button { width:90px; }
+.lms_submit_area button + button { margin-top:7px; }
+
+
+
+/* box-shadow */
+.shadow_box { background:#ecf0f5; border:0; }
+
+	.shadow_box.out_side { border-radius:.5em; box-shadow: 0px 2px 5px rgba(0,0,0,.4); }
+	.lt-ie9 .shadow_box.out_side { border:solid #d6d7d8; border-width:0 1px 2px 1px; border-color:#c2c2c5 }
+
+	.shadow_box.in_side { border-radius:.5em; box-shadow: 0px 2px 5px rgba(0,0,0,.4) inset; border-bottom:1px solid #dde0e5; }
+	.lt-ie9 .shadow_box.in_side { border:1px solid #dde0e5; border-color:#d0d0d0 #d0d3d7 #dde0e5; border-width:3px 2px 1px; }
+
+
+.input input { width:100%; border:0; background:none; }
+.input input:focus { outline:0; }
+
+
+
+/*-- layout --*/
+
+.wrapper { position:fixed; left:0; right:0; top:0; bottom:0; background:#dde2e7; overflow:auto; }
+.bg, .wrap { position:absolute; left:0; right:0; top:0; bottom:0; min-width:1000px; min-height:680px; }
+
+.bg { z-index:0; overflow:hidden; }
+
+	.bg > .layer { position:absolute; background:no-repeat; }
+	.bg > .layer.b { bottom:0; left:18%; width:1100px; height:596px; background-image:url('http://school.littlefox.co.kr/student/placement/record_new/images/bg_layer_b.png'); }
+	.bg > .layer.l { left:0; top:46px; width:899px; height:1000px; background-image:url('http://school.littlefox.co.kr/student/placement/record_new/images/bg_layer_l.png'); }
+	.bg > .layer.r { right:0; top:0; width:704px; height:844px; background-image:url('http://school.littlefox.co.kr/student/placement/record_new/images/bg_layer_r.png'); }
+
+.wrap { z-index:1; top:46px; }
+
+	.title_bar 	 { position:relative; z-index:1; min-width:1000px; background:#376bb4; color:#fff; }
+	.title_bar > .inside	 { padding:8px 30px 9px; }
+		.title_bar .a { font-size:21px; line-height:1em; text-align:left; margin-right:150px; }
+		.title_bar .a > * { vertical-align:middle; }
+		.title_bar .a > .ttl { margin-left: 10px; font-weight:600; }
+		.title_bar .b { position:absolute; right:30px; top:12px; font-size:20px; font-weight:bolder; line-height:1em; }
+
+	.contents_body { max-width:1440px; margin:0 auto; box-sizing:border-box; background:#fff; box-shadow:0 0 15px rgba(0,0,0,.4); }
+	.lt-ie9 .contents_body { border:1px solid #ccc; border-top:0; }
+
+
+	.submit_field > .inside { padding:18px 30px 17px; }
+
+
+	.game_info { background:#eee; box-sizing:border-box; text-align:center; }
+	.game_info > .inside { display:table; width:100%; height:73px; table-layout:fixed; padding:0 30px; box-sizing:border-box; }
+	.game_info > .inside > * { display:table-cell; vertical-align:middle; }
+	.game_info h3 > * { vertical-align:middle; }
+	.game_info h3 > button { margin-left:10px; }
+	.game_info h3 { font-size:23px; }
+	.game_info .a { text-align:left; }
+	.game_info .b { width:190px; text-align:right; }
+
+	.game_info .info_label { display:inline-block; vertical-align:middle; background:no-repeat left center;}
+	.game_info .info_label + .info_label { margin-left:20px; }
+	.game_info .info_label .lbl {
+		font-size:30px; line-height:1em; font-weight:bolder;
+		padding:5px 21px;
+		background:#fff; border:1px solid #bbb; border-radius:21px;
+		box-shadow:0 1px 1px rgba(255,255,255,.75), 1px 1px 5px rgba(0,0,0,.4) inset, -1px -1px 5px rgba(0,0,0,.4) inset;
+	}
+	.game_info .info_label.timer { padding-left:43px; background-image:url('http://school.littlefox.co.kr/contents/apps/recorder/images/icon_score_time.png'); }
+	.game_info .info_label.score { padding-left:39px; background-image:url('http://school.littlefox.co.kr/contents/apps/recorder/images/icon_score_check.png'); }
+	.game_info .info_label.timer .lbl { color:#00479d; text-align:center; }
+	.game_info .info_label.score .lbl { color:#5d5d5d; min-width:80px; text-align:center; }
+	.game_info .info_label.score .lbl > .em { color:#00479d; }
+
+
+	.word_card { background:#deebf5; }
+	.word_card > .inside { box-sizing:border-box; }
+
+
+	.q_no { font-family:Tahoma; font-weight:bolder; font-size:40px; text-align:center; color:#00479d; }
+	.word { font-family:Tahoma; font-weight:bolder; font-size:31px; }
+	.q_listen { line-height:0; }
+
+
+	.media  { position:relative; display:table; width:100%; table-layout:fixed; padding:0; table-layout:fixed; }
+	.media .picture,
+	.media .player { display:table-cell; vertical-align:middle; height:100%; text-align:center; line-height:0; width: 100%; }
+
+	.media .picture { padding:0 70px; }
+	.picture img { max-width:100%; min-height:100%; max-height:100%; border:1px solid #ccc; box-sizing:border-box; }
+	.media button.btn_listen { position:absolute; right:30px; bottom:26px; }
+
+
+.no_media { display:table; width:100%; table-layout:fixed; }
+.no_media > .inside { display:table-cell; vertical-align:middle; }
+.no_media .word_card { width:984px; margin:0 auto; border:0; border-radius:17px; }
+.no_media .q_no,
+.no_media .word { font-size:60px; }
+.no_media .word { max-width:650px; }
+.no_media .question_area { padding:80px 60px; box-sizing:border-box; }
+
+/* fox-recorder */
+.fox-recorder { display:table; width:100%; table-layout:fixed; min-height:100px; font-family:Tahoma, "Malgun Gothic", "¸¼Àº°íµñ", 'Dotum', 'µ¸¿ò', sans-serif; color:#37414d; text-align:center; background:#deebf5; }
+.fox-recorder > .record_inside { display:table-cell; vertical-align:middle; padding:0; }
+.fox-recorder > .record_inside > * { display:inline-block; vertical-align:middle; }
+
+.fox-recorder .control_area > * { display:inline-block; vertical-align:middle; }
+.fox-recorder .play_control > button { width:69px; height:69px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/btn_record.png') no-repeat; }
+.fox-recorder .play_control > button.record { background-position:0 -69px; }
+
+.fox-recorder .record_display { height:63px; padding-top:7px; margin-left:20px; text-align:left; }
+.fox-recorder .record_display .legend { font-size:15px; }
+.fox-recorder .record_display .duration { font-size:35px; }
+
+/* ³ìÀ½±â swf Á¦°Å½Ã »ç¿ë */
+.fox-recorder .record_display.ready  	 { padding-left:60px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/record_ready.png') no-repeat; }
+.fox-recorder .record_display.recording  { padding-left:60px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/record_ing.png') no-repeat; }
+
+.fox-recorder .record_swf { line-height:0; margin-right:24px; }
+
+.fox-recorder .track_area { text-align:left; padding:8px 0; margin-left:28px; padding-left:32px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/div_line.png') no-repeat left center; }
+
+	.fox-recorder .volume { position:relative; width:280px; }
+	.fox-recorder .volume .legend { font-size:12px; }
+	.fox-recorder .volume .track { position:absolute; right:0; top:5px; width:193px; height:7px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/vol_track.png') no-repeat; }
+	.fox-recorder .volume .bar { position:absolute; left:0; top:0; height:7px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/vol_bar.png') no-repeat; }
+	.fox-recorder .volume .btn { position:absolute; top:-6px; cursor:pointer;/*  margin-left:-11px;  */}
+
+
+	.fox-recorder .mic_sensor { width:280px; height:17px; margin:10px 0 8px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/voice_track.png') no-repeat; }
+	.fox-recorder .mic_sensor .bar { height:17px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/recorder/voice_bar.png') no-repeat; }
+
+	.fox-recorder .guide_txt { font-size:14px; }
+
+.fox-recorder .play_control > button:disabled { display:none;}
+
+/* intro */
+.intro { font-family:Tahoma; text-align:center; }
+.intro .content_panel { display:table; width:100%; table-layout:fixed; background:url(http://school.littlefox.co.kr/contents/apps/recorder/images/bg_stage.png) repeat; }
+.intro .content_panel > .inside { display:table-cell; vertical-align:middle; }
+.intro .content_panel h3 { font-size:50px; line-height:1em; color:#f23030; margin-top:25px; }
+.intro .content_panel h4 { font-size:28px; line-height:1em; color:#5e5e5e; margin-top:15px; }
+.intro .content_panel p { font-size:22px; line-height:1.5em; }
+.intro .content_panel h4 + p,
+.intro .content_panel .visual + p { margin-top:50px; }
+.intro .content_panel p.strong { color:#f23030; }
+
+.intro .visual.speaking { height:199px; margin-top:60px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/icon_intro_speaking.png') no-repeat center; }
+.intro .visual.writing  { height:195px; margin-top:60px; background:url('http://school.littlefox.co.kr/contents/apps/recorder/images/icon_intro_writing.png') no-repeat center; }
+
+/*  by nhj ADD(2017.07.14) FOR:³ìÀ½±â ÀÌ¹ÌÁö ¹öÆ° ±âº»¸¸ ³ª¿Àµµ·Ï  */
+.ui-resizable { overflow:hidden; }
+.ui-resizable > img { width:100%; }
+
+/* added by leeyoonseo (2020.08.28) : LSCH-17 */
+.recorder_contents_wrap { padding:0; }
+.recorder_contents .ui_box { padding:12px 25px; }
+.recorder_contents .ui_box .controls_wrap{ height:95%; }
+.recorder_contents .recorder.ui_box .controls_wrap{ padding:10px 0 10px 33px; }
+.recorder_contents .player.ui_box .controls_wrap{ padding:10px 0; }
+.recorder_contents .ui_box .controls_wrap:before{ top:11px; transform:none; }
+.recorder_contents .player .status_bar{ margin-top:10px; }
+.recorder_contents .ui_box .tip { display:inline-block; width:69%; clear:both; font-size:13px; color:#4c4c4c; text-align:left; box-sizing:border-box; }
+.recorder_contents .recorder.ui_box .tip { padding-left:40px; }

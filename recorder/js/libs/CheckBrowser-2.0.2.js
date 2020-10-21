@@ -1,6 +1,8 @@
 /**
  * browser check
- * TODO user agent hints í™•ì¸, ë„ì…í•´ë³´ì!
+ * @author Lee Sang-Mi(2019.04.26)
+ * @update Lee Yoon-Seo(2019.09.06)
+ * @version 2.0.2
  */
 window.CheckBrowser = (function(){
 
@@ -40,7 +42,7 @@ window.CheckBrowser = (function(){
 		_element.className += _agent.platform !== "" ? " " + _agent.platform : "";
         _element.className += _agent.isNaver ? ' naver-inapp' : '';
 
-       // data-version ì‚½ì…
+       // data-version »ğÀÔ
        if(_agent.version !== '') _element.dataset.version = _agent.version;
 	};
 
@@ -90,9 +92,9 @@ window.CheckBrowser = (function(){
 	};
 
 	/**
-	* í”Œë˜í¼ ì •ë³´
-	* @return {String} platform : ëª¨ë°”ì¼ OS ì •ë³´
-	* @return {String} version : OS ë²„ì „ ì •ë³´
+	* ÇÃ·¡Æû Á¤º¸
+	* @return {String} platform : ¸ğ¹ÙÀÏ OS Á¤º¸
+	* @return {String} version : OS ¹öÀü Á¤º¸
 	*/
 	function _getPlatform(){
 		var ua = navigator.userAgent.toLowerCase();

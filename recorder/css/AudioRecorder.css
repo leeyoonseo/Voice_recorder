@@ -1,6 +1,15 @@
-@charset "utf-8";
+@charset "euc-kr";
+/**
+ * æÓ«–ø¯ ≥Ï¿Ω±‚ 
+ * @author yoonseo.lee (2020.08)
+ *
+ * soundPlayer = ¥‹µ∂ «√∑π¿ÃæÓ UI
+ * Type1 = ±‚∫ª«¸ UI
+ * Type2 = ∆Óƒß«¸ UI
+ */
+
 /* common */
-body{ margin:0; font-family:Tahoma, Arial, "Malgun Gothic", "ÎßëÏùÄ Í≥†Îîï", Dotum, "ÎèãÏõÄ", sans-serif; }
+body{ margin:0; font-family:Tahoma, Arial, "Malgun Gothic", "∏º¿∫ ∞ÌµÒ", Dotum, "µ∏øÚ", sans-serif; }
 button { outline:0; color:#333; cursor:pointer; }
 button:disabled { cursor:default; }
 .hidden { position:absolute; width:1px; height:1px; clip:rect(0 0 0 0); overflow:hidden; border:0; padding:0; margin:-1px; }
@@ -14,7 +23,7 @@ button:disabled { cursor:default; }
 .ui_type1.ui_box .timer { float:left; margin-left:20px; line-height:114px; font-size:35px; color:#b2b2b2; }
 .ui_type1.ui_box.active .timer{ color:#404040; }
 
-.ui_type1.ui_box .pie_bg{ position:relative; display:inline-block; width:114px; height:114px; line-height:1em; font-size:114px; vertical-align:middle; }
+.ui_type1.ui_box .pie_bg{ float:left; position:relative; display:inline-block; width:114px; height:114px; line-height:1em; font-size:114px; vertical-align:middle; }
 .ui_type1.ui_box .pie_wrap,
 .ui_type1.ui_box .pie_wrap .pie {position:absolute; left:0; top:0; width:100%; height:100%;}
 .ui_type1.ui_box .pie_pointer {display:none; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:50%; z-index:10;}
@@ -131,6 +140,7 @@ button:disabled { cursor:default; }
 /* Type2 player */
 .ui_type2.player .ui_box_inner:after{ content:''; display:block; clear:both; }
 .ui_type2.player .pie_shadow.playing_c{ background-image:url('../img/icon_pie_player.png'); background-size:48px 41px; }
+.ui_type2.player .btn_record:before { width:16px; height:16px; background-color:#e02b22; border-radius:50%; }
 .ui_type2.player .btn_record:disabled:before { width:16px; height:16px; background-color:#dbdbdb; border-radius:50%; }
 .ui_type2.player .btn_stop:before { width:20px; height:20px; border-radius:3px; background-color:#1aa1f7; }
 .ui_type2.player .btn_stop:disabled:before { background-color:#dbdbdb; }

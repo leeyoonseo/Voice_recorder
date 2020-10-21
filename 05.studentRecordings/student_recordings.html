@@ -14,19 +14,19 @@
 <link rel="stylesheet" type="text/css" href="https://school.littlefox.co.kr/css/home.css" title="fonts">
 
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<title>ë¦¬í‹€íŒìŠ¤ì–´í•™ì›</title>
+<title>¸®Æ²ÆÅ½º¾îÇĞ¿ø</title>
 
 <link rel="stylesheet" type="text/css" href="http://school.littlefox.co.kr/css/school.css" title="fonts">
 
-<!-- TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+<!-- TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
 <link rel="stylesheet" type="text/css" href="../recorder/css/LayerMessageBox.css">
 <link rel="stylesheet" type="text/css" href="../recorder/css/AudioRecorder.css">
-<!-- // TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+<!-- // TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
 
-<!-- TODO LSCH-17 : ìˆ˜ì •ëœ CSS  -->
+<!-- TODO LSCH-17 : ¼öÁ¤µÈ CSS  -->
 <!-- <link rel="stylesheet" type="text/css" href="https://school.littlefox.co.kr/recorder/css/littlefox_player.css"> -->
 <link rel="stylesheet" type="text/css" href="./littlefox_player.css">
-<!-- // TODO LSCH-17 : ìˆ˜ì •ëœ CSS  -->
+<!-- // TODO LSCH-17 : ¼öÁ¤µÈ CSS  -->
 
 <span id="mmp0" style="visibility: hidden;position:absolute;"><div id="flashPContentNew_0" style="display: block; visibility: visible;"></div></span>
 <iframe name="ifmOrder" style="display:none"></iframe>
@@ -80,11 +80,11 @@
 	</td>
 	<td rowspan="2" class="board td_yellow"><img src="https://school.littlefox.co.kr/Manager/images/g-pho_1.gif"> Name</td>
 	<td class="board td_white"> (Hangeul) 		<select name="ulID" onchange="JavaScript:StView('https://school.littlefox.co.kr/Manager/Student/Student_recordings.php');this.blur();" class="box1">
-		<option value="nexwap002">ì•ˆí…ŒìŠ¤12</option>
-		<option value="jjuri04">ì´ì˜ˆì¤€</option>
-		<option value="hueile0987" selected="">ì´ì •ì£¼</option>
+		<option value="nexwap002">¾ÈÅ×½º12</option>
+		<option value="jjuri04">ÀÌ¿¹ÁØ</option>
+		<option value="hueile0987" selected="">ÀÌÁ¤ÁÖ</option>
 		</select>
-  <a href="javascript:void(0);" onclick="window.open('https://school.littlefox.co.kr/Manager/Student/mlogin.php?lType=stu&amp;id=hueile0987&amp;pass=81dc9bdb52d04dc20036dbd8313ed055', 'pWinStu', '');" title="í•™ìƒí™”ë©´ ë³´ê¸°"><img src="https://school.littlefox.co.kr/Manager/images/btn_view_student.gif" border="0" align="absmiddle" alt="í•™ìƒí™”ë©´ ë³´ê¸°"></a></td>
+  <a href="javascript:void(0);" onclick="window.open('https://school.littlefox.co.kr/Manager/Student/mlogin.php?lType=stu&amp;id=hueile0987&amp;pass=81dc9bdb52d04dc20036dbd8313ed055', 'pWinStu', '');" title="ÇĞ»ıÈ­¸é º¸±â"><img src="https://school.littlefox.co.kr/Manager/images/btn_view_student.gif" border="0" align="absmiddle" alt="ÇĞ»ıÈ­¸é º¸±â"></a></td>
 </tr>
 <tr>
 	<td class="board td_white">
@@ -100,7 +100,7 @@
 </tr>
 <tr>
 	<td class="board td_yellow"><img src="https://school.littlefox.co.kr/Manager/images/g-pho_1.gif"> Class Name</td>
-	<td class="board td_white"> Core 2-1 (Cor. 2-1),  <small>20.03.01~20.03.31 (M~F) 13:15~14:00,</small> <strong>ê¹€ì›ì¬</strong> </td>
+	<td class="board td_white"> Core 2-1 (Cor. 2-1),  <small>20.03.01~20.03.31 (M~F) 13:15~14:00,</small> <strong>±è¿øÀç</strong> </td>
 </tr>
 <tr>
 	<td class="board td_yellow"><img src="https://school.littlefox.co.kr/Manager/images/g-pho_1.gif"> Contact</td>
@@ -119,7 +119,7 @@
 		document.getElementById('spn_sel').style.display = 'inline-block';
 	}
 	function chg_bookclub_level(obj){
-		if(confirm('ë¶í´ëŸ½ Reading Courseë¥¼ ì¡°ì • í•˜ì‹œê² ìŠµë‹ˆê¹Œ?')){
+		if(confirm('ºÏÅ¬·´ Reading Course¸¦ Á¶Á¤ ÇÏ½Ã°Ú½À´Ï±î?')){
 			var base_grade = parseInt("4");
 			var bc_llv_lmt = parseInt("4");
 			var adj_bc_grade = (parseInt(obj.value) - base_grade);
@@ -149,13 +149,13 @@
 
 				switch(res.where){
 					case '_CHG_STU_GRADE':
-						alert('ì„±ê³µì ìœ¼ë¡œ ì¡°ì • ë˜ì—ˆìŠµë‹ˆë‹¤.');
+						alert('¼º°øÀûÀ¸·Î Á¶Á¤ µÇ¾ú½À´Ï´Ù.');
 						document.getElementById('spn_btn').style.display = '';
 						document.getElementById('spn_sel').style.display = 'none';
 
 						var data = res.rdata;
 
-						document.getElementById('spn_lv').innerHTML = "C2 â†’ " + data.sel_lvcode;
+						document.getElementById('spn_lv').innerHTML = "C2 ¡æ " + data.sel_lvcode;
 						var obj = $('#chg_grade')[0];
 
 						for(var i = 0; i< obj.length; i++){
@@ -395,7 +395,7 @@
 	<table width="818" class="board">
 	<tbody><tr height="25">
 		<td align="left" style="padding-left:5">
-			â€» <font color="red"><b>EX</b>: Excellent</font>, <font color="blue"><b>GD</b>: Good</font>, <font color="black"><b>TA</b>: Try Again</font>, <font color="black"><b>NE</b>: Not Evaluated</font>
+			¡Ø <font color="red"><b>EX</b>: Excellent</font>, <font color="blue"><b>GD</b>: Good</font>, <font color="black"><b>TA</b>: Try Again</font>, <font color="black"><b>NE</b>: Not Evaluated</font>
 		</td>
 	</tr>
 	</tbody></table>
@@ -464,7 +464,7 @@
 	<table width="100%" class="board">
 	<tbody><tr height="25">
 		<td align="left" style="padding-left:5">
-			â€» <font color="red"><b>EX</b>: Excellent</font>, <font color="blue"><b>GD</b>: Good</font>, <font color="black"><b>TA</b>: Try Again</font>
+			¡Ø <font color="red"><b>EX</b>: Excellent</font>, <font color="blue"><b>GD</b>: Good</font>, <font color="black"><b>TA</b>: Try Again</font>
 		</td>
 	</tr>
 	</tbody></table>
@@ -503,19 +503,19 @@
 
         <td align="left">
 
-            <!-- TODO LSCH-17 : í”Œë ˆì´ì–´ ì˜ì—­ -->
-            <!-- [D] data-srcì— ì˜¤ë””ì˜¤ ë§í¬ ì¶”ê°€ -->
+            <!-- TODO LSCH-17 : ÇÃ·¹ÀÌ¾î ¿µ¿ª -->
+            <!-- [D] data-src¿¡ ¿Àµğ¿À ¸µÅ© Ãß°¡ -->
             <div class="sound_player ui_box student_recordings" data-src="../recorder/sample/audio1.mp3">
-                <h3 class="hidden">í”Œë ˆì´ì–´</h3>
+                <h3 class="hidden">ÇÃ·¹ÀÌ¾î</h3>
 
                 <div class="ui_box_inner">
                     <div class="controls_wrap">
                         <div class="control_btns">
                             <button type="button" class="btns_bg btn_play">
-                                <span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+                                <span class="hidden">Àç»ı ¹öÆ°</span>
                             </button>
                             <button type="button" class="btns_bg btn_stop" disabled>
-                                <span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+                                <span class="hidden">Á¤Áö ¹öÆ°</span>
                             </button>
                         </div>
 
@@ -530,7 +530,7 @@
                     </div>
                 </div>
             </div>
-            <!-- // TODO LSCH-17 : í”Œë ˆì´ì–´ ì˜ì—­ -->
+            <!-- // TODO LSCH-17 : ÇÃ·¹ÀÌ¾î ¿µ¿ª -->
 
         </td>
 
@@ -548,7 +548,7 @@
                 		</td>
                 	</tr>
                 	<tr>
-                		<td class="style38" align="right" title="ê²€ì‚¬ì¼"></td>
+                		<td class="style38" align="right" title="°Ë»çÀÏ"></td>
                 	</tr>
             	</tbody>
             </table>
@@ -556,12 +556,12 @@
     	<td align="center">
             <a href="javascript:void(0);" onclick="window.open('../recordingsRemark/recordings_remark.html', '_blank', 'width=560,height=600');">
 
-                <!-- TODO LSCH-17 : ë©”ëª¨ ì•„ì´ì½˜ ìˆ˜ì •ëœ íƒœê·¸ -->
-                <!-- [D] ë©”ëª¨ê°€ ìˆì„ ê²½ìš° .on í´ë˜ìŠ¤ ì¶”ê°€ -->
+                <!-- TODO LSCH-17 : ¸Ş¸ğ ¾ÆÀÌÄÜ ¼öÁ¤µÈ ÅÂ±× -->
+                <!-- [D] ¸Ş¸ğ°¡ ÀÖÀ» °æ¿ì .on Å¬·¡½º Ãß°¡ -->
                 <span class="icon_memo on">
-                    <span class="hidden">ë©”ëª¨</span>
+                    <span class="hidden">¸Ş¸ğ</span>
                 </span>
-                <!-- // TODO LSCH-17 : ë©”ëª¨ ì•„ì´ì½˜ ìˆ˜ì •ëœ íƒœê·¸ -->
+                <!-- // TODO LSCH-17 : ¸Ş¸ğ ¾ÆÀÌÄÜ ¼öÁ¤µÈ ÅÂ±× -->
 
             </a>
         </td>
@@ -572,7 +572,7 @@
         </td>
     </tr>
 
-    <tr bgcolor="#FFFFFF" class="board" height="25" align="center" id="record_0" idx="0"> <td>2</td><td title="test" class="board" align="left" style="padding-left:5px;">test<br><font color="blue"></font></td><td align="left"> <div class="ui_box sound_player student_recordings" data-src="../recorder/sample/audio1.mp3"> <h3 class="hidden">ë…¹ìŒê¸°</h3> <div class="ui_box_inner"> <div class="controls_wrap"> <div class="control_btns"> <button type="button" class="btns_bg btn_play"> <span class="hidden">ì¬ìƒ ë²„íŠ¼</span> </button> <button type="button" class="btns_bg btn_stop" disabled> <span class="hidden">ì •ì§€ ë²„íŠ¼</span> </button> </div><div class="ui_status_bar"> <div class="current_time">00:00</div><div class="status_bar"> <span class="playing"> <span class="status_pointer"></span> </span> </div></div></div></div></div></td><td class="board">8.13<br>14:00</td><td> <table> <tbody> <tr> <td rowspan="2"><img src="https://school.littlefox.co.kr/Manager/images/nocheck.gif" alt="Not Checked"></td><td align="center"> <input type="hidden" name="hrpid0" value="148467157"> <input type="radio" name="hrpass0" value="G"><img src="https://school.littlefox.co.kr/Manager/images/icon_good.gif" alt="Good"> <input type="radio" name="hrpass0" value="E"><img src="https://school.littlefox.co.kr/Manager/images/icon_excel.gif" alt="Exellent"> <input type="radio" name="hrpass0" value="T"><img src="https://school.littlefox.co.kr/Manager/images/icon_again.gif" alt="Try Again"> </td></tr><tr> <td class="style38" align="right" title="ê²€ì‚¬ì¼"></td></tr></tbody> </table> </td><td align="center"> <a href="javascript:void(0);" onclick="window.open('./recordings_remark.html', '_blank', 'width=560,height=600');"> <img src="https://school.littlefox.co.kr/Manager/images/memo_no.gif" id="MEMO_148467157" name="MEMO_148467157" border="0"> </a> </td><td align="center"> <a href="JavaScript:onClick=Confirm('https://school.littlefox.co.kr/Manager/Class/Recordings_process.php?ulID=hueile0987&amp;svcCode=_DEL&amp;hrpid=148467157');"> <img src="https://school.littlefox.co.kr/Manager/images/icon_del1.gif" border="0"> </a> </td></tr><tr bgcolor="#FFFFFF" class="board" height="25" align="center" id="record_0" idx="0"> <td>3</td><td title="test" class="board" align="left" style="padding-left:5px;">test<br><font color="blue"></font></td><td align="left"> <div class="ui_box sound_player student_recordings" data-src="../recorder/sample/audio1.mp3"> <h3 class="hidden">ë…¹ìŒê¸°</h3> <div class="ui_box_inner"> <div class="controls_wrap"> <div class="control_btns"> <button type="button" class="btns_bg btn_play"> <span class="hidden">ì¬ìƒ ë²„íŠ¼</span> </button> <button type="button" class="btns_bg btn_stop" disabled> <span class="hidden">ì •ì§€ ë²„íŠ¼</span> </button> </div><div class="ui_status_bar"> <div class="current_time">00:00</div><div class="status_bar"> <span class="playing"> <span class="status_pointer"></span> </span> </div></div></div></div></div></td><td class="board">8.13<br>14:00</td><td> <table> <tbody> <tr> <td rowspan="2"><img src="https://school.littlefox.co.kr/Manager/images/nocheck.gif" alt="Not Checked"></td><td align="center"> <input type="hidden" name="hrpid0" value="148467157"> <input type="radio" name="hrpass0" value="G"><img src="https://school.littlefox.co.kr/Manager/images/icon_good.gif" alt="Good"> <input type="radio" name="hrpass0" value="E"><img src="https://school.littlefox.co.kr/Manager/images/icon_excel.gif" alt="Exellent"> <input type="radio" name="hrpass0" value="T"><img src="https://school.littlefox.co.kr/Manager/images/icon_again.gif" alt="Try Again"> </td></tr><tr> <td class="style38" align="right" title="ê²€ì‚¬ì¼"></td></tr></tbody> </table> </td><td align="center"> <a href="javascript:void(0);" onclick="window.open('./recordings_remark.html', '_blank', 'width=560,height=600');"> <img src="https://school.littlefox.co.kr/Manager/images/memo_no.gif" id="MEMO_148467157" name="MEMO_148467157" border="0"> </a> </td><td align="center"> <a href="JavaScript:onClick=Confirm('https://school.littlefox.co.kr/Manager/Class/Recordings_process.php?ulID=hueile0987&amp;svcCode=_DEL&amp;hrpid=148467157');"> <img src="https://school.littlefox.co.kr/Manager/images/icon_del1.gif" border="0"> </a> </td></tr>
+    <tr bgcolor="#FFFFFF" class="board" height="25" align="center" id="record_0" idx="0"> <td>2</td><td title="test" class="board" align="left" style="padding-left:5px;">test<br><font color="blue"></font></td><td align="left"> <div class="ui_box sound_player student_recordings" data-src="../recorder/sample/audio1.mp3"> <h3 class="hidden">³ìÀ½±â</h3> <div class="ui_box_inner"> <div class="controls_wrap"> <div class="control_btns"> <button type="button" class="btns_bg btn_play"> <span class="hidden">Àç»ı ¹öÆ°</span> </button> <button type="button" class="btns_bg btn_stop" disabled> <span class="hidden">Á¤Áö ¹öÆ°</span> </button> </div><div class="ui_status_bar"> <div class="current_time">00:00</div><div class="status_bar"> <span class="playing"> <span class="status_pointer"></span> </span> </div></div></div></div></div></td><td class="board">8.13<br>14:00</td><td> <table> <tbody> <tr> <td rowspan="2"><img src="https://school.littlefox.co.kr/Manager/images/nocheck.gif" alt="Not Checked"></td><td align="center"> <input type="hidden" name="hrpid0" value="148467157"> <input type="radio" name="hrpass0" value="G"><img src="https://school.littlefox.co.kr/Manager/images/icon_good.gif" alt="Good"> <input type="radio" name="hrpass0" value="E"><img src="https://school.littlefox.co.kr/Manager/images/icon_excel.gif" alt="Exellent"> <input type="radio" name="hrpass0" value="T"><img src="https://school.littlefox.co.kr/Manager/images/icon_again.gif" alt="Try Again"> </td></tr><tr> <td class="style38" align="right" title="°Ë»çÀÏ"></td></tr></tbody> </table> </td><td align="center"> <a href="javascript:void(0);" onclick="window.open('./recordings_remark.html', '_blank', 'width=560,height=600');"> <img src="https://school.littlefox.co.kr/Manager/images/memo_no.gif" id="MEMO_148467157" name="MEMO_148467157" border="0"> </a> </td><td align="center"> <a href="JavaScript:onClick=Confirm('https://school.littlefox.co.kr/Manager/Class/Recordings_process.php?ulID=hueile0987&amp;svcCode=_DEL&amp;hrpid=148467157');"> <img src="https://school.littlefox.co.kr/Manager/images/icon_del1.gif" border="0"> </a> </td></tr><tr bgcolor="#FFFFFF" class="board" height="25" align="center" id="record_0" idx="0"> <td>3</td><td title="test" class="board" align="left" style="padding-left:5px;">test<br><font color="blue"></font></td><td align="left"> <div class="ui_box sound_player student_recordings" data-src="../recorder/sample/audio1.mp3"> <h3 class="hidden">³ìÀ½±â</h3> <div class="ui_box_inner"> <div class="controls_wrap"> <div class="control_btns"> <button type="button" class="btns_bg btn_play"> <span class="hidden">Àç»ı ¹öÆ°</span> </button> <button type="button" class="btns_bg btn_stop" disabled> <span class="hidden">Á¤Áö ¹öÆ°</span> </button> </div><div class="ui_status_bar"> <div class="current_time">00:00</div><div class="status_bar"> <span class="playing"> <span class="status_pointer"></span> </span> </div></div></div></div></div></td><td class="board">8.13<br>14:00</td><td> <table> <tbody> <tr> <td rowspan="2"><img src="https://school.littlefox.co.kr/Manager/images/nocheck.gif" alt="Not Checked"></td><td align="center"> <input type="hidden" name="hrpid0" value="148467157"> <input type="radio" name="hrpass0" value="G"><img src="https://school.littlefox.co.kr/Manager/images/icon_good.gif" alt="Good"> <input type="radio" name="hrpass0" value="E"><img src="https://school.littlefox.co.kr/Manager/images/icon_excel.gif" alt="Exellent"> <input type="radio" name="hrpass0" value="T"><img src="https://school.littlefox.co.kr/Manager/images/icon_again.gif" alt="Try Again"> </td></tr><tr> <td class="style38" align="right" title="°Ë»çÀÏ"></td></tr></tbody> </table> </td><td align="center"> <a href="javascript:void(0);" onclick="window.open('./recordings_remark.html', '_blank', 'width=560,height=600');"> <img src="https://school.littlefox.co.kr/Manager/images/memo_no.gif" id="MEMO_148467157" name="MEMO_148467157" border="0"> </a> </td><td align="center"> <a href="JavaScript:onClick=Confirm('https://school.littlefox.co.kr/Manager/Class/Recordings_process.php?ulID=hueile0987&amp;svcCode=_DEL&amp;hrpid=148467157');"> <img src="https://school.littlefox.co.kr/Manager/images/icon_del1.gif" border="0"> </a> </td></tr>
 
 </tbody>
 </table>
@@ -616,54 +616,66 @@
 </tbody></table>
 <br>
 
-<!-- TODO LSCH-17 : ë…¹ìŒê¸° ìŠ¤í¬ë¦½íŠ¸ ì½”ë“œ -->
+<!-- TODO LSCH-17 : ³ìÀ½±â ½ºÅ©¸³Æ® ÄÚµå -->
 <script src="../recorder/js/libs/CheckBrowser-2.0.2.js"></script>
 <script src="../recorder/js/libs/utils.StringUtil.js"></script>
 <script src="../recorder/js/AudioPlayer.js"></script>
 <script src="../recorder/js/ProgressBar.js"></script>
 <script src="../recorder/js/AudioPlayerManager.js"></script>
 
-<!-- TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+<!-- TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
 <script language="javascript">
-    'use strict';
+	'use strict';	    
 
     var $element = $('.sound_player');
     var players;
     var playerArr = [];
 
-    // ì˜¤ë””ì˜¤ init
+    // ¿Àµğ¿À init
     $.each($element, function(_, obj){
         players = new AudioPlayerManager().init({ element : obj });
         playerArr.push(players);
-    });
+	});
 
-    $(document).on(PM_CYCLE.ON_RESUME, function(e, player){
-        var isPlayStatus = player.playing;
+	$(document).on(PM_CYCLE.RESUME, function(e, player){
+		var isPlaying = !player.audio.paused;
 
-        playerArr.map(function(el){
-            // ì¬ìƒ ë²„íŠ¼
-            if(isPlayStatus){
-                if(!el.player.playing) {
-                    el.player.eventDisabled(true);
-                    el.playBtn.attr('disabled', true);
-                    el.stopBtn.attr('disabled', true);
-                }
-
-            // ì¼ì‹œì •ì§€, ì •ì§€ ë²„íŠ¼
+		playerArr.map(function(el){
+			// Àç»ı ¹öÆ°
+			if(isPlaying){
+				if(el.player.audio.paused) enabledButton(el);
+				
+			// ÀÏ½ÃÁ¤Áö, Á¤Áö ¹öÆ°
             }else{
-                el.player.eventDisabled(false);
-                el.playBtn.attr('disabled', false);
-
-                if(el.player.audio.currentTime > 0){
-                    el.stopBtn.attr('disabled', false);
-
-                }else{
-                    el.stopBtn.attr('disabled', true);
-                }
+                disabledButton(el);
             }
         });
-    });
-</script>
-<!-- // TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+	});
 
-	</body></html>
+	$(document).on(PM_CYCLE.STOP, function(e, player){
+		playerArr.map(function(el){
+			disabledButton(el);
+		});
+	});
+
+	function enabledButton(el){
+		el.player.eventDisabled(true);
+		el.playBtn.attr('disabled', true);
+		el.stopBtn.attr('disabled', true);
+	}
+
+	function disabledButton(el){
+		el.player.eventDisabled(false);
+		el.playBtn.attr('disabled', false);
+
+		if(el.player.audio.currentTime > 0){
+			el.stopBtn.attr('disabled', false);
+
+		}else{
+			el.stopBtn.attr('disabled', true);
+		}
+	}
+</script>
+<!-- // TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
+
+</body></html>

@@ -1,7 +1,10 @@
 /**
- * ì‹œê°„ ê´€ë¦¬
+ * Á¦ÇÑ½Ã°£ °ü¸®
+ * @author Lee Sang Mi (2019.07.10)
+ * @version 2.0.0
+ * @update Lee Sang Mi (2019.07.10) v2.0.0
+ * ¤¤ String Utils ³»Àå
  */
- 
 var TimeManager = function(){
 
 	this.version = '2.0.0';
@@ -16,9 +19,9 @@ var TimeManager = function(){
 
 TimeManager.UTILS = {
 	/**
-     * ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ í¬ë§·ëœ ë¬¸ìì—´ë¡œ ë°˜í™˜
+     * ¹Ğ¸®¼¼ÄÁµå¸¦ Æ÷¸ËµÈ ¹®ÀÚ¿­·Î ¹İÈ¯
      * @param time : milliseconds
-     * @param format : ë°˜í™˜í•  ë¬¸ìì—´ í˜•ì‹
+     * @param format : ¹İÈ¯ÇÒ ¹®ÀÚ¿­ Çü½Ä
      */
     makeTimeString: function(time, format) {
 
@@ -38,7 +41,7 @@ TimeManager.UTILS = {
     },
 
     /**
-     * ë‘ìë¦¬ìˆ˜ ìˆ«ì í‘œí˜„
+     * µÎÀÚ¸®¼ö ¼ıÀÚ Ç¥Çö
      */
     _toDigitString: function(num) {
 
@@ -51,25 +54,25 @@ TimeManager.UTILS = {
     },
 
     _timeFormat: {
-    	// ì‹œ
+    	// ½Ã
         hh: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, parseInt((time / 1000) % 18600 / 3600));
         },
-        // ë¶„
+        // ºĞ
         mm: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, parseInt((time / 1000) % 3600 / 60));
         },
-        // ì´ˆ
+        // ÃÊ
         ss: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, (time / 1000) % 60);
         },
-        // 1000ë¶„ì˜ 1ì´ˆ
+        // 1000ºĞÀÇ 1ÃÊ
         ms: function(time) {
             var ms = time % 1000 / 1000;
             if (ms == 0) return '0';
             return (ms.toString()).substring(2);
         },
-        // 1000ë¶„ì˜ 1ì´ˆ(ë‘ìë¦¬)
+        // 1000ºĞÀÇ 1ÃÊ(µÎÀÚ¸®)
         m2s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '00';
@@ -77,7 +80,7 @@ TimeManager.UTILS = {
         	ms = ms.toFixed(2) * 100;
         	return ms;
         },
-        // 1000ë¶„ì˜ 1ì´ˆ(ì„¸ìë¦¬)
+        // 1000ºĞÀÇ 1ÃÊ(¼¼ÀÚ¸®)
         m3s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '000';
@@ -109,8 +112,8 @@ TimeManager.prototype = {
 			this.direction = null;
 
 			this.options = $.extend(true, {
-		        startTime: 0, // ì‹œì‘ì‹œê°„ milisecond
-		        endTime: 0, // ì¢…ë£Œì‹œê°„ milisecond
+		        startTime: 0, // ½ÃÀÛ½Ã°£ milisecond
+		        endTime: 0, // Á¾·á½Ã°£ milisecond
 		        intervalGap: 1000,
 		        displayFormat: 'hh:mm:ss.ms',
 		        onProgress: null,

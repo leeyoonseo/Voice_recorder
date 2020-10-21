@@ -1,0 +1,289 @@
+@CHARSET "EUC-KR";
+/**
+ * Recorder common style
+ * @author Lee Sang-mi (2017.01.15)
+ */
+
+
+html  { font-family: Arial, "Malgun Gothic", "맑은고딕", 'Dotum', '돋움', sans-serif; font-size:100%; color:#333; }
+p, ul, dl, ol, dt, dd, li { margin:0; padding:0; }
+ul > li, ol > li { list-style-type:none; }
+h1,h2,h3,h4,h5,h6 { font-weight:600; margin:0; }
+em { font-style:normal; }
+
+
+button,
+*[role="button"],
+input[type="submit"] { cursor:pointer; }
+
+button:focus,
+*[role="button"]:focus,
+input[type="submit"]:focus { outline:none; }
+
+button:disabled,
+*[role="button"]:disabled,
+input[type="submit"]:disabled { cursor:default; }
+.lt-ie9 button[disabled],
+.lt-ie9 *[role="button"][disabled],
+.lt-ie9 input[type="submit"][disabled] { cursor:default; }
+
+
+.btn-icon { border:0; background:none; padding:0; margin:0; }
+.btn-icon > span { display:none; }
+
+
+.align-left { text-align:left; }
+.align-center { text-align:center; }
+.align-right { text-align:right; }
+
+.strong, strong { font-weight:bolder; }
+
+.hidden { display:none; }
+.ui-hidden { position:absolute !important; top:-9999em !important; left:-9999em !important; height:1px !important; padding:0 !important; margin:0 !important; }
+.ui-block { display:block !important; }
+
+
+.wrapper-0117 { min-width:968px; min-height:740px; }
+
+
+.title_bar 	 { position:fixed; left:0; right:0; top:0; padding:8px 28px 9px; }
+	.title_bar .a { font-size:21px; line-height:1em; text-align:left; margin-right:100px; }
+	.title_bar .a > .ttl { margin-left: 10px; font-weight:600; }
+	.title_bar .a > * { vertical-align:middle; }
+	.title_bar .b { position:absolute; right:28px; top:12px; font-size:21px; font-weight:bolder; line-height:1em; }
+
+	.c1 .title_bar, .C1 .title_bar 	 { background:#007ac3; color:#fff; }
+	.c2 .title_bar, .C2 .title_bar 	 { background:#5ca532; color:#fff; }
+	.c3 .title_bar, .C3 .title_bar 	 { background:#ef7d00; color:#fff; }
+	.c4 .title_bar, .C4 .title_bar 	 { background:#e9446c; color:#fff; }
+
+	.d1 .title_bar, .D1 .title_bar 	 { background:#007196; color:#fff; }
+	.d2 .title_bar, .D2 .title_bar 	 { background:#658442; color:#fff; }
+	.d3 .title_bar, .D3 .title_bar 	 { background:#9b583b; color:#fff; }
+	.d4 .title_bar, .D4 .title_bar 	 { background:#7e2f6a; color:#fff; }
+
+	.e1 .title_bar, .E1 .title_bar 	 { background:#005b74; color:#fff; }
+	.e2 .title_bar, .E2 .title_bar   { background:#397c2c; color:#fff; }
+	.e3 .title_bar, .E3 .title_bar   { background:#cf8e32; color:#fff; }
+	.e4 .title_bar, .E4 .title_bar   { background:#685f8c; color:#fff; }
+
+
+.wrap { position:absolute; top:46px; bottom:0; left:0; right:0; overflow:hidden; background:#f7f7f7; min-height:700px; min-width:968px; }
+.wrap .contents_body { position:absolute; left:0; right:0; top:0; bottom:128px; background:#fff; box-sizing:border-box; }
+.wrap .submit_field { position: absolute; left:0; right:0; bottom:0; height:128px; padding:32px; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/bg_btn_area.png') repeat-x; box-sizing:border-box;}
+
+.bg-line { background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/pattern_line.png') repeat !important; }
+.bg-square { background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/pattern_square.png') repeat !important; }
+
+.fox-recorder { position:absolute; left:0; right:0; bottom:0; height:140px; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/bg_control_bar.png') repeat-x; }
+
+.asset-btns { background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/assets_btn.png?1') no-repeat; }
+.submit_field { text-align:center; }
+.submit_field [role="button"] { display:inline-block; width:215px; height:63px; }
+.submit_field [role="button"] + [role="button"] { margin-left:46px; }
+
+.submit_field .btn_start 		{ background-position:-302px 0; }
+.submit_field .btn_start:hover 	{ background-position:-302px -63px; }
+.submit_field .btn_start:active { background-position:-302px -126px; }
+
+.submit_field .btn_next 		{ background-position:-549px 0; }
+.submit_field .btn_next:hover 	{ background-position:-549px -63px; }
+.submit_field .btn_next:active 	{ background-position:-549px -126px; }
+
+.submit_field .btn_ok 		{ background-position:-796px 0; }
+.submit_field .btn_ok:hover { background-position:-796px -63px; }
+.submit_field .btn_ok:active{ background-position:-796px -126px; }
+
+.submit_field .btn_submit 		{ background-position:-1043px 0; }
+.submit_field .btn_submit:hover { background-position:-1043px -63px; }
+.submit_field .btn_submit:active{ background-position:-1043px -126px; }
+
+.submit_field .btn_checkAnswers 		{ width:260px; height:63px; background-position:0 -279px; }
+.submit_field .btn_checkAnswers:hover 	{ background-position:0 -342px; }
+.submit_field .btn_checkAnswers:active  { background-position:0 -405px; }
+
+.submit_field .btn_answers 		 	{ background-position:-549px -279px; }
+.submit_field .btn_answers:hover 	{ background-position:-549px -342px; }
+.submit_field .btn_answers:active  	{ background-position:-549px -405px; }
+
+.inclass_vt .btn_area .btns.btn_answers { background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/assets_btn.png') no-repeat -549px -279px; }
+.inclass_vt .btn_area .btns.btn_answers:hover 	{ background-position:-549px -342px; }
+.inclass_vt .btn_area .btns.btn_answers:active  	{ background-position:-549px -405px; }
+
+.submit_field .btn_cancel 		{ background-position:-549px -508px; }
+.submit_field .btn_cancel:hover { background-position:-549px -571px; }
+.submit_field .btn_cancel:active{ background-position:-549px -634px; }
+
+.submit_field .btn_close 		{ background-position:-796px -508px; }
+.submit_field .btn_close:hover 	{ background-position:-796px -571px; }
+.submit_field .btn_close:active { background-position:-796px -634px; }
+
+.submit_field .btn_text 		{ width:215px; height:63px; background-position:-302px -508px; }
+.submit_field .btn_text:hover 	{ background-position:-302px -571px; }
+.submit_field .btn_text:active  { background-position:-302px -634px; }
+
+.submit_field .btn_shuffle 		{ width:215px; height:63px; background-position:-2302px 0; }
+.submit_field .btn_shuffle:hover 	{ background-position:-2302px -63px; }
+.submit_field .btn_shuffle:active  { background-position:-2302px -126px; }
+
+
+.btn_repeat { display:block; width:120px; height:39px; background-position:-796px -279px; }
+.btn_repeat:hover{background-position:-796px -318px;}
+.btn_repeat:active{background-position:-796px -357px;}
+
+.btn_help{cursor:pointer;width:45px;height:47px;background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/btn_help.png') no-repeat;}
+.btn_help:hover{background-position:0 -47px;}
+.btn_help:active , .help.on{background-position:0 -94px;}
+
+.btn_sound { display:block; position:absolute; width:52px; height:52px; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/btn_sound.png') left top no-repeat; }
+.btn_sound:hover{ background-position:left -52px; }
+.btn_sound:active ,
+.btn-sound.on{ background-position:left -104px; }
+
+
+/* added by myalee(2017.12.19) */
+.btn_sound { background:url('https://school.littlefox.co.kr/student/placement/assets/images/interview_new/btn_sound.png') left top no-repeat; }
+
+
+.game_info {
+	/* gradient */
+	background: #d9d9d9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #d9d9d9 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#d9d9d9 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#d9d9d9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d9d9d9',GradientType=0 ); /* IE6-9 */
+}
+.game_info.inside { height:90px; padding:0 28px; }
+.game_info > .inside { max-width:968px; height:90px; margin:0 auto; }
+.game_info.inside:after,
+.game_info > .inside:after { display:block; content:''; clear:both; }
+.game_info .a { float:left; text-align:left; }
+.game_info .b { float:right; padding-top:25px; }
+
+.game_info .voice_txt { width:646px; height:100%; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/record_desc.png?v2') no-repeat left center; }
+
+/* added by yoonseo(2020.08.25) : LSCH-17 */
+.homework-recorder.fox-recorder{ height:auto; background:#deebf5; }
+.game_info .text { font-family:"Malgun Gothic"; font-size:24px; color:#00479d; font-weight:bolder; line-height:90px; padding-left:30px; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/bullet_guide_txt.png') left center no-repeat !important; }
+.game_info .voice_txt.info_record{ background:none; }
+.game_info .voice_txt.info_record > p{ margin-bottom:6px; }
+.game_info .voice_txt.info_record > p:before { margin-right:9px; content:''; display:inline-block; width:16px; height:13px; background:url('../recorder/img/sprite_icons_check.png')no-repeat; background-position:-12px 0; }
+.record_icon_small.submit { width:67px; height:24px; border:0; border-radius:0; background:url('../recorder/img/sprite_icons_submit.png')no-repeat; background-position:-66px -1px; }
+
+.game_info .info_label { float:left; padding-left:45px; }
+.game_info .info_label .lbl {
+	font-size:30px; line-height:1em; font-weight:bolder;
+	padding:5px 32px;
+	background:#fff; border:1px solid #bbb; border-radius:21px;
+	box-shadow:0 1px 1px rgba(255,255,255,.75), 1px 1px 5px rgba(0,0,0,.4) inset, -1px -1px 5px rgba(0,0,0,.4) inset;
+}
+.game_info .info_label.timer { margin-right:37px; background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/icon_score_time.png') no-repeat left center; }
+.game_info .info_label.score { background:url('https://school.littlefox.co.kr/contents/apps/recorder/images/icon_score_check.png') no-repeat left center; }
+.game_info .info_label.timer .lbl { color:#00479d; text-align:center; }
+.game_info .info_label.score .lbl { color:#5d5d5d; min-width:80px; text-align:center; }
+.game_info .info_label.score .lbl > .em { color:#00479d; }
+
+.questions_area .info .timer .limit {color: #ff0000;} /* by nhj(2017.12.14) FOR:limit red color show */
+
+
+/* added by myalee (2017.04.04)*/
+html.is-ie , .is-ie  body { height:100%; overflow-y:auto; overflow-x:auto; }
+.is-ie  body { background:#f7f7f7; }
+
+.is-ie .wrapper-0117 { position:relative; height:100%; }
+.is-ie .wrapper-0117 .title_bar { position:static; }
+.is-ie .wrapper-0117 .wrap { min-height:auto; }
+
+
+/* added by myalee(2017.12.11) */
+.wrap .contents_body { bottom:112px; }
+.wrap .submit_field { height:112px; padding:23px; }
+
+
+/* added by myalee(2018.01.11) */
+.wrapper-0117 { position:relative; min-width:1000px; min-height:710px; }
+.wrapper-0117 .wrap { min-width:auto; min-height:auto; }
+
+
+/* 201807 조성미 */
+/* reset */
+table, thead, tbody, tr, th, td {padding:0;margin:0;}
+table {width:100%;border-collapse:separate;border-spacing:0;}
+th, td {word-break:break-all;word-wrap:break-word;}
+caption, legend, .hidden {position:absolute;top:0;left:0;overflow:hidden;visibility:hidden;width:0 !important;height:0 !important;font-size:0 !important;line-height:0 !important;}
+/* Tips */
+.course_tip .wrap {min-width:730px;min-height:470px;font-family:tahoma;}
+.course_tip .scroll {overflow:hidden;overflow-y:scroll;height:100%;padding:40px;box-sizing:border-box;}
+.course_tip .contents_body {bottom:0;}
+.course_tip .view .contents_body {padding-top:56px;}
+/* Tips > List */
+.course_table {width:100%;border-top:2px solid #00479d;}
+.course_table th,
+.course_table td {min-height:40px;color:#333;font-size:13px;border-bottom:1px solid #c9c9c9;vertical-align:middle;text-align:left;}
+.course_table th {padding:12px 0;font-weight:normal;border-right:1px solid #ddd;text-align:center;background:#ecf3fa;}
+.course_table td a {padding:12px 0 12px 13px;color:#333;font-size:13px;text-decoration:none;}
+.course_table tr:hover td {background:#f7f8fa;}
+.course_table tr:hover td a {color:#00479d;}
+/* Tips > view */
+.control_box {display:table;position:absolute;left:0;top:0;padding:10px 28px 0;width:100%;height:56px;border-bottom:1px solid #dedede;box-sizing:border-box;}
+.control_box .page_box {float:right;}
+.control_box .btn_page {float:left;display:block;width:36px;height:36px;background:url(/contents/apps/course/e1/assets/images/ws/ws_btn.png) 0 0 no-repeat;}
+.control_box .btn_page.list {background-position:0 0;}
+.control_box .btn_page.list:hover, .control_box .btn_page.list:active {background-position:0 -39px;}
+.control_box .btn_page.prev {background-position:-36px 0;}
+.control_box .btn_page.prev:hover, .control_box .btn_page.prev:active {background-position:-36px -39px;}
+.control_box .btn_page.next {margin-left:10px;background-position:-72px 0;}
+.control_box .btn_page.next:hover, .control_box .btn_page.next:active {background-position:-72px -39px;}
+.control_box .btn_font_control {float:left;display:block;margin-left:10px;}
+.view_cont .title {margin-bottom:13px;color:#00479d;font-size:20px;font-weight:bold;}
+.view_cont > p {margin-bottom:27px;color:#333;font-size:16px;line-height:23px;}
+.view_cont .box_bg {padding:17px 20px;border-radius:5px;background:#f7f7f7;}
+.view_cont .box_bg .title {margin-bottom:9px;font-size:16px;}
+.view_cont li {position:relative;padding:0 0 8px 9px;color:#333;font-size:15px;line-height:22px;}
+.view_cont li:after {position:absolute;content:"";left:0;top:9px;width:3px;height:3px;background:#7a7a7a;}
+.view_cont .strong {font-weight:bold;}
+
+/* after_sp 타입추가, 이미지 두개일 경우 */
+.box_type.col2 {display:table;width:100%;height:255px;}
+.box_type.col2 .txt {display:table-cell;width:54%;max-height:100%;overflow:auto;vertical-align:middle;}
+.box_type.col2 .txt .title {font-size:36px;font-weight:bolder;}
+.box_type.col2 .txt .info {font-size:23px;font-weight:normal;color:#5e5e5e;line-height:140%;}
+.box_type.col2 .img {display:table-cell;width:46%;margin:auto 0;vertical-align:middle;text-align:center;}
+
+/* RC 버튼 추가 */
+.btn_source_view {width:122px;height:44px;border:none;vertical-align:middle;background:url(https://school.littlefox.co.kr/student/placement/assets/images/interview_new/btn_source_view.png) 0 0 no-repeat;}
+.btn_source_view:hover  {background-position:0 -44px;}
+.btn_source_view:active {background-position:0 -88px;}
+
+/* Next Disable 추가 */
+.btn_next_disable {display:inline-block;width:271px;height:64px;background:url(https://school.littlefox.co.kr/student/placement/assets/images/interview_new/btn_next_disable.png) 0 0 no-repeat;}
+.btn_next_disable:hover {background-position:0 -63px;}
+.btn_next_disable:active {background-position:0 -126px;}
+
+/* 20180816 조성미  */
+/* Tip팝업_확대축소버튼추가 */
+.btn_font_control {display:inline-block;width:36px;height:36px;background:url(/contents/apps/recorder/images/btn_font_size_control.png) 0 0 no-repeat;}
+.btn_font_control.plus {background-position:left top;}
+.btn_font_control.plus:hover,
+.btn_font_control.plus:active {background-position:left bottom;}
+.btn_font_control.minus {background-position:right top;}
+.btn_font_control.minus:hover,
+.btn_font_control.minus:active {background-position:right bottom;}
+
+/* added by myalee(2019.02.15) : 상단 타이틀바의 탭UI */
+.title_tab { position:fixed; left:0; right:0; top:0; }
+.title_tab:after { content:''; display:block; clear:both; }
+.title_tab > li { float:left; background:#ccc; height:46px; overflow:hidden; box-sizing:border-box; }
+.title_tab a { display:block; font-size:21px; font-weight:bolder; line-height:46px; text-align:center; color:#fff; text-decoration:none; }
+
+.e3 .title_tab > li,
+.E3 .title_tab > li { width:50%; }
+.e4 .title_tab > li,
+.E4 .title_tab > li { width:33.333%; }
+
+.E3 .title_tab > li + li,
+.E4 .title_tab > li + li { border-left:1px solid #fff; }
+
+.title_tab > li.on.e2 { background:#397c2c; }
+.title_tab > li.on.e3 { background:#cf8e32; }
+.title_tab > li.on.e4 { background:#685f8c; }

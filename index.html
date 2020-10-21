@@ -1,40 +1,140 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" dir="ltr">
 <head>
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ë¦¬í‹€íŒìŠ¤">
-<meta property="og:description" content="ì• ë‹ˆë©”ì´ì…˜ ì˜ì–´ë™í™” ë„ì„œê´€! ë™í™”, ë™ìš”, ë‹¨ì–´ì¥, í”„ë¦°í„°ë¸”ë¶, í•™ìŠµê¸°ë¡ ë“± ì œê³µ">
+<meta property="og:title" content="¸®Æ²ÆÅ½º">
+<meta property="og:description" content="¾Ö´Ï¸ŞÀÌ¼Ç ¿µ¾îµ¿È­ µµ¼­°ü! µ¿È­, µ¿¿ä, ´Ü¾îÀå, ÇÁ¸°ÅÍºíºÏ, ÇĞ½À±â·Ï µî Á¦°ø">
 <meta property="og:image" content="https://school.littlefox.co.kr/academy/view/about/imgs/bi/symbol.png">
 <meta property="og:url" content="https://school.littlefox.co.kr">
 <meta name="viewport" content="width=device-width">
-<title>ë…¹ìŒê¸° ë°ëª¨ í˜ì´ì§€</title>
+<title>³ìÀ½±â µ¥¸ğ ÆäÀÌÁö</title>
 
-<!-- <link rel="stylesheet" type="text/css" href="./recorder/css/LayerMessageBox.css"> -->
+<link rel="stylesheet" href="./recorder/css/LayerMessageBox.css">
 <style>
     body{ font-size:14px; }
     .hidden{ position: absolute; top: 0; left: 0; overflow: hidden; visibility: hidden; width: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; }
-    button{ display:inline-block; padding:5px; font-size:14px; text-decoration:none; color:#333; background:#fff; border:0; border:1px solid #333; cursor:pointer; outline:0; }
-    button:hover{ background:#333; color:#fff; }  
+    .box + .box{ padding-top:30px; margin-top:30px; border-top:1px solid #666; }
+    h2{ margin:0; font-size:18px; }
+    span:not(.info_path){ display:block; }
+    .info_path{ font-weight:400; font-size:16px; }
+    button,
+    .new_site{ display:inline-block; padding:5px; font-size:14px; text-decoration:none; color:#333; background:#fff; border:0; border:1px solid #333; cursor:pointer; outline:0; }
+    button:hover,
+    .new_site:hover{ background:#333; color:#fff; }
+    .operation_site { margin-bottom:10px; display:inline-block; text-decoration:none; color:#333; }
+    .operation_site:hover { color:purple; font-weight:700; }
 </style>
 </head>
 <body>
-    <h1>DEMO</h1>
-    <button data-src="./demo/recorder01.html" data-size="620,420">
-        ë…¹ìŒê¸° 01
-    </button>
+    <h1>³ìÀ½±â µ¥¸ğ ÆäÀÌÁö</h1>
+    <div class="box">
+        <h2>
+            ÇĞ»ıÈ­¸é ³ìÀ½±â ÆË¾÷
+            <span class="info_path">/free_recorder.html</span>
+        </h2>
+        [<a class="operation_site" href="https://school.littlefox.co.kr/student/recorder/free_recorder.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><button data-src="./01.freeRecorder/free_recorder.html" data-size="620,420">ÆË¾÷È®ÀÎ</button></span>
+    </div>
 
-    <button data-src="./demo/recorder02.html" data-size="620,420">
-        ë…¹ìŒê¸° 02
-    </button>
+    <div class="box">
+        <h2>
+            ÇĞ»ı »ó¼¼Á¤º¸ Recordings ÅÇ ¸Ş¸ğ ³ìÀ½±â
+            <span class="info_path">/recordings_remark.html</span>
+        </h2>
+        [<a class="operation_site" href="http://school.littlefox.co.kr/Manager/Class/Recordings_remark.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><button data-src="./02.recordingsRemark/recordings_remark.html" data-size="540,600">ÆË¾÷È®ÀÎ</button></span>
+    </div>
 
-<script
-src="https://code.jquery.com/jquery-3.5.1.js"
-integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-crossorigin="anonymous"></script>
+    <div class="box">
+        <h2>
+            Homework ³ìÀ½±â
+            <span class="info_path">/homework_recorder_image.html</span>
+        </h2>
+        [<a class="operation_site" href="https://school.littlefox.co.kr/contents/apps/course/lms/homework_recorder_image.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><a class="new_site" href="./03.homeworkRecorder/homework_recorder_image.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
+    </div>
 
-<script>   
-    $('button').on('click', function(){
+    <div class="box">
+        <h2>
+            ÀÔÇĞ ·¹º§ Å×½ºÆ®(interview) ÆË¾÷
+            <span class="info_path">/interview_new.html</span>
+        </h2>
+        [<a class="operation_site" href="https://school.littlefox.co.kr/student/archives/recording.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><a class="new_site" href="./04.interviewNew/interview_new.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
+    </div>
+
+    <div class="box">
+        <h2>
+            ÇĞ»ı»ó¼¼Á¤º¸ Recordings ÅÇ ÇÃ·¹ÀÌ¾î
+            <span class="info_path">/student_recordings.html</span>
+        </h2>
+        [<a class="operation_site" href="http://school.littlefox.co.kr/Manager/Student/Student_recordings.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><button data-src="./05.studentRecordings/student_recordings.html" data-size="950,800">ÆË¾÷È®ÀÎ</button></span>
+    </div>
+
+    <div class="box">
+        <h2>
+            ³ªÀÇ ÇĞ½À ±â·Ï
+            <span class="info_path">/recording.html</span>
+        </h2>
+        [<a class="operation_site" href="http://school.littlefox.co.kr/student/placement/views/interview_new/index_v.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><a class="new_site" href="./05.studentRecordings/recording.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
+    </div>
+
+    <div class="box">
+        <h2>
+            ³ªÀÇÇĞ½À¹æ > ¼÷Á¦ ³ìÀ½±â
+            <span class="info_path">/view_recording.html</span>
+        </h2>
+        [<a class="operation_site" href="https://school.littlefox.co.kr/Manager/Homework/view_recording.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><button data-src="./05.studentRecordings/view_recording.html" data-size="480,280">ÆË¾÷È®ÀÎ</button></span>
+    </div>
+
+    <div class="box">
+        <h2>
+            ³ªÀÇÇĞ½À±â·Ï - ¼±»ı´Ô ¸Ş½ÃÁö
+            <span class="info_path">/memo.html</span>
+        </h2>
+        [<a class="operation_site" href="https://school.littlefox.co.kr/student/archives/memo.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
+        <span><button data-src="./05.studentRecordings/memo.html" data-size="480,375">ÆË¾÷È®ÀÎ</button></span>
+    </div>
+
+
+    <!-- [D] ÆäÀÌÁö ³» °øÅë ·¹ÀÌ¾îÆË¾÷ -->
+    <div class="layer_message_popup">
+        <div class="layer_inner">
+            <div class="layer_container">
+                <div class="layer_contents">
+                    <div class="layer_title">
+                        <h2 class="layer_h2">¾Ë¸²</h2>
+                        <button class="layer_close"><span class="hidden">´İ±â</span></button>
+                    </div>
+                    <div class="layer_main"><p class="message_text"></p></div>
+                    <div class="layer_btns">
+                        <button type="button" class="layer_submit">È®ÀÎ</button>
+                        <button type="button" class="layer_cancel">Ãë¼Ò</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // [D] ÆäÀÌÁö ³» °øÅë ·¹ÀÌ¾îÆË¾÷ -->
+
+<script type="text/javascript" src="http://www.littlefox.co.kr/static/vendor/jquery-1.11.3.min.js"></script>
+<script src="./recorder/js/LayerMessageBox.js"></script>
+
+<!-- TODO ÆË¾÷ Å×½ºÆ®¸¦ À§ÇÑ ÄÚµåµé -->
+<script>
+    $('#btn').on('click', function(){
+        LayerMessageBox.open({
+            type : 'alert'
+        }, '³ìÀ½µÈ ³»¿ëÀÌ ÀúÀåµÇÁö ¾Ê½À´Ï´Ù.\n´Ù½Ã ³ìÀ½ ÇÒ±î¿ä?', function(isState){
+            if(!isState) return false;
+        });
+    });
+
+    $('button:not(#btn)').on('click', function(){
         var popSrc = $(this).attr('data-src');
         var popSize = $(this).attr('data-size');
         var width = popSize.split(',')[0];
@@ -58,7 +158,7 @@ crossorigin="anonymous"></script>
         return ((screen.availHeight / 2) - (height / 2)) +  window.screenTop;
     }
 </script>
-<!-- // TODO íŒì—… í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ ì½”ë“œë“¤ -->
+<!-- // TODO ÆË¾÷ Å×½ºÆ®¸¦ À§ÇÑ ÄÚµåµé -->
 
 </body>
 </html>

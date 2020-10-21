@@ -1,11 +1,15 @@
-@charset "utf-8";
+@charset "euc-kr";
+/**
+ * ¾îÇĞ¿ø ÇĞ»ı ÇÃ·¹ÀÌ¾î
+ * @author yoonseo.lee (2020.08)
+ */
 
 .icon_file_download{ display:inline-block; margin-left:2px; width:25px; height:23px; text-indent:0; text-align:center; vertical-align:middle; border:1px solid #b3b3b3; box-sizing:border-box; }
 .icon_file_download:before{ display:inline-block; content:''; margin:4px; width:15px; height:13px; background:url('../recorder/img/sprite_icons_download.png')no-repeat; }
 .icon_file_download:hover{ background:#00479d; }
 .tabl_recoding .icon_file_download:hover:before{ background-position-x:-16px;}
 
-/* í•™ìƒí™”ë©´ - Recordingsíƒ­ - Recordings Check */
+/* ÇĞ»ıÈ­¸é - RecordingsÅÇ - Recordings Check */
 .student_recordings.ui_box{ margin:5px; padding:5px 8px; border-radius:5px; }
 .student_recordings.ui_box .ui_box_inner{ width:162px; }
 .student_recordings.ui_box .control_btns{ width:68px; }
@@ -22,7 +26,7 @@
 .student_recordings.ui_box .status_bar .playing{ height:4px; }
 .student_recordings.ui_box .status_bar .status_pointer{ right:-4.5px; width:9px; height:9px; }
 
-/* ë‚˜ì˜ í•™ìŠµë°© - ìˆ™ì œ ë…¹ìŒê¸° */
+/* ³ªÀÇ ÇĞ½À¹æ - ¼÷Á¦ ³ìÀ½±â */
 .view_recorder_popup{ position:fixed; min-width:480px; min-height:280px; width:100%; height:100%; font-size:14px; border:2px solid #2559a1; border-radius:5px; box-sizing:border-box; }
 .view_recorder_inner{ padding:20px 10px; }
 .view_recorder_popup .subject{ margin:0; padding:14px 0; font-size:15px; text-align:center; color:#fff; border-bottom:1px solid #a6a6a6; background: rgb(11,114,192); background: linear-gradient(0deg, rgba(11,114,192,1) 0%, rgba(47,150,230,1) 100%); box-sizing:border-box; }
@@ -42,8 +46,8 @@
     .view_recorder_popup{ position:static; }
 }
 
-/* ë‚˜ì˜ í•™ìŠµê¸°ë¡ - ì„ ìƒë‹˜ ë©”ì‹œì§€ */
-.homework_memo_popup{ position:fixed; min-width:480px; min-height:375px; width:100%; height:100%; font-size:14px; border:2px solid #2559a1; border-radius:5px; box-sizing:border-box; }
+/* ³ªÀÇ ÇĞ½À±â·Ï - ¼±»ı´Ô ¸Ş½ÃÁö */
+.homework_memo_popup{ position:fixed; overflow:auto; min-width:480px; min-height:380px; width:100%; height:100%; font-size:14px; border:2px solid #2559a1; border-radius:5px; box-sizing:border-box; }
 .homework_memo_popup .homework_memo_inner{ padding:20px 10px; }
 .homework_memo_popup .subject{ margin:0; padding:14px 0; font-size:15px; text-align:center; color:#fff; border-bottom:1px solid #a6a6a6; background: rgb(11,114,192); background: linear-gradient(0deg, rgba(11,114,192,1) 0%, rgba(47,150,230,1) 100%); box-sizing:border-box; }
 .homework_memo_popup .info{ position:relative; margin-bottom:10px; }
@@ -71,7 +75,7 @@
 .icon_memo{ display:inline-block; width:19px; height:12px; background:url('../recorder/img/sprite_icons_memo.png')no-repeat; }
 .icon_memo.on{ background-position-x:-21px; }
 
-/* ë„ì›€ë§ */
+/* µµ¿ò¸» */
 .coaching_guide_wrap { display:none; position:fixed; top:0; bottom:0; left:0; right:0; min-width:625px; min-height:465px; width:100%; height:100%; background: rgba(0,0,0,0.8); box-sizing: border-box; z-index: 999; }
 .coaching_guide_wrap.on { display:inline-flex; align-items:center; }
 .coaching_guide_wrap .close_btn { position:absolute; top:-10px; right:-10px; width:46px; height:46px; border-radius:50%; box-shadow:1px 1px 5px rgba(0,0,0,0.5); background:#00457d; border:0; cursor:pointer; z-index:3; }
@@ -107,7 +111,7 @@
     .coaching_guide_wrap{ position:absolute; }
 }
 
-/* í•™ìƒ ë…¹ìŒê¸°ë¡ í™•ì¸ - Recording */
+/* ÇĞ»ı ³ìÀ½±â·Ï È®ÀÎ - Recording */
 .history_recorder .player.ui_box{ margin:6px 5px; padding:5px 6px 8px; border-radius:5px; }
 .history_recorder .player.ui_box .ui_box_inner{ width:100%; }
 .history_recorder .player.ui_box .control_btns{ width:56px; }
@@ -117,7 +121,7 @@
 .history_recorder .player.ui_box.active .btn_play:before{ margin-left:0; margin-right:3px; width:4px; height:10px; }
 .history_recorder .player.ui_box.active .btn_play:after{ width:4px; height:10px; }
 .history_recorder .player.ui_box .btn_stop:before{ width:8px; height:8px; border-radius:2px; }
-.history_recorder .player.ui_box .current_time{ color:#666; text-indent:-5px; }
+.history_recorder .player.ui_box .current_time{ color:#666; }
 .history_recorder .player.ui_box .ui_status_bar{ margin-left:10px; width:62px; }
 .history_recorder .player.ui_box .status_bar{ width:64px; }
 .history_recorder .player.ui_box .status_bar .status_pointer{ right:-4px; width:8px; height:8px; }

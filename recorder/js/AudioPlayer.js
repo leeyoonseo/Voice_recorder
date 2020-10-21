@@ -1,5 +1,5 @@
 /**
- * ì˜¤ë””ì˜¤ ë§¤ë‹ˆì €
+ * ¿Àµğ¿À ¸Å´ÏÀú
  * @author Lee Yoon Seo (2019.09)
  * @update Lee Yoon Seo (2020.08)
  * @version 1.1.0
@@ -8,8 +8,8 @@
  */
 
 /**
- * ì˜¤ë””ì˜¤ í”Œë ˆì´ì–´
- * @options playing {boolean} - ì˜¤ë””ì˜¤ í”Œë ˆì´ ìƒíƒœ
+ * ¿Àµğ¿À ÇÃ·¹ÀÌ¾î
+ * @options playing {boolean} - ¿Àµğ¿À ÇÃ·¹ÀÌ »óÅÂ
  */
 window.AudioPlayer = function(){
     this.name = "player manager",
@@ -30,12 +30,12 @@ window.AudioPlayer.prototype = {
     constructor : AudioPlayer,
 
     /**
-     * í˜¸ì¶œ ì‹œ ì„¸íŒ…
-     * @param {Object} opts  ìœ ì €ê°€ ì…‹ì—… ì‹œ ì‚½ì…í•˜ëŠ” ì˜µì…˜ ê°’
-     * @param {String} opts.wrap  í”Œë ˆì´ì–´ê°€ í¬í•¨ëœ ë£¨íŠ¸ê°ì²´ì˜ í´ë˜ìŠ¤ë‚˜ id
-     * @param {String} opts.statusBar í”Œë ˆì´ì–´ ì§„í–‰ë°”ì˜ í´ë˜ìŠ¤ë‚˜ id
-     * @param {String} opts.audioFileSrc í”Œë ˆì´ì–´ ì˜¤ë””ì˜¤ ê²½ë¡œ
-     * @param {String} opts.timeFormat íƒ€ì´ë¨¸ í¬ë§·
+     * È£Ãâ ½Ã ¼¼ÆÃ
+     * @param {Object} opts  À¯Àú°¡ ¼Â¾÷ ½Ã »ğÀÔÇÏ´Â ¿É¼Ç °ª
+     * @param {String} opts.wrap  ÇÃ·¹ÀÌ¾î°¡ Æ÷ÇÔµÈ ·çÆ®°´Ã¼ÀÇ Å¬·¡½º³ª id
+     * @param {String} opts.statusBar ÇÃ·¹ÀÌ¾î ÁøÇà¹ÙÀÇ Å¬·¡½º³ª id
+     * @param {String} opts.audioFileSrc ÇÃ·¹ÀÌ¾î ¿Àµğ¿À °æ·Î
+     * @param {String} opts.timeFormat Å¸ÀÌ¸Ó Æ÷¸Ë
      */
     init : function(opts){
 
@@ -76,28 +76,28 @@ window.AudioPlayer.prototype = {
         return this;
     },
 
-    // ì˜¤ë””ì˜¤ ë¡œë“œ, callback í•¨ìˆ˜ ì €ì¥
+    // ¿Àµğ¿À ·Îµå, callback ÇÔ¼ö ÀúÀå
     setLoadeddata : function(callback){
         this.loadeddataCallback = callback;
 
         return this;
     },
 
-    // ì˜¤ë””ì˜¤ íƒ€ì´ë¨¸ ì‹œ, callback í•¨ìˆ˜ ì €ì¥
+    // ¿Àµğ¿À Å¸ÀÌ¸Ó ½Ã, callback ÇÔ¼ö ÀúÀå
     setTimeupdate : function(callback){
         this.timeupdateCallback = callback;
 
         return this;
     },
 
-    // ì˜¤ë””ì˜¤ ì¢…ë£Œ ì‹œ, callback í•¨ìˆ˜ ì €ì¥
+    // ¿Àµğ¿À Á¾·á ½Ã, callback ÇÔ¼ö ÀúÀå
     setEnded : function(callback){
         this.endedCallback = callback;
 
         return this;
     },
 
-    // ë¡œë”© ë°” ì´ë²¤íŠ¸ ì‹œ, callback í•¨ìˆ˜ ì €ì¥
+    // ·Îµù ¹Ù ÀÌº¥Æ® ½Ã, callback ÇÔ¼ö ÀúÀå
     setBarEvent : function(callback){
         this.barEventCallback = callback;
 
@@ -110,11 +110,11 @@ window.AudioPlayer.prototype = {
         try {
             $(this.audio).attr('src', this.options.audioFileSrc)
             .on('error', function(e){
-                // ì—ëŸ¬
+                // ¿¡·¯
                 console.log(e.message);
             })
 
-            // ì˜¤ë””ì˜¤ ë¡œë“œ ì‹œ
+            // ¿Àµğ¿À ·Îµå ½Ã
             .on('loadeddata', function(){
                 var duration = this.duration;
                 if (this.duration == 'Infinity') {
@@ -126,7 +126,7 @@ window.AudioPlayer.prototype = {
                 that.totalTime = duration;
             })
 
-            // ì˜¤ë””ì˜¤ íƒ€ì´ë¨¸ ì‹œ
+            // ¿Àµğ¿À Å¸ÀÌ¸Ó ½Ã
             .on('timeupdate', function(){
                 var duration = this.duration;
                 if (this.duration == 'Infinity') {
@@ -140,7 +140,7 @@ window.AudioPlayer.prototype = {
                 that.timeupdateCallback(this.currentTime, duration);
             })
 
-            // ì˜¤ë””ì˜¤ ì¢…ë£Œ ì‹œ
+            // ¿Àµğ¿À Á¾·á ½Ã
             .on('ended', function(){
                 that.endedCallback(this.duration);
 
@@ -156,11 +156,11 @@ window.AudioPlayer.prototype = {
     attachEvent : function(){
         var that = this;
 
-        // playerê°€ ê°€ì§€ê³  ìˆëŠ” audio íŒŒë¼ë¯¸í„°ë¡œ ì „ë‹¬í•´ì•¼ ì‘ë™
+        // player°¡ °¡Áö°í ÀÖ´Â audio ÆÄ¶ó¹ÌÅÍ·Î Àü´ŞÇØ¾ß ÀÛµ¿
         this.bar.on(that.Event.Start, function(e){
             that.barEventCallback(e, that.audio);
 
-            // ë§ˆìš°ìŠ¤ê°€ ì•½ê°„ ë²—ì–´ë‚˜ë„ ë“œë˜ê·¸ ì´ë²¤íŠ¸ê°€ ì ìš©ë˜ë„ë¡ ë¡œë”© ë°” ë¶€ëª¨ì— move ì´ë²¤íŠ¸ ë°”ì¸ë”©
+            // ¸¶¿ì½º°¡ ¾à°£ ¹ş¾î³ªµµ µå·¡±× ÀÌº¥Æ®°¡ Àû¿ëµÇµµ·Ï ·Îµù ¹Ù ºÎ¸ğ¿¡ move ÀÌº¥Æ® ¹ÙÀÎµù
             that.statusBar.on(that.Event.Move, function(e){
                 that.barEventCallback(e, that.audio);
             });
@@ -169,7 +169,7 @@ window.AudioPlayer.prototype = {
         this.pointer.on(that.Event.Start, function(e){
             that.barEventCallback(e, that.audio);
 
-            // ë§ˆìš°ìŠ¤ê°€ ì•½ê°„ ë²—ì–´ë‚˜ë„ ë“œë˜ê·¸ ì´ë²¤íŠ¸ê°€ ì ìš©ë˜ë„ë¡ ë¡œë”© ë°” ë¶€ëª¨ì— move ì´ë²¤íŠ¸ ë°”ì¸ë”©
+            // ¸¶¿ì½º°¡ ¾à°£ ¹ş¾î³ªµµ µå·¡±× ÀÌº¥Æ®°¡ Àû¿ëµÇµµ·Ï ·Îµù ¹Ù ºÎ¸ğ¿¡ move ÀÌº¥Æ® ¹ÙÀÎµù
             that.statusBar.on(that.Event.Move, function(e){
                 that.barEventCallback(e, that.audio);
             });
@@ -194,10 +194,10 @@ window.AudioPlayer.prototype = {
     },
 
     /**
-     * ë²„íŠ¼ disabled ë° callback í•¨ìˆ˜ ì‹¤í–‰
-     * @see record.html - callback : .html íŒŒì¼ì—ì„œ íƒœê·¸ë¡œ ì˜¤ë””ì˜¤ë¥¼ ì œì–´í•˜ê¸° ìœ„í•´ ìƒì„±
-     * @param {Boolean} isEnabled ì‹¤í–‰ ì—¬ë¶€
-     * @param {Object} callback ì—˜ë¦¬ë¨¼íŠ¸ íŒŒë¼ë¯¸í„°ë¡œ ì „ë‹¬í•˜ì—¬ ìƒí˜¸ì‘ìš© ê°€ëŠ¥
+     * ¹öÆ° disabled ¹× callback ÇÔ¼ö ½ÇÇà
+     * @see record.html - callback : .html ÆÄÀÏ¿¡¼­ ÅÂ±×·Î ¿Àµğ¿À¸¦ Á¦¾îÇÏ±â À§ÇØ »ı¼º
+     * @param {Boolean} isEnabled ½ÇÇà ¿©ºÎ
+     * @param {Object} callback ¿¤¸®¸ÕÆ® ÆÄ¶ó¹ÌÅÍ·Î Àü´ŞÇÏ¿© »óÈ£ÀÛ¿ë °¡´É
     */
     eventDisabled : function(isEnabled, callback){
         if(isEnabled){

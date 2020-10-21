@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Cache-Control" content="No-Cache">
     <meta HTTP-EQUIV="Expires" CONTENT="-1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://school.littlefox.co.kr/favicon.ico">
 
-    <!-- TODO ì œëª© ì¶”ê°€í•  ê²ƒ -->
-    <title>ë©”ëª¨ë“±ë¡</title>
+    <!-- TODO Á¦¸ñ Ãß°¡ÇÒ °Í -->
+    <title>¸Ş¸ğµî·Ï</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="https://www.littlefox.co.kr/favicon.ico">
 
-    <!-- TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+    <!-- TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
     <link rel="stylesheet" href="../recorder/css/LayerMessageBox.css" type="text/css">
     <link rel="stylesheet" href="../recorder/css/AudioRecorder.css" type="text/css">
     <link rel="stylesheet" href="./recordings_remark.css" type="text/css">
-    <!-- // TODO LSCH-17 : ì¶”ê°€ë˜ëŠ” CSS -->
+    <!-- // TODO LSCH-17 : Ãß°¡µÇ´Â CSS -->
 
     <style>
         body{ margin:0; }
@@ -25,16 +25,16 @@
 </head>
 <body>
     <div class="recordings_remark_popup">
-        <h1 class="hidden">ë©”ëª¨ ë“±ë¡ íŒì—…</h1>
+        <h1 class="hidden">¸Ş¸ğ µî·Ï ÆË¾÷</h1>
 
         <form name="" method="" action="">
             <div class="recordings_remark">
-                <h2 class="hidden">ë©”ëª¨ ë“±ë¡ ì˜ì—­</h2>
+                <h2 class="hidden">¸Ş¸ğ µî·Ï ¿µ¿ª</h2>
                 <table>
                     <tbody>
                         <tr>
                             <th scope="row">Name</th>
-                            <td>ê¹€ì›ì¬</td>
+                            <td>±è¿øÀç</td>
                         </tr>
                         <tr>
                             <th scope="row">Section</th>
@@ -46,7 +46,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Title</th>
-                            <td>ë¡œì¼“ê±¸</td>
+                            <td>·ÎÄÏ°É</td>
                         </tr>
                         <tr>
                             <th scope="row">Write<br>Your<br>Comments</th>
@@ -58,16 +58,16 @@
                             <th scope="row">Record<br>Your<br>Comments</th>
                             <td>
                                 <div class="recorder_contents">
-                                    <h2 class="hidden">ë…¹ìŒê¸° ì˜ì—­</h2>
+                                    <h2 class="hidden">³ìÀ½±â ¿µ¿ª</h2>
 
                                     <div class="inner">
                                         <div class="noti_text">
-                                            ë…¹ìŒì€ ìµœëŒ€ 10ë¶„ê¹Œì§€ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+                                            ³ìÀ½Àº ÃÖ´ë 10ºĞ±îÁö °¡´ÉÇÕ´Ï´Ù.
                                         </div>
 
-                                        <!-- [D] ë…¹ìŒê¸° -->
+                                        <!-- [D] ³ìÀ½±â -->
                                         <div id="recorderArea" class="recorder ui_box ui_type1">
-                                            <h3 class="hidden">ë…¹ìŒê¸°</h3>
+                                            <h3 class="hidden">³ìÀ½±â</h3>
 
                                             <div class="ui_box_inner">
                                                 <div class="ui_timer_wrap">
@@ -85,13 +85,13 @@
                                                 <div class="controls_wrap">
                                                     <div class="control_btns">
                                                         <button type="button" class="btns_bg btn_record">
-                                                            <span class="hidden">ë…¹ìŒ, ì¼ì‹œì •ì§€ ë²„íŠ¼</span>
+                                                            <span class="hidden">³ìÀ½, ÀÏ½ÃÁ¤Áö ¹öÆ°</span>
                                                         </button>
                                                         <button type="button" class="btns_bg btn_stop" disabled>
-                                                            <span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+                                                            <span class="hidden">Á¤Áö ¹öÆ°</span>
                                                         </button>
                                                         <button type="button" class="btns_bg btn_play" disabled>
-                                                            <span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+                                                            <span class="hidden">Àç»ı ¹öÆ°</span>
                                                         </button>
                                                     </div>
 
@@ -104,18 +104,18 @@
                                         </div>
                                         <!-- // .recorder -->
 
-                                        <!-- [D] í”Œë ˆì´ì–´ -->
+                                        <!-- [D] ÇÃ·¹ÀÌ¾î -->
                                         <div id="playerArea" class="player ui_box ui_type1">
-                                            <h3 class="hidden">í”Œë ˆì´ì–´</h3>
+                                            <h3 class="hidden">ÇÃ·¹ÀÌ¾î</h3>
 
                                             <div class="ui_box_inner">
                                                 <div class="controls_wrap">
                                                     <div class="control_btns">
                                                         <button type="button" class="btns_bg btn_play">
-                                                            <span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+                                                            <span class="hidden">Àç»ı ¹öÆ°</span>
                                                         </button>
                                                         <button type="button" class="btns_bg btn_stop" disabled>
-                                                            <span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+                                                            <span class="hidden">Á¤Áö ¹öÆ°</span>
                                                         </button>
                                                     </div>
 
@@ -140,7 +140,7 @@
                 </table>
 
                 <div class="remark_btns">
-                    <h3 class="hidden">ë©”ëª¨ ë“±ë¡ ë²„íŠ¼ë“¤ ì˜ì—­</h3>
+                    <h3 class="hidden">¸Ş¸ğ µî·Ï ¹öÆ°µé ¿µ¿ª</h3>
                     <button type="button" class="btn_send">Send</button>
                     <button type="button" class="btn_clear">Clear</button>
                     <button type="button" class="btn_cancel">Cancel</button>
@@ -151,10 +151,10 @@
                 <h3 class="help_title">Play your Comments</h3>
                 <ol>
                     <li>
-                        Click the Record button<span class="icon_record"><span class="hidden">ë…¹ìŒ ì•„ì´ì½˜</span></span>and speak into the microphone.
+                        Click the Record button<span class="icon_record"><span class="hidden">³ìÀ½ ¾ÆÀÌÄÜ</span></span>and speak into the microphone.
                     </li>
                     <li>
-                        Click the Stop button<span class="icon_stop"><span class="hidden">ì •ì§€ ì•„ì´ì½˜</span></span>when you are finished.
+                        Click the Stop button<span class="icon_stop"><span class="hidden">Á¤Áö ¾ÆÀÌÄÜ</span></span>when you are finished.
                     </li>
                     <li>
                         Click the Send button to send your comments to the student.
@@ -167,19 +167,19 @@
         </form>
     </div>
 
-    <!-- [D] ë ˆì´ì–´íŒì—… -->
+    <!-- [D] ·¹ÀÌ¾îÆË¾÷ -->
     <div class="layer_message_popup">
         <div class="layer_inner">
             <div class="layer_container">
                 <div class="layer_contents">
                     <div class="layer_title">
-                        <h2 class="layer_h2">ì•Œë¦¼</h2>
-                        <button class="layer_close"><span class="hidden">ë‹«ê¸°</span></button>
+                        <h2 class="layer_h2">¾Ë¸²</h2>
+                        <button class="layer_close"><span class="hidden">´İ±â</span></button>
                     </div>
                     <div class="layer_main"><p class="message_text"></p></div>
                     <div class="layer_btns">
-                        <button type="button" class="layer_cancel">ì·¨ì†Œ</button>
-                        <button type="button" class="layer_submit">í™•ì¸</button>
+                        <button type="button" class="layer_cancel">Ãë¼Ò</button>
+                        <button type="button" class="layer_submit">È®ÀÎ</button>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@
 
 <script src="https://school.littlefox.co.kr/libs/jquery-1.11.3.js"></script>
 
-<!-- TODO LSCH-17 : ë…¹ìŒê¸° ìŠ¤í¬ë¦½íŠ¸ ì½”ë“œ ì¶”ê°€ -->
+<!-- TODO LSCH-17 : ³ìÀ½±â ½ºÅ©¸³Æ® ÄÚµå Ãß°¡ -->
 <script src="../recorder/js/libs/CheckBrowser-2.0.2.js"></script>
 <script src="../recorder/js/LayerMessageBox.js"></script>
 <script src="../recorder/js/LoadingIndicator.js"></script>
@@ -199,16 +199,16 @@
 <script src="../recorder/js/libs/manager.TimeManager-2.0.js"></script>
 <script src="../recorder/js/libs/utils.StringUtil.js"></script>
 
-<!-- TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+<!-- TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
 <script>
     'use strict';
 
     $('#writeComments').focus();
 
-    // [D] ë¡œë”©ë°” ì˜ˆì œ
+    // [D] ·Îµù¹Ù ¿¹Á¦
 	var $loader = LoadingIndicator({
 		className : 'progress',
-		message : 'ë¡œë”©ì¤‘...',
+		message : '·ÎµùÁß...',
 	});
 
 	$loader.show();
@@ -216,73 +216,73 @@
 		$loader.hide();
 	}, 1000);
 
-    // === [D] Recorder Custom Event : AudioRecorderManager.RecordView.ready()ë³´ë‹¤ ìƒë‹¨ì— ìœ„ì¹˜ í•„ìˆ˜!!
-    // ë…¹ìŒê¸° ì €ì¥ ì‹œ
+    // === [D] Recorder Custom Event : AudioRecorderManager.RecordView.ready()º¸´Ù »ó´Ü¿¡ À§Ä¡ ÇÊ¼ö!!
+    // ³ìÀ½±â ÀúÀå ½Ã
     $(document).on(RM_CYCLE.SAVE, function(){
         alert('Sent Your Message.');
     });
 
-    // ë…¹ìŒê¸° ë¦¬ì…‹ ì‹œ
+    // ³ìÀ½±â ¸®¼Â ½Ã
     $(document).on(RM_CYCLE.RESET, function(){
         // ...
     });
-    // === [D] AudioRecorderManager.RecordView.ready()ë³´ë‹¤ ìƒë‹¨ì— ìœ„ì¹˜ í•„ìˆ˜!!
+    // === [D] AudioRecorderManager.RecordView.ready()º¸´Ù »ó´Ü¿¡ À§Ä¡ ÇÊ¼ö!!
 
-    // cancel ë²„íŠ¼
+    // cancel ¹öÆ°
     $('.btn_cancel').on('click', () => {
-        var result = confirm('ë³€ê²½ ì‚¬í•­ì´ ìˆìŠµë‹ˆë‹¤.\në©”ì‹œì§€ë¥¼ ë³´ë‚´ì§€ ì•Šê³  ì·¨ì†Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?');
+        var result = confirm('º¯°æ »çÇ×ÀÌ ÀÖ½À´Ï´Ù.\n¸Ş½ÃÁö¸¦ º¸³»Áö ¾Ê°í Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î?');
         if(result){
-            // í™•ì¸
+            // È®ÀÎ
             window.close();
         }else{
-            // ì·¨ì†Œ
+            // Ãë¼Ò
         }
     });
 
-    // send ë²„íŠ¼
+    // send ¹öÆ°
     $('.btn_send').on('click', () => {
         var recorderStatus = AudioRecorderManager.status;
 
-        // ë…¹ìŒê¸°ì¼ ê²½ìš° ë…¹ìŒ ì •ì§€
+        // ³ìÀ½±âÀÏ °æ¿ì ³ìÀ½ Á¤Áö
         if(status.includes('recorder')){
             AudioRecorderManager.RecordView.stop();
         }
 
-        // ì €ì¥
+        // ÀúÀå
         AudioRecorderManager.PlayerView.save();
     });
 
-    // clear ë²„íŠ¼
+    // clear ¹öÆ°
     $('.btn_clear').on('click', () => {
-        var result = confirm('ë©”ì‹œì§€ì™€ ë…¹ìŒ íŒŒì¼ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\nê³„ì† ì§„í–‰í•˜ì‹œë ¤ë©´ í™•ì¸ì„, ì·¨ì†Œí•˜ì‹œë ¤ë©´ ì·¨ì†Œë¥¼ ëˆŒëŸ¬ ì£¼ì„¸ìš”.');
+        var result = confirm('¸Ş½ÃÁö¿Í ³ìÀ½ ÆÄÀÏÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.\n°è¼Ó ÁøÇàÇÏ½Ã·Á¸é È®ÀÎÀ», Ãë¼ÒÇÏ½Ã·Á¸é Ãë¼Ò¸¦ ´­·¯ ÁÖ¼¼¿ä.');
 
         if(result){
-            // í™•ì¸
+            // È®ÀÎ
             AudioRecorderManager.RecordView.reset();
 
         }else{
-            // ì·¨ì†Œ
+            // Ãë¼Ò
         }
     });
 
-    // [D] ë…¹ìŒê¸° ìµœì´ˆ init
-    // === [D] Recorder Custom Event ë³´ë‹¤ í•˜ë‹¨ì— ìœ„ì¹˜ í•„ìˆ˜
+    // [D] ³ìÀ½±â ÃÖÃÊ init
+    // === [D] Recorder Custom Event º¸´Ù ÇÏ´Ü¿¡ À§Ä¡ ÇÊ¼ö
     AudioRecorderManager.RecordView.ready();
-    // TODO ë…¹ìŒëœ ë°ì´í„°ê°€ ìˆì„ê²½ìš° ë°”ë¡œ ìµœì´ˆ initë§ê³  player ready!
+    // TODO ³ìÀ½µÈ µ¥ÀÌÅÍ°¡ ÀÖÀ»°æ¿ì ¹Ù·Î ÃÖÃÊ init¸»°í player ready!
     // AudioRecorderManager.PlayerView.ready();
-    // ==== [D] Recorder Custom Event ë³´ë‹¤ í•˜ë‹¨ì— ìœ„ì¹˜ í•„ìˆ˜
+    // ==== [D] Recorder Custom Event º¸´Ù ÇÏ´Ü¿¡ À§Ä¡ ÇÊ¼ö
 
-    // TODO ë§ˆì´í¬ ì—°ê²° ë¯¸í™•ì¸ ì‹œ íŒì—… ì‚¬ìš© ì˜ˆì‹œ
+    // TODO ¸¶ÀÌÅ© ¿¬°á ¹ÌÈ®ÀÎ ½Ã ÆË¾÷ »ç¿ë ¿¹½Ã
     LayerMessageBox.open({
         type : 'alert',
-        message : 'ë§ˆì´í¬ë¥¼ ì—°ê²°í•˜ê±°ë‚˜, ë§ˆì´í¬ ì•¡ì„¸ìŠ¤ë¥¼ í—ˆìš© í•´ ì£¼ì„¸ìš”.\në§ˆì´í¬ ì•¡ì„¸ìŠ¤ í—ˆìš©ì€ ë¸Œë¼ìš°ì €ì˜ ë§ˆì´í¬ í—ˆìš© ë²„íŠ¼ì„\nëˆŒëŸ¬ í™•ì¸í•˜ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.',
+        message : '¸¶ÀÌÅ©¸¦ ¿¬°áÇÏ°Å³ª, ¸¶ÀÌÅ© ¾×¼¼½º¸¦ Çã¿ë ÇØ ÁÖ¼¼¿ä.\n¸¶ÀÌÅ© ¾×¼¼½º Çã¿ëÀº ºê¶ó¿ìÀúÀÇ ¸¶ÀÌÅ© Çã¿ë ¹öÆ°À»\n´­·¯ È®ÀÎÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.',
         custom : true,
         button : [
             {
                 target : '.layer_submit',
-                label : 'í•´ê²° ë°©ë²• ë³´ê¸°',
+                label : 'ÇØ°á ¹æ¹ı º¸±â',
                 event : function(){
-                    // [TODO] ë§ˆì´í¬ í•´ê²° ë°©ë²• ë³´ê¸° í´ë¦­ ì´ë²¤íŠ¸ ì‘ì„± ì˜ì—­
+                    // [TODO] ¸¶ÀÌÅ© ÇØ°á ¹æ¹ı º¸±â Å¬¸¯ ÀÌº¥Æ® ÀÛ¼º ¿µ¿ª
                     // window.opener.location = 'https://school.littlefox.co.kr/academy/view/community/faq.php';
                     // self.close();
                 },
@@ -297,7 +297,7 @@
         ]
     });
 </script>
-<!-- // TODO ë…¹ìŒê¸° ì‚¬ìš© ì°¸ê³  ì˜ˆì‹œ ì½”ë“œ ì…ë‹ˆë‹¤. ====================== -->
+<!-- // TODO ³ìÀ½±â »ç¿ë Âü°í ¿¹½Ã ÄÚµå ÀÔ´Ï´Ù. ====================== -->
 
 </body>
 </html>

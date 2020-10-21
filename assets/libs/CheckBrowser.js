@@ -1,9 +1,3 @@
-/**
- * browser check
- * @author Lee Sang-Mi(2019.04.26)
- * @update Lee Yoon-Seo(2019.09.06)
- * @version 2.0.2
- */
 window.CheckBrowser = (function(){
 
 	var _agent;

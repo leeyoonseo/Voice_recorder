@@ -1,164 +1,90 @@
 <!DOCTYPE html>
-<html lang="ko" dir="ltr">
+<html lang="ko">
 <head>
-<meta charset="euc-kr">
-<meta property="og:type" content="website">
-<meta property="og:title" content="¸®Æ²ÆÅ½º">
-<meta property="og:description" content="¾Ö´Ï¸ŞÀÌ¼Ç ¿µ¾îµ¿È­ µµ¼­°ü! µ¿È­, µ¿¿ä, ´Ü¾îÀå, ÇÁ¸°ÅÍºíºÏ, ÇĞ½À±â·Ï µî Á¦°ø">
-<meta property="og:image" content="https://school.littlefox.co.kr/academy/view/about/imgs/bi/symbol.png">
-<meta property="og:url" content="https://school.littlefox.co.kr">
-<meta name="viewport" content="width=device-width">
-<title>³ìÀ½±â µ¥¸ğ ÆäÀÌÁö</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="./recorder/css/LayerMessageBox.css">
-<style>
-    body{ font-size:14px; }
-    .hidden{ position: absolute; top: 0; left: 0; overflow: hidden; visibility: hidden; width: 0 !important; height: 0 !important; font-size: 0 !important; line-height: 0 !important; }
-    .box + .box{ padding-top:30px; margin-top:30px; border-top:1px solid #666; }
-    h2{ margin:0; font-size:18px; }
-    span:not(.info_path){ display:block; }
-    .info_path{ font-weight:400; font-size:16px; }
-    button,
-    .new_site{ display:inline-block; padding:5px; font-size:14px; text-decoration:none; color:#333; background:#fff; border:0; border:1px solid #333; cursor:pointer; outline:0; }
-    button:hover,
-    .new_site:hover{ background:#333; color:#fff; }
-    .operation_site { margin-bottom:10px; display:inline-block; text-decoration:none; color:#333; }
-    .operation_site:hover { color:purple; font-weight:700; }
-</style>
+    <link rel="stylesheet" href="./assets/css/recorder.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <title>Recorder</title>
 </head>
 <body>
-    <h1>³ìÀ½±â µ¥¸ğ ÆäÀÌÁö</h1>
-    <div class="box">
-        <h2>
-            ÇĞ»ıÈ­¸é ³ìÀ½±â ÆË¾÷
-            <span class="info_path">/free_recorder.html</span>
-        </h2>
-        [<a class="operation_site" href="https://school.littlefox.co.kr/student/recorder/free_recorder.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><button data-src="./01.freeRecorder/free_recorder.html" data-size="620,420">ÆË¾÷È®ÀÎ</button></span>
-    </div>
+    <!-- [D] ë…¹ìŒê¸° -->
+    <div id="recorderArea" class="recorder ui_box ui_type1">
+        <h3 class="hidden">ë…¹ìŒê¸°</h3>
 
-    <div class="box">
-        <h2>
-            ÇĞ»ı »ó¼¼Á¤º¸ Recordings ÅÇ ¸Ş¸ğ ³ìÀ½±â
-            <span class="info_path">/recordings_remark.html</span>
-        </h2>
-        [<a class="operation_site" href="http://school.littlefox.co.kr/Manager/Class/Recordings_remark.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><button data-src="./02.recordingsRemark/recordings_remark.html" data-size="540,600">ÆË¾÷È®ÀÎ</button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            Homework ³ìÀ½±â
-            <span class="info_path">/homework_recorder_image.html</span>
-        </h2>
-        [<a class="operation_site" href="https://school.littlefox.co.kr/contents/apps/course/lms/homework_recorder_image.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><a class="new_site" href="./03.homeworkRecorder/homework_recorder_image.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            ÀÔÇĞ ·¹º§ Å×½ºÆ®(interview) ÆË¾÷
-            <span class="info_path">/interview_new.html</span>
-        </h2>
-        [<a class="operation_site" href="https://school.littlefox.co.kr/student/archives/recording.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><a class="new_site" href="./04.interviewNew/interview_new.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            ÇĞ»ı»ó¼¼Á¤º¸ Recordings ÅÇ ÇÃ·¹ÀÌ¾î
-            <span class="info_path">/student_recordings.html</span>
-        </h2>
-        [<a class="operation_site" href="http://school.littlefox.co.kr/Manager/Student/Student_recordings.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><button data-src="./05.studentRecordings/student_recordings.html" data-size="950,800">ÆË¾÷È®ÀÎ</button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            ³ªÀÇ ÇĞ½À ±â·Ï
-            <span class="info_path">/recording.html</span>
-        </h2>
-        [<a class="operation_site" href="http://school.littlefox.co.kr/student/placement/views/interview_new/index_v.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><a class="new_site" href="./05.studentRecordings/recording.html" target="_blank">¹Ù·Î°¡±â</a></button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            ³ªÀÇÇĞ½À¹æ > ¼÷Á¦ ³ìÀ½±â
-            <span class="info_path">/view_recording.html</span>
-        </h2>
-        [<a class="operation_site" href="https://school.littlefox.co.kr/Manager/Homework/view_recording.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><button data-src="./05.studentRecordings/view_recording.html" data-size="480,280">ÆË¾÷È®ÀÎ</button></span>
-    </div>
-
-    <div class="box">
-        <h2>
-            ³ªÀÇÇĞ½À±â·Ï - ¼±»ı´Ô ¸Ş½ÃÁö
-            <span class="info_path">/memo.html</span>
-        </h2>
-        [<a class="operation_site" href="https://school.littlefox.co.kr/student/archives/memo.php" target="_blank">¿î¿µ»çÀÌÆ® ¹Ù·Î°¡±â</a>]
-        <span><button data-src="./05.studentRecordings/memo.html" data-size="480,375">ÆË¾÷È®ÀÎ</button></span>
-    </div>
-
-
-    <!-- [D] ÆäÀÌÁö ³» °øÅë ·¹ÀÌ¾îÆË¾÷ -->
-    <div class="layer_message_popup">
-        <div class="layer_inner">
-            <div class="layer_container">
-                <div class="layer_contents">
-                    <div class="layer_title">
-                        <h2 class="layer_h2">¾Ë¸²</h2>
-                        <button class="layer_close"><span class="hidden">´İ±â</span></button>
+        <div class="ui_box_inner">
+            <div class="ui_timer_wrap">
+                <div class="pie_bg">
+                    <div class="pie_wrap">
+                        <div class="pie"></div>
+                        <div class="pie_shadow recording_c"></div>
+                        <div class="pie_pointer"><span></span></div>
                     </div>
-                    <div class="layer_main"><p class="message_text"></p></div>
-                    <div class="layer_btns">
-                        <button type="button" class="layer_submit">È®ÀÎ</button>
-                        <button type="button" class="layer_cancel">Ãë¼Ò</button>
-                    </div>
+                </div>
+
+                <div class="timer">00:00</div>
+            </div>
+
+            <div class="controls_wrap">
+                <div class="control_btns">
+                    <button type="button" class="btns_bg btn_record">
+                        <span class="hidden">ë…¹ìŒ, ì¼ì‹œì •ì§€ ë²„íŠ¼</span>
+                    </button>
+                    <button type="button" class="btns_bg btn_stop" disabled>
+                        <span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+                    </button>
+                    <button type="button" class="btns_bg btn_play" disabled>
+                        <span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+                    </button>
+                </div>
+
+                <div class="ui_status_bar">
+                    <div class="status_bg"></div>
+                    <div class="status_bar"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- // [D] ÆäÀÌÁö ³» °øÅë ·¹ÀÌ¾îÆË¾÷ -->
 
-<script type="text/javascript" src="http://www.littlefox.co.kr/static/vendor/jquery-1.11.3.min.js"></script>
-<script src="./recorder/js/LayerMessageBox.js"></script>
+    <!-- [D] í”Œë ˆì´ì–´ -->
+    <div id="playerArea" class="player ui_box ui_type1">
+        <h3 class="hidden">í”Œë ˆì´ì–´</h3>
 
-<!-- TODO ÆË¾÷ Å×½ºÆ®¸¦ À§ÇÑ ÄÚµåµé -->
-<script>
-    $('#btn').on('click', function(){
-        LayerMessageBox.open({
-            type : 'alert'
-        }, '³ìÀ½µÈ ³»¿ëÀÌ ÀúÀåµÇÁö ¾Ê½À´Ï´Ù.\n´Ù½Ã ³ìÀ½ ÇÒ±î¿ä?', function(isState){
-            if(!isState) return false;
-        });
-    });
+        <div class="ui_box_inner">
+            <div class="ui_timer_wrap">
+                <div class="pie_bg">
+                    <div class="pie_shadow playing_c"></div>
+                </div>
+            </div>
 
-    $('button:not(#btn)').on('click', function(){
-        var popSrc = $(this).attr('data-src');
-        var popSize = $(this).attr('data-size');
-        var width = popSize.split(',')[0];
-        var height = popSize.split(',')[1];
+            <div class="controls_wrap">
+                <div class="control_btns">
+                    <button type="button" class="btns_bg btn_record" disabled>
+                        <span class="hidden">ë…¹ìŒ, ì¼ì‹œì •ì§€ ë²„íŠ¼</span>
+                    </button>
+                    <button type="button" class="btns_bg btn_stop" disabled>
+                        <span class="hidden">ì •ì§€ ë²„íŠ¼</span>
+                    </button>
+                    <button type="button" class="btns_bg btn_play">
+                        <span class="hidden">ì¬ìƒ ë²„íŠ¼</span>
+                    </button>
+                </div>
 
-        setAlignCenter(width, height, popSrc);
-    });
-
-    function setAlignCenter(width, height, href) {
-        var xPos = getXposition(width);
-        var yPos = getYposition(height);
-
-        window.open(href, '_blank', 'width=' + width + ', height=' + height + ', left=' + xPos + ', top=' + yPos + ', toolbars=no, resizable=yes, scrollbars=no, location=no');
-    }
-
-    function getXposition(width){
-        return ((document.body.clientWidth / 2) - (width / 2)) + window.screenLeft;
-    }
-
-    function getYposition(height){
-        return ((screen.availHeight / 2) - (height / 2)) +  window.screenTop;
-    }
-</script>
-<!-- // TODO ÆË¾÷ Å×½ºÆ®¸¦ À§ÇÑ ÄÚµåµé -->
-
+                <div class="ui_status_bar">
+                    <div class="current_time">00:00</div>
+                    <div class="status_bar">
+                        <span class="playing">
+                            <span class="status_pointer"></span>
+                        </span>
+                    </div>
+                    <div class="total_time">00:00</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

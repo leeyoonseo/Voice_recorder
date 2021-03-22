@@ -197,14 +197,6 @@ AudioRecorderManager.RecordView = (function(){
         stop();
     };
 
-    /**
-     * 마이크 볼륨 값
-     * @param {Number} volume 
-     */
-    function inputMicVolume(volume){
-        $UI.find('.status_bar').css('width', volume + '%');
-    }
-
     return {
         reset,
         init,
@@ -213,7 +205,6 @@ AudioRecorderManager.RecordView = (function(){
         recording,
         pause,
         stop,
-        inputMicVolume,
     };
 
 }());
@@ -415,7 +406,6 @@ AudioRecorderManager.PlayerView = (function(){
         return this;
     };
 
-    // TODO LSCH-181 HTML5 녹음기 퍼블리싱 수정 및 기능추가(재녹음)
     var restart = function(){
         stop();
         dettachEvent();
@@ -428,7 +418,6 @@ AudioRecorderManager.PlayerView = (function(){
         player.getPlayStatus() ? pause() : play();
     }
 
-    // TODO LSCH-181 HTML5 녹음기 퍼블리싱 수정 및 기능추가(재녹음)
     return {
         restart,
         init,

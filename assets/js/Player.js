@@ -44,11 +44,13 @@ window.AudioPlayer.prototype = {
             statusBar : '.ui_status_bar',
             audioFileSrc : '',
             timeFormat : 'mm:ss',
+            recordTime: 0,
         }, opts);
 
-        this.audio = new Audio();
+        this.audio = new Audio(this.options.audioFileSrc);
         this.wrap = $(this.options.wrap);
 
+        this.recordTime = this.options.recordTime;
         this.statusBar = this.wrap.find(this.options.statusBar);
         this.bar = this.statusBar.find('.status_bar');
         this.pointer = this.statusBar.find('.status_pointer');
@@ -108,29 +110,24 @@ window.AudioPlayer.prototype = {
         var that = this;
 
         try {
-            $(this.audio).attr('src', this.options.audioFileSrc)
-            .on('error', function(e){
-                // 에러
-                console.log(e.message);
-            })
-
-            // 오디오 로드 시
-            .on('loadeddata', function(){
+            $(this.audio)
+            .on('loadeddata', function(){ // [D] 오디오 로드
                 var duration = this.duration;
+
                 if (this.duration == 'Infinity') {
-                    duration = recordedTime;
+                    duration = that.recordTime / 1000;
                     that.bar.css('cursor', 'default');
                 }
 
                 that.loadeddataCallback(duration);
                 that.totalTime = duration;
-            })
 
-            // 오디오 타이머 시
-            .on('timeupdate', function(){
+            })
+            .on('timeupdate', function(){ // [D] 오디오 타이머
                 var duration = this.duration;
+
                 if (this.duration == 'Infinity') {
-                    duration = recordedTime;
+                    duration = that.recordTime / 1000;
                     that.bar.css('cursor', 'default');
 
                 } else {
@@ -138,13 +135,16 @@ window.AudioPlayer.prototype = {
                 }
 
                 that.timeupdateCallback(this.currentTime, duration);
-            })
 
-            // 오디오 종료 시
-            .on('ended', function(){
+            })
+            .on('ended', function(){ // [D] 오디오 종료 
                 that.endedCallback(this.duration);
 
-            }).load();
+            })
+            .on('error', function(e){ // [D] 오디오 에러 
+                console.log(e.message);
+            })
+            .load();
 
         } catch (e) {
             console.log(e.name + ": " + e.message);

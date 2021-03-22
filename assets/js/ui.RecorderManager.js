@@ -10,7 +10,7 @@
 const VERSION = '1.2.0';
 
 var DEFAULT = {
-    TIME_LIMIT : 180000, // 1000 = 1초
+    TIME_LIMIT : 30000, // 1000 = 1초
     TIME_FORMAT : 'mm:ss',
 };
 
@@ -37,14 +37,12 @@ window.AudioRecorderManager = {
     name : "AudioRecorderManager",
     version : VERSION,
     status : RM_CYCLE.WAITING,
-    options : {
-        autoStart : false,
-        autoNextStep : true,
-    },
+    recordTime: null,
 };
 
 AudioRecorderManager.RecordView = (function(){
     var $UI = $('#recorderArea');
+
     var progressbar = {
         init : function(){
             this.node && this.node.reset();
@@ -58,22 +56,20 @@ AudioRecorderManager.RecordView = (function(){
             return this;
         }
     };
+
     var timer = {
         init : function(){
             this.node = this.node || new TimeManager();
 
             this.node.setup({
                 startTime: 0,
+                currentTime: 0,
                 endTime: DEFAULT.TIME_LIMIT,
                 intervalGap: 10,
                 displayFormat: DEFAULT.TIME_FORMAT,
                 onProgress: function(format, time){
+                    this.currentTime = time;
                     AudioRecorderManager.RecordView.recording(time, format);
-                },
-                onComplete : function(){
-                    if(AudioRecorderManager.options.autoNextStep){
-                        AudioRecorderManager.PlayerView.ready();
-                    }
                 },
             });
 
@@ -86,6 +82,7 @@ AudioRecorderManager.RecordView = (function(){
         },
 
         stop : function(){
+            AudioRecorderManager.recordTime = this.node.currentTime;
             this.node.stop();
             return this;
         },
@@ -101,6 +98,7 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     var init  = function(){
+        chunks = [];
         $UI.removeClass('active');
         timer.clear();
         dettachEvent();
@@ -108,31 +106,14 @@ AudioRecorderManager.RecordView = (function(){
         return this;
     };
 
-    /**
-     * 녹음기 준비
-     * @param {Object} options - 자동시작여부, 플레이어 자동 전환여부등의 옵션값이 담긴 객체
-     * @param {boolean} options.autoStart - 자동시작 여부
-     * @param {boolean} options.autoNextStep - 플레이어 자동전환 여부
-     */
-    var ready = function(options){
+    var ready = function(){
         AudioRecorderManager.status = RM_CYCLE.RECORDER_READY;
-
-        if(options){
-            AudioRecorderManager.options = $.extend({}, AudioRecorderManager.options, options);
-        }
-
         AudioRecorderManager.PlayerView.init();
         progressbar.init();
         timer.init();
-
         attachEvent();
 
         $(document).trigger(RM_CYCLE.RECORDER_READY, $UI);
-
-        if(AudioRecorderManager.options.autoStart){
-            AudioRecorderManager.RecordView.record();
-        }
-
         return this;
     };
 
@@ -162,9 +143,9 @@ AudioRecorderManager.RecordView = (function(){
         .find('.btn_stop').attr('disabled', false).end()
         .find('.pie_pointer').show();
 
-    $(document).trigger(RM_CYCLE.RECORDER_RECORD, $UI);
+        $(document).trigger(RM_CYCLE.RECORDER_RECORD, $UI);
 
-    return this;
+        return this;
     };
 
     /**
@@ -193,10 +174,8 @@ AudioRecorderManager.RecordView = (function(){
 
     var stop = function(){
         pause();
-        AudioRecorderManager.PlayerView.ready();
 
         $(document).trigger(RM_CYCLE.RECORDER_STOP, $UI);
-
         return this;
     };
 
@@ -226,8 +205,6 @@ AudioRecorderManager.RecordView = (function(){
         $UI.find('.status_bar').css('width', volume + '%');
     }
 
-    // init();
-
     return {
         reset,
         init,
@@ -240,7 +217,6 @@ AudioRecorderManager.RecordView = (function(){
     };
 
 }());
-//FoxRecordUI.RecordView
 
 /**
  * 재생 화면
@@ -277,16 +253,13 @@ AudioRecorderManager.PlayerView = (function(){
 
     var player = {
         init : function(audioSrc){
-            // TODO audioSrc 삽입 후 아래 if문 삭제 요청
-            if(!audioSrc || $.trim(audioSrc)){
-                audioSrc = '../recorder/sample/audio0.mp3';
-            }
-            // // TODO audioSrc 삽입 후 아래 if문 삭제 요청
-
+            audioSrc = audioSrc ? audioSrc : '../recorder/sample/audio0.mp3';
+            
             this.node = this.node || new AudioPlayer();
             this.node.init({
                 wrap : '.player',
                 audioFileSrc : audioSrc,
+                recordTime: AudioRecorderManager.recordTime,
             });
 
             return this;
@@ -365,6 +338,7 @@ AudioRecorderManager.PlayerView = (function(){
      * @param {String} audioSrc - 오디오 경로 
      */
     var ready = function(audioSrc){
+
         AudioRecorderManager.status = RM_CYCLE.PLAYER_READY;
 
         progressbar.init();

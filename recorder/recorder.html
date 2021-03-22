@@ -279,50 +279,28 @@
     <script src="../assets/js/LoadingIndicator.js"></script>
     <script src="../assets/js/ProgressBar.js"></script>
     <script src="../assets/js/Player.js"></script>
-    <script src="../assets/js/RecorderManager.js"></script>
+    <script src="../assets/js/ui.RecorderManager.js"></script>
 
     <script src="../assets/js/libs/manager.TimeManager-2.0.js"></script>
     <script src="../assets/js/libs/utils.StringUtil.js"></script>
 
     <!-- TODO: 위에 코드 추가하기  -->
-    <!-- TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
     <script>
         'use strict';
 
         // [D] 로딩바 예제
-    	var $loader = LoadingIndicator({
-    		className : 'progress',
-    		message : '로딩중...',
-    	});
+    	// var $loader = LoadingIndicator({
+    	// 	className : 'progress',
+    	// 	message : '로딩중...',
+    	// });
 
-    	$loader.show();
-    	setTimeout(() => {
-    		$loader.hide();
-    	}, 1000);
+    	// $loader.show();
+    	// setTimeout(() => {
+    	// 	$loader.hide();
+    	// }, 1000);
 
         var $subjectInput = $('#subjectInput');
         var $submitBtn = $('.submit_btn');
-
-        // === [D] Recorder Custom Event : AudioRecorderManager.RecordView.ready()보다 상단에 위치 필수!!
-        // 녹음기 준비상태
-        $(document).on(RM_CYCLE.RECORDER_READY, function(){
-            $subjectInput.val('').focus();
-            $submitBtn.prop('disabled', true);
-        });
-
-        // 플레이어 준비상태
-        $(document).on(RM_CYCLE.PLAYER_READY, function(){
-            $submitBtn.prop('disabled', false);
-        });
-
-        // 녹음기 저장 시
-        $(document).on(RM_CYCLE.SAVE, function(){
-            var result = confirm('선생님께 녹음 내용을 보냈습니다.\n나의 학습 기록을 보시겠습니까?');
-            if(result){
-                window.opener.location = 'https://school.littlefox.co.kr/student/archives/recording.php';
-            }
-        });
-        // === [D] AudioRecorderManager.RecordView.ready()보다 상단에 위치 필수!!
 
         // 가이드 보기 버튼
         $('.guide_btn, .coaching_guide_wrap .close_btn').on('click', () => {
@@ -351,9 +329,86 @@
             window.close();
         });
 
-        // [D] 녹음기 최초 init
+        // [D] 녹음
+        if (navigator.mediaDevices) {
+            const audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+            const analyser = audioCtx.createAnalyser();
+            var chunks = [];
+
+            navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+
+                const mediaRecorder = new MediaRecorder(stream);
+                
+                // [D] 녹음기 준비
+                $(document).on(RM_CYCLE.RECORDER_READY, function(){
+                    $subjectInput.val('').focus();
+                    $submitBtn.prop('disabled', true);                    
+                });
+
+                // [D] 녹음기 녹음 시작
+                $(document).on(RM_CYCLE.RECORDER_RECORD, function(){
+                    if (mediaRecorder.state === 'paused'){
+                        mediaRecorder.resume();
+                        return;    
+                    }
+                    
+                    mediaRecorder.start();
+                });
+
+                // [D] 녹음기 일시정지
+                $(document).on(RM_CYCLE.RECORDER_PAUSE, function(){
+                    mediaRecorder.pause();
+                });
+
+                // [D] 녹음기 종료
+                $(document).on(RM_CYCLE.RECORDER_STOP, function(){
+                    mediaRecorder.stop();
+                });
+
+                // [D] 플레이어 준비
+                $(document).on(RM_CYCLE.PLAYER_READY, function(){
+                    $submitBtn.prop('disabled', false);
+                });
+
+                // [D] 녹음 저장 시
+                $(document).on(RM_CYCLE.SAVE, function(){
+                    var result = confirm('선생님께 녹음 내용을 보냈습니다.\n나의 학습 기록을 보시겠습니까?');
+                    if(result){
+                        window.opener.location = 'https://school.littlefox.co.kr/student/archives/recording.php';
+                    }
+                });
+
+                mediaRecorder.onstop = e => {
+                    const wrap = $('.recorder_popup');
+                    const blob = new Blob(chunks, {
+                        'type': 'audio/ogg codecs=opus'
+                    });
+                    chunks = [];
+                    const audioURL = URL.createObjectURL(blob);
+
+                    AudioRecorderManager.PlayerView.ready(audioURL);
+                }
+
+                console.log('mediaRecorder',mediaRecorder)
+
+                mediaRecorder.ondataavailable = e => {
+                    chunks.push(e.data);
+                }
+
+                AudioRecorderManager.RecordView.ready();
+            })
+            .catch(err => {
+                console.log('The following error occurred: ' + err)
+            });
+
+        } else {
+            alert('녹음안됨');
+        }
+
+
         // === [D] Recorder Custom Event 보다 하단에 위치 필수
-        AudioRecorderManager.RecordView.ready();
+        
         // ==== [D] Recorder Custom Event 보다 하단에 위치 필수
 
         // TODO 마이크 연결 미확인 시 팝업 사용 예시
@@ -386,7 +441,6 @@
     	// 	]
     	// });
     </script>
-    <!-- // TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
 
 </body>
 </html>

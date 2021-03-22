@@ -1,12 +1,17 @@
-window.StringUtils = {
+/**
+ * String ìœ í‹¸
+ * @author Lee Sang Mi(2019.07.10)
+ * @version 1.0.0
+ */
+ window.StringUtils = {
 
 	/**
-	 * ¼ıÀÚ :¼¼ÀÚ¸® ÄŞ¸¶ Ç¥Çö
+	 * ìˆ«ì :ì„¸ìë¦¬ ì½¤ë§ˆ í‘œí˜„
 	 * @param num
 	 */
     numberWithCommas: function(num) {
         if (isNaN(num)) {
-            throw new Error('¸Å°³º¯¼ö°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.');
+            throw new Error('ë§¤ê°œë³€ìˆ˜ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.');
             return false;
         }
 
@@ -14,7 +19,7 @@ window.StringUtils = {
     },
 
     /**
-     * ¼öÄ¡¸¦ Ç¥ÇöÇÑ ¹®ÀÚ¿­¿¡¼­ ´ÜÀ§¸¦ ³ªÅ¸³»´Â ¹®ÀÚ´Â ¶¼¾î³»°í ¼ıÀÚ¸¸ ¸®ÅÏ
+     * ìˆ˜ì¹˜ë¥¼ í‘œí˜„í•œ ë¬¸ìì—´ì—ì„œ ë‹¨ìœ„ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë¬¸ìëŠ” ë–¼ì–´ë‚´ê³  ìˆ«ìë§Œ ë¦¬í„´
      */
     getNumericFromString : function(str){
 
@@ -24,9 +29,9 @@ window.StringUtils = {
 	},
 
     /**
-     * ¹Ğ¸®¼¼ÄÁµå¸¦ Æ÷¸ËµÈ ¹®ÀÚ¿­·Î ¹İÈ¯
+     * ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ í¬ë§·ëœ ë¬¸ìì—´ë¡œ ë°˜í™˜
      * @param time : milliseconds
-     * @param format : ¹İÈ¯ÇÒ ¹®ÀÚ¿­ Çü½Ä
+     * @param format : ë°˜í™˜í•  ë¬¸ìì—´ í˜•ì‹
      */
     makeTimeString: function(time, format) {
 
@@ -46,7 +51,7 @@ window.StringUtils = {
     },
 
     /**
-     * µÎÀÚ¸®¼ö ¼ıÀÚ Ç¥Çö
+     * ë‘ìë¦¬ìˆ˜ ìˆ«ì í‘œí˜„
      */
     _toDigitString: function(num) {
 
@@ -59,25 +64,25 @@ window.StringUtils = {
     },
 
     _timeFormat: {
-    	// ½Ã
+    	// ì‹œ
         hh: function(time) {
             return StringUtils._toDigitString.call(this, parseInt((time / 1000) % 18600 / 3600));
         },
-        // ºĞ
+        // ë¶„
         mm: function(time) {
             return StringUtils._toDigitString.call(this, parseInt((time / 1000) % 3600 / 60));
         },
-        // ÃÊ
+        // ì´ˆ
         ss: function(time) {
             return StringUtils._toDigitString.call(this, (time / 1000) % 60);
         },
-        // 1000ºĞÀÇ 1ÃÊ
+        // 1000ë¶„ì˜ 1ì´ˆ
         ms: function(time) {
             var ms = time % 1000 / 1000;
             if (ms == 0) return '0';
             return (ms.toString()).substring(2);
         },
-        // 1000ºĞÀÇ 1ÃÊ(µÎÀÚ¸®)
+        // 1000ë¶„ì˜ 1ì´ˆ(ë‘ìë¦¬)
         m2s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '00';
@@ -85,7 +90,7 @@ window.StringUtils = {
         	ms = ms.toFixed(2) * 100;
         	return ms;
         },
-        // 1000ºĞÀÇ 1ÃÊ(¼¼ÀÚ¸®)
+        // 1000ë¶„ì˜ 1ì´ˆ(ì„¸ìë¦¬)
         m3s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '000';

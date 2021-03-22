@@ -1,19 +1,19 @@
 /**
- * ³ìÀ½±â ·Îµù ¹Ù UI
+ * ë…¹ìŒê¸° ë¡œë”© ë°” UI
  * @author Lee Yoon Seo (2019.09)
  * @version 1.0.0
  * @see CheckBrowser-2.0.0.js
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
-window.ProgressBar = {
+ window.ProgressBar = {
     name : "progress bar draw",
     version : "1.0.0",
 };
 
 /**
- * circle ·Îµù ¹Ù »ı¼º
+ * circle ë¡œë”© ë°” ìƒì„±
  * @constructor ProgressBar
- * @param {String} element circleÀÌ ±×·ÁÁú ºÎ¸ğ id³ª class
+ * @param {String} element circleì´ ê·¸ë ¤ì§ˆ ë¶€ëª¨ idë‚˜ class
  */
 ProgressBar.Circle = function(element){
     this.name = "ProgressBar.Circle";
@@ -24,8 +24,8 @@ ProgressBar.Circle = function(element){
     var $right;
 
     /**
-     * draw ÇÔ¼öµé È£Ãâ
-     * @param {Number} deg È¸Àü ½ÃÄÑ¾ßÇÏ´Â °¢µµ °ª
+     * draw í•¨ìˆ˜ë“¤ í˜¸ì¶œ
+     * @param {Number} deg íšŒì „ ì‹œì¼œì•¼í•˜ëŠ” ê°ë„ ê°’
      */
     this.draw = function(deg){
         _clipBoundary.call(this, deg);
@@ -36,7 +36,7 @@ ProgressBar.Circle = function(element){
         this.draw(0);
     };
 
-    // È¸ÀüÇÒ ¶§ »ç¿ëµÇ´Â half-circle »ı¼º
+    // íšŒì „í•  ë•Œ ì‚¬ìš©ë˜ëŠ” half-circle ìƒì„±
     function _createHalfCircle(){
         return $('<div></div>').prop({'class' : 'half-circle'})
                                .css({'transform' : '_rotate(0)'});
@@ -55,8 +55,8 @@ ProgressBar.Circle = function(element){
     };
 
     /**
-     * half-circle, pointer¸¦ È¸Àü ½ÃÅ°´Â ÇÔ¼ö
-     * @param {Number} deg  È¸Àü ½ÃÄÑ¾ßÇÏ´Â °¢µµ °ª
+     * half-circle, pointerë¥¼ íšŒì „ ì‹œí‚¤ëŠ” í•¨ìˆ˜
+     * @param {Number} deg  íšŒì „ ì‹œì¼œì•¼í•˜ëŠ” ê°ë„ ê°’
      */
     function _rotate(deg){
         if(deg < 0) return;
@@ -67,8 +67,8 @@ ProgressBar.Circle = function(element){
     }
 
    /**
-     * half-circle¸¦ È¸Àü ½ÃÅ°±â À§ÇÑ ½ºÅ¸ÀÏÀ» Ãß°¡ÇÏ´Â ÇÔ¼ö
-     * @param {Number} deg È¸Àü ½ÃÅ°´Â °¢µµ °ª
+     * half-circleë¥¼ íšŒì „ ì‹œí‚¤ê¸° ìœ„í•œ ìŠ¤íƒ€ì¼ì„ ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
+     * @param {Number} deg íšŒì „ ì‹œí‚¤ëŠ” ê°ë„ ê°’
      */
     function _clipBoundary(deg){
         $progress.css((deg > 180) ? {'clip': 'rect(auto auto auto auto)'} // full
@@ -81,9 +81,9 @@ ProgressBar.Circle = function(element){
 };
 
 /**
- * Linear ·Îµù ¹Ù »ı¼º
+ * Linear ë¡œë”© ë°” ìƒì„±
  * @constructor ProgressBar
- * @param {Object} options ¹Ù »ı¼º¿¡ ÇÊ¿äÇÑ ¿¤¸®¸ÕÆ®µé
+ * @param {Object} options ë°” ìƒì„±ì— í•„ìš”í•œ ì—˜ë¦¬ë¨¼íŠ¸ë“¤
  */
 ProgressBar.Linear = function(options){
     this.name = "ProgressBar.Linear";
@@ -103,19 +103,19 @@ ProgressBar.Linear = function(options){
     var thumbRadius = this.wrap.find(this.options.thumb).outerWidth() / 2;
 
     /**
-     * ·Îµù ¹Ù ±×¸®±â
-     * @issue ·Îµù ¹Ù ¹ÛÀ¸·Î Æ÷ÀÎÅÍ°¡ ³ëÃâµÇ´Â ¹®Á¦·Î ¹ÙÀÇ ³Êºñ¿¡¼­ Æ÷ÀÎÅÍÀÇ ¹İÁö¸§À» Á¦ÇÏ±â À§ÇÏ¿© °ªÀ» °è»êÇÏ¿© ¸®ÅÏ
-     * @param {Number} currentW ±×·ÁÁ®¾ßÇÒ width °ª
+     * ë¡œë”© ë°” ê·¸ë¦¬ê¸°
+     * @issue ë¡œë”© ë°” ë°–ìœ¼ë¡œ í¬ì¸í„°ê°€ ë…¸ì¶œë˜ëŠ” ë¬¸ì œë¡œ ë°”ì˜ ë„ˆë¹„ì—ì„œ í¬ì¸í„°ì˜ ë°˜ì§€ë¦„ì„ ì œí•˜ê¸° ìœ„í•˜ì—¬ ê°’ì„ ê³„ì‚°í•˜ì—¬ ë¦¬í„´
+     * @param {Number} currentW ê·¸ë ¤ì ¸ì•¼í•  width ê°’
      */
     this.draw = function(currentW){
         $(progress).width((currentW + thumbRadius) + 'px');
     };
 
     /**
-     * ·Îµù ¹Ù ÀÌº¥Æ®
-     * @issue ·Îµù ¹Ù ¹ÛÀ¸·Î Æ÷ÀÎÅÍ°¡ ³ëÃâµÇ´Â ¹®Á¦·Î ¹ÙÀÇ ³Êºñ¿¡¼­ Æ÷ÀÎÅÍÀÇ ¹İÁö¸§À» Á¦ÇÏ±â À§ÇÏ¿© °ªÀ» °è»êÇÏ¿© ¸®ÅÏ
-     * @param {Object} e ·Îµù ¹Ù event
-     * @param {Object} audio Á¦¾î ÇÒ ¿Àµğ¿À
+     * ë¡œë”© ë°” ì´ë²¤íŠ¸
+     * @issue ë¡œë”© ë°” ë°–ìœ¼ë¡œ í¬ì¸í„°ê°€ ë…¸ì¶œë˜ëŠ” ë¬¸ì œë¡œ ë°”ì˜ ë„ˆë¹„ì—ì„œ í¬ì¸í„°ì˜ ë°˜ì§€ë¦„ì„ ì œí•˜ê¸° ìœ„í•˜ì—¬ ê°’ì„ ê³„ì‚°í•˜ì—¬ ë¦¬í„´
+     * @param {Object} e ë¡œë”© ë°” event
+     * @param {Object} audio ì œì–´ í•  ì˜¤ë””ì˜¤
      */
     this.input = function(e, audio){
         if (audio.duration == 'Infinity') {

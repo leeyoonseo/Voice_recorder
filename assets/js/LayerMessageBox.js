@@ -1,58 +1,58 @@
 /**
- * ³ìÀ½±â ·¹ÀÌ¾î ÆË¾÷ UI
+ * ë…¹ìŒê¸° ë ˆì´ì–´ íŒì—… UI
  * @author Lee Yoon Seo (2019.11)
  * @update Lee Yoon seo (2020.09.04)
  * @version 1.1.0
  * @return {Object} open, close
  * @usage
  * <pre>
- *   // ±âº»Çü
+ *   // ê¸°ë³¸í˜•
  *   LayerMessageBox.open({ 
  *      type : 'alert'
- *   }, '¸Ş¼¼Áö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n¾È³»Ã¢ÀÔ´Ï´Ù.');
+ *   }, 'ë©”ì„¸ì§€ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\nì•ˆë‚´ì°½ì…ë‹ˆë‹¤.');
  *
- *   // È®ÀåÇü
+ *   // í™•ì¥í˜•
  *   LayerMessageBox.open({
  *       type : 'alert',
  *       custom : true,
  *       button : { 
  *           target : '.target',
  *           class : 'submit',
- *           label : 'È®ÀÎ',
+ *           label : 'í™•ì¸',
  *           event : function(){ 
  *              // ...
  *           }
  *       }
- *   }}, '¸Ş¼¼Áö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\n¾È³»Ã¢ÀÔ´Ï´Ù.' );
+ *   }}, 'ë©”ì„¸ì§€ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\nì•ˆë‚´ì°½ì…ë‹ˆë‹¤.' );
  *
- *   // Äİ¹éÇü
+ *   // ì½œë°±í˜•
  *   LayerMessageBox.open({ 
  *      type : 'confirm' 
- *   }, '¸Ş¼¼Áö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.\nÈ®ÀÎÃ¢ÀÔ´Ï´Ù.', function(isState){
+ *   }, 'ë©”ì„¸ì§€ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.\ní™•ì¸ì°½ì…ë‹ˆë‹¤.', function(isState){
  *       if(isState){
- *           // È®ÀÎ ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ® ÀÛ¼º
+ *           // í™•ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸ ì‘ì„±
  *           .....
  *       }else{
- *           // Ãë¼Ò ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ® ÀÛ¼º
+ *           // ì·¨ì†Œ ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸ ì‘ì„±
  *           .....
  *       }
  *   });
  * </pre>
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
-window.LayerMessageBox = (function(){
+ window.LayerMessageBox = (function(){
     var TYPE_ALERT = 'ALERT';
     var TYPE_CONFIRM = 'CONFIRM';
     var $element = $('.layer_message_popup');
     var defaultOptions = {
         type : TYPE_ALERT,
-        title : '¾Ë¸²',
-        message : '±âº» ¹®±¸ÀÔ´Ï´Ù.',
+        title : 'ì•Œë¦¼',
+        message : 'ê¸°ë³¸ ë¬¸êµ¬ì…ë‹ˆë‹¤.',
         custom : false,
         button : {
             target : '.layer_submit',
             class : '',
-            label : 'È®ÀÎ',
+            label : 'í™•ì¸',
             event : {}
         }
     };
@@ -60,15 +60,15 @@ window.LayerMessageBox = (function(){
     var onComplete;
 
     /**
-     * ÆË¾÷ ¿­±â (¿É¼Ç Àç Á¤ÀÇ)
-     * @param  {Object || String || Function} options - objectÀÏ °æ¿ì ÆË¾÷ ui ÄÁÆ®·Ñ ¿É¼Ç °´Ã¼, stringÀÏ °æ¿ì ¸Ş¼¼Áö, functionÀÏ °æ¿ì Äİ¹éÇÔ¼ö
-     * @param  {String} options.type - ui Å¸ÀÔ (alert, confirm)
-     * @param  {boolean} options.custom - ¹öÆ° Ä¿½ºÅÒ ¿©ºÎ
-     * @param  {Object} options.button - ¹öÆ° Ä¿½ºÅÒ ¿É¼Ç
-     * @param  {String} options.button.target - Å¸°Ù ÅÂ±×ÀÇ class ¶Ç´Â id °ª
-     * @param  {String} options.button.class - Å¸°Ù¿¡ »õ·Ó°Ô º¯°æµÉ class
-     * @param  {String} options.button.label - Å¸°Ù¿¡ »õ·Ó°Ô º¯°æµÉ ÅØ½ºÆ®
-     * @param  {Function} options.button.event - Å¸°Ù Å¬¸¯½Ã ¹ß»ıÇÒ ÀÌº¥Æ® ÇÔ¼ö
+     * íŒì—… ì—´ê¸° (ì˜µì…˜ ì¬ ì •ì˜)
+     * @param  {Object || String || Function} options - objectì¼ ê²½ìš° íŒì—… ui ì»¨íŠ¸ë¡¤ ì˜µì…˜ ê°ì²´, stringì¼ ê²½ìš° ë©”ì„¸ì§€, functionì¼ ê²½ìš° ì½œë°±í•¨ìˆ˜
+     * @param  {String} options.type - ui íƒ€ì… (alert, confirm)
+     * @param  {boolean} options.custom - ë²„íŠ¼ ì»¤ìŠ¤í…€ ì—¬ë¶€
+     * @param  {Object} options.button - ë²„íŠ¼ ì»¤ìŠ¤í…€ ì˜µì…˜
+     * @param  {String} options.button.target - íƒ€ê²Ÿ íƒœê·¸ì˜ class ë˜ëŠ” id ê°’
+     * @param  {String} options.button.class - íƒ€ê²Ÿì— ìƒˆë¡­ê²Œ ë³€ê²½ë  class
+     * @param  {String} options.button.label - íƒ€ê²Ÿì— ìƒˆë¡­ê²Œ ë³€ê²½ë  í…ìŠ¤íŠ¸
+     * @param  {Function} options.button.event - íƒ€ê²Ÿ í´ë¦­ì‹œ ë°œìƒí•  ì´ë²¤íŠ¸ í•¨ìˆ˜
      */
     var open = function(...options){
         var opt;
@@ -83,7 +83,7 @@ window.LayerMessageBox = (function(){
         uiHide();
         uiShow();
 
-        /** @throw uiShow, uiHide º¸´Ù ÇÏ´Ü¿¡ À§Ä¡ÇØ¾ßÇÔ */
+        /** @throw uiShow, uiHide ë³´ë‹¤ í•˜ë‹¨ì— ìœ„ì¹˜í•´ì•¼í•¨ */
         ui.custom && setUI(ui.button);
 
         $element.show()
@@ -96,7 +96,7 @@ window.LayerMessageBox = (function(){
         return message.split('\n').join('<br>');
     }
 
-    // ÆË¾÷ ´İ±â
+    // íŒì—… ë‹«ê¸°
     var close = function(){
         uiHide();
     };
@@ -118,14 +118,14 @@ window.LayerMessageBox = (function(){
 
    
     /**
-     * ui ¼³Á¤
-     * @param  {String} options.type - ui Å¸ÀÔ (alert, confirm)
-     * @param  {boolean} options.custom - ¹öÆ° Ä¿½ºÅÒ ¿©ºÎ
-     * @param  {Object} options.button - ¹öÆ° Ä¿½ºÅÒ ¿É¼Ç
-     * @param  {String} options.button.target - Å¸°Ù ÅÂ±×ÀÇ class ¶Ç´Â id °ª
-     * @param  {String} options.button.class - Å¸°Ù¿¡ »õ·Ó°Ô º¯°æµÉ class
-     * @param  {String} options.button.label - Å¸°Ù¿¡ »õ·Ó°Ô º¯°æµÉ ÅØ½ºÆ®
-     * @param  {Function} options.button.event - Å¸°Ù Å¬¸¯½Ã ¹ß»ıÇÒ ÀÌº¥Æ® ÇÔ¼ö
+     * ui ì„¤ì •
+     * @param  {String} options.type - ui íƒ€ì… (alert, confirm)
+     * @param  {boolean} options.custom - ë²„íŠ¼ ì»¤ìŠ¤í…€ ì—¬ë¶€
+     * @param  {Object} options.button - ë²„íŠ¼ ì»¤ìŠ¤í…€ ì˜µì…˜
+     * @param  {String} options.button.target - íƒ€ê²Ÿ íƒœê·¸ì˜ class ë˜ëŠ” id ê°’
+     * @param  {String} options.button.class - íƒ€ê²Ÿì— ìƒˆë¡­ê²Œ ë³€ê²½ë  class
+     * @param  {String} options.button.label - íƒ€ê²Ÿì— ìƒˆë¡­ê²Œ ë³€ê²½ë  í…ìŠ¤íŠ¸
+     * @param  {Function} options.button.event - íƒ€ê²Ÿ í´ë¦­ì‹œ ë°œìƒí•  ì´ë²¤íŠ¸ í•¨ìˆ˜
      */
     var setUI = function(options){
         if(options.length > 1){
@@ -157,8 +157,8 @@ window.LayerMessageBox = (function(){
         var target = $element.find('.layer_submit, .layer_close, .layer_cancel');
 
         if(!ui.custom){
-            $('.layer_submit').text('È®ÀÎ');
-            $('.layer_cancel').text('Ãë¼Ò');
+            $('.layer_submit').text('í™•ì¸');
+            $('.layer_cancel').text('ì·¨ì†Œ');
         }
 
         target.on('click', function(){

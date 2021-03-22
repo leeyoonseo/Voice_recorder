@@ -1,4 +1,11 @@
-var TimeManager = function(){
+/**
+ * ì œí•œì‹œê°„ ê´€ë¦¬
+ * @author Lee Sang Mi (2019.07.10)
+ * @version 2.0.0
+ * @update Lee Sang Mi (2019.07.10) v2.0.0
+ * ã„´ String Utils ë‚´ì¥
+ */
+ var TimeManager = function(){
 
 	this.version = '2.0.0';
 	this.name = 'TimeManager';
@@ -12,9 +19,9 @@ var TimeManager = function(){
 
 TimeManager.UTILS = {
 	/**
-     * ¹Ğ¸®¼¼ÄÁµå¸¦ Æ÷¸ËµÈ ¹®ÀÚ¿­·Î ¹İÈ¯
+     * ë°€ë¦¬ì„¸ì»¨ë“œë¥¼ í¬ë§·ëœ ë¬¸ìì—´ë¡œ ë°˜í™˜
      * @param time : milliseconds
-     * @param format : ¹İÈ¯ÇÒ ¹®ÀÚ¿­ Çü½Ä
+     * @param format : ë°˜í™˜í•  ë¬¸ìì—´ í˜•ì‹
      */
     makeTimeString: function(time, format) {
 
@@ -34,7 +41,7 @@ TimeManager.UTILS = {
     },
 
     /**
-     * µÎÀÚ¸®¼ö ¼ıÀÚ Ç¥Çö
+     * ë‘ìë¦¬ìˆ˜ ìˆ«ì í‘œí˜„
      */
     _toDigitString: function(num) {
 
@@ -47,25 +54,25 @@ TimeManager.UTILS = {
     },
 
     _timeFormat: {
-    	// ½Ã
+    	// ì‹œ
         hh: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, parseInt((time / 1000) % 18600 / 3600));
         },
-        // ºĞ
+        // ë¶„
         mm: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, parseInt((time / 1000) % 3600 / 60));
         },
-        // ÃÊ
+        // ì´ˆ
         ss: function(time) {
             return TimeManager.UTILS._toDigitString.call(this, (time / 1000) % 60);
         },
-        // 1000ºĞÀÇ 1ÃÊ
+        // 1000ë¶„ì˜ 1ì´ˆ
         ms: function(time) {
             var ms = time % 1000 / 1000;
             if (ms == 0) return '0';
             return (ms.toString()).substring(2);
         },
-        // 1000ºĞÀÇ 1ÃÊ(µÎÀÚ¸®)
+        // 1000ë¶„ì˜ 1ì´ˆ(ë‘ìë¦¬)
         m2s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '00';
@@ -73,7 +80,7 @@ TimeManager.UTILS = {
         	ms = ms.toFixed(2) * 100;
         	return ms;
         },
-        // 1000ºĞÀÇ 1ÃÊ(¼¼ÀÚ¸®)
+        // 1000ë¶„ì˜ 1ì´ˆ(ì„¸ìë¦¬)
         m3s: function(time) {
         	var ms = time % 1000 / 1000;
         	if (ms == 0) return '000';
@@ -105,8 +112,8 @@ TimeManager.prototype = {
 			this.direction = null;
 
 			this.options = $.extend(true, {
-		        startTime: 0, // ½ÃÀÛ½Ã°£ milisecond
-		        endTime: 0, // Á¾·á½Ã°£ milisecond
+		        startTime: 0, // ì‹œì‘ì‹œê°„ milisecond
+		        endTime: 0, // ì¢…ë£Œì‹œê°„ milisecond
 		        intervalGap: 1000,
 		        displayFormat: 'hh:mm:ss.ms',
 		        onProgress: null,

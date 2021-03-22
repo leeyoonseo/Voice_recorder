@@ -1,4 +1,10 @@
-window.CheckBrowser = (function(){
+/**
+ * browser check
+ * @author Lee Sang-Mi(2019.04.26)
+ * @update Lee Yoon-Seo(2019.09.06)
+ * @version 2.0.2
+ */
+ window.CheckBrowser = (function(){
 
 	var _agent;
 
@@ -36,7 +42,7 @@ window.CheckBrowser = (function(){
 		_element.className += _agent.platform !== "" ? " " + _agent.platform : "";
         _element.className += _agent.isNaver ? ' naver-inapp' : '';
 
-       // data-version »ğÀÔ
+       // data-version ì‚½ì…
        if(_agent.version !== '') _element.dataset.version = _agent.version;
 	};
 
@@ -86,9 +92,9 @@ window.CheckBrowser = (function(){
 	};
 
 	/**
-	* ÇÃ·¡Æû Á¤º¸
-	* @return {String} platform : ¸ğ¹ÙÀÏ OS Á¤º¸
-	* @return {String} version : OS ¹öÀü Á¤º¸
+	* í”Œë˜í¼ ì •ë³´
+	* @return {String} platform : ëª¨ë°”ì¼ OS ì •ë³´
+	* @return {String} version : OS ë²„ì „ ì •ë³´
 	*/
 	function _getPlatform(){
 		var ua = navigator.userAgent.toLowerCase();

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <meta HTTP-EQUIV="Expires" CONTENT="-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://school.littlefox.co.kr/favicon.ico">
+    <title>:: 리틀팍스어학원 리틀팍스 ::</title>
+
+    <link rel="stylesheet" href="../assets/css/LayerMessageBox.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/AudioRecorder.css" type="text/css">
+    <link rel="stylesheet" href="./recorder.css" type="text/css">
+</head>
+<body>
+    <div class="recorder_popup">
+        <h1 class="hidden">리틀팍스 녹음기</h1>
+
+        <div class="coaching_guide_wrap">
+            <h2 class="hidden">녹음기 사용방법 안내 영역</h2>
+            <button class="close_btn"><span class="hidden">닫기버튼</span></button>
+
+            <div class="coaching_guide">
+                <ul>
+                    <li>
+                        <div class="items_subject">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>제목 입력</strong>
+                                <p class="text">녹음 내용을 보내기 위해<br />제목을 꼭 입력하세요!</p>
+                            </div>
+                        </div>
+
+                        <div class="items_pause items_shape_circle">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>일시 정지</strong>
+                                <p class="text">녹음을 잠시 멈추거나, 내용<br />재생을 잠시 멈출 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="items_record items_shape_circle">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>녹음 버튼</strong>
+                                <p class="text">녹음을 시작합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="items_player_status">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>녹음 재생 시간 /상태 바</strong>
+                                <p class="text">재생되는 시간과 재생 상태를<br />보여줍니다.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="items_record_status items_shape_circle">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>녹음 진행 시간 / 상태 표시</strong>
+                                <p class="text">녹음이 진행되고 있는 시간과<br />상태를 보여줍니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="items_mic_volume">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>마이크 음량 표시</strong>
+                                <p class="text">마이크로 입력되는 소리의<br />크기를 표시합니다.</p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="items_record_stop items_shape_circle">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>녹음 정지 버튼</strong>
+                                <p class="text">녹음을 정지합니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="items_submit">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>녹음 보내기</strong>
+                                <p class="text">
+                                    선생님께 녹음 파일을 보냅니다.<br />
+                                    나의 학습 기록에서 확인 및<br />
+                                    다운로드 할 수 있습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="items_play items_shape_circle">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>재생 버튼</strong>
+                                <span class="text">녹음된 내용을 들을 수 있습니다.</span>
+                            </div>
+                        </div>
+
+                        <div class="items_cancel">
+                            <span class="items_icon"></span>
+                            <div class="items_desc">
+                                <strong>취소</strong>
+                                <span class="text">
+                                    녹음기 창을 닫습니다.
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- // .coaching_guide_wrap  -->
+
+        <div class="recordings_help_wrap">
+            <h2  class="hidden">녹음기 알림 영역</h2>
+
+            <div class="recordings_help">
+                녹음 <span class="record_icon_small record"><span class="hidden">녹음 아이콘</span></span>과
+                일시정지 <span class="record_icon_small pause"><span class="hidden">일시정지 아이콘</span></span>를 눌러 녹음하고,
+                정지 <span class="record_icon_small stop"><span class="hidden">정지 아이콘</span></span>를 누른 후
+                녹음 보내기 <span class="record_icon_small submit"><span class="hidden">제출 아이콘</span></span>를 눌러 선생님에게 보냅니다.
+                <span class="text_warning">
+                    녹음 도중에 정지 <span class="record_icon_small stop"><span class="hidden">정지 아이콘</span></span>를 누르면 이어서 녹음할 수 없습니다.
+                </span>
+            </div>
+        </div>
+        <!-- // .recordings_help_wrap -->
+
+        <div class="recorder_contents_wrap">
+            <h2 class="hidden">녹음기 영역</h2>
+
+            <div class="recorder_contents">
+
+                <div class="recorder_subject_wrap">
+                    <label>
+                        <span class="recorder_subject_label">제목</span>
+                        <input id="subjectInput" class="recorder_subject" type="text" />
+                    </label>
+                </div>
+
+                <div class="noti_text">
+                    녹음은 최대 10분까지 가능합니다.
+                </div>
+
+                <!-- [D] 녹음기 -->
+                <div id="recorderArea" class="recorder ui_box ui_type1">
+                    <h3 class="hidden">녹음기</h3>
+
+                    <div class="ui_box_inner">
+                        <div class="ui_timer_wrap">
+                            <div class="pie_bg">
+                                <div class="pie_wrap">
+                                    <div class="pie"></div>
+                                    <div class="pie_shadow recording_c"></div>
+                                    <div class="pie_pointer"><span></span></div>
+                                </div>
+                            </div>
+
+                            <div class="timer">00:00</div>
+                        </div>
+
+                        <div class="controls_wrap">
+                            <div class="control_btns">
+                                <button type="button" class="btns_bg btn_record">
+                                    <span class="hidden">녹음, 일시정지 버튼</span>
+                                </button>
+                                <button type="button" class="btns_bg btn_stop" disabled>
+                                    <span class="hidden">정지 버튼</span>
+                                </button>
+                                <button type="button" class="btns_bg btn_play" disabled>
+                                    <span class="hidden">재생 버튼</span>
+                                </button>
+                            </div>
+
+                            <div class="ui_status_bar">
+                                <div class="status_bg"></div>
+                                <div class="status_bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- [D] 플레이어 -->
+                <div id="playerArea" class="player ui_box ui_type1">
+                    <h3 class="hidden">플레이어</h3>
+
+                    <div class="ui_box_inner">
+                        <div class="ui_timer_wrap">
+                            <div class="pie_bg">
+                                <div class="pie_shadow playing_c"></div>
+                            </div>
+                        </div>
+
+                        <div class="controls_wrap">
+                            <div class="control_btns">
+                                <button type="button" class="btns_bg btn_record" disabled>
+                                    <span class="hidden">녹음, 일시정지 버튼</span>
+                                </button>
+                                <button type="button" class="btns_bg btn_stop" disabled>
+                                    <span class="hidden">정지 버튼</span>
+                                </button>
+                                <button type="button" class="btns_bg btn_play">
+                                    <span class="hidden">재생 버튼</span>
+                                </button>
+                            </div>
+
+                            <div class="ui_status_bar">
+                                <div class="current_time">00:00</div>
+                                <div class="status_bar">
+                                    <span class="playing">
+                                        <span class="status_pointer"></span>
+                                    </span>
+                                </div>
+                                <div class="total_time">00:00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="btns_wrap">
+                    <h3 class="hidden">녹음기, 플레이어 공통 버튼 영역</h3>
+
+                    <div class="inner">
+                        <button type="button" class="submit_btn">Submit</button>
+                        <button type="button" class="cancel_btn">Cancel</button>
+                        <button type="button" class="guide_btn">
+                            <span class="hidden">가이드 버튼</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- // .recorder_contents_wrap -->
+
+        <!-- [D] 레이어팝업 -->
+        <div class="layer_message_popup">
+            <div class="layer_inner">
+                <div class="layer_container">
+                    <div class="layer_contents">
+                        <div class="layer_title">
+                            <h2 class="layer_h2">알림</h2>
+                            <button class="layer_close"><span class="hidden">닫기</span></button>
+                        </div>
+                        <div class="layer_main"><p class="message_text"></p></div>
+                        <div class="layer_btns">
+                            <button type="button" class="layer_cancel">취소</button>
+                            <button type="button" class="layer_submit">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://school.littlefox.co.kr/libs/jquery-1.11.3.js"></script> -->
+    <script 
+        src="https://code.jquery.com/jquery-1.12.4.min.js" 
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- TODO LSCH-17 : 녹음기 스크립트 코드 추가 -->
+    <script src="../assets/js/libs/CheckBrowser-2.0.2.js"></script>
+    <script src="../assets/js/LayerMessageBox.js"></script>
+    <script src="../assets/js/LoadingIndicator.js"></script>
+    <script src="../assets/js/ProgressBar.js"></script>
+    <script src="../assets/js/Player.js"></script>
+    <script src="../assets/js/RecorderManager.js"></script>
+
+    <script src="../assets/js/libs/manager.TimeManager-2.0.js"></script>
+    <script src="../assets/js/libs/utils.StringUtil.js"></script>
+
+    <!-- TODO: 위에 코드 추가하기  -->
+    <!-- TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
+    <script>
+        'use strict';
+
+        // [D] 로딩바 예제
+    	var $loader = LoadingIndicator({
+    		className : 'progress',
+    		message : '로딩중...',
+    	});
+
+    	$loader.show();
+    	setTimeout(() => {
+    		$loader.hide();
+    	}, 1000);
+
+        var $subjectInput = $('#subjectInput');
+        var $submitBtn = $('.submit_btn');
+
+        // === [D] Recorder Custom Event : AudioRecorderManager.RecordView.ready()보다 상단에 위치 필수!!
+        // 녹음기 준비상태
+        $(document).on(RM_CYCLE.RECORDER_READY, function(){
+            $subjectInput.val('').focus();
+            $submitBtn.prop('disabled', true);
+        });
+
+        // 플레이어 준비상태
+        $(document).on(RM_CYCLE.PLAYER_READY, function(){
+            $submitBtn.prop('disabled', false);
+        });
+
+        // 녹음기 저장 시
+        $(document).on(RM_CYCLE.SAVE, function(){
+            var result = confirm('선생님께 녹음 내용을 보냈습니다.\n나의 학습 기록을 보시겠습니까?');
+            if(result){
+                window.opener.location = 'https://school.littlefox.co.kr/student/archives/recording.php';
+            }
+        });
+        // === [D] AudioRecorderManager.RecordView.ready()보다 상단에 위치 필수!!
+
+        // 가이드 보기 버튼
+        $('.guide_btn, .coaching_guide_wrap .close_btn').on('click', () => {
+            var $guidePopup = $('.coaching_guide_wrap');
+            var enabledGuidePopup = $guidePopup.hasClass('on');
+
+            $guidePopup.toggleClass('on', !enabledGuidePopup);
+        });
+
+        // 전송 버튼
+        $('.submit_btn').on('click', () => {
+            var subjectVal = $subjectInput.val();
+
+            if($.trim(subjectVal) === ''){
+                AudioRecorderManager.PlayerView.pause();
+                $subjectInput.focus();
+                alert('제목을 입력해주세요.');
+
+            }else{
+                AudioRecorderManager.PlayerView.save();
+            }
+        });
+
+        // 취소 버튼
+        $('.cancel_btn').on('click', () => {
+            window.close();
+        });
+
+        // [D] 녹음기 최초 init
+        // === [D] Recorder Custom Event 보다 하단에 위치 필수
+        AudioRecorderManager.RecordView.ready();
+        // ==== [D] Recorder Custom Event 보다 하단에 위치 필수
+
+        // TODO 마이크 연결 미확인 시 팝업 사용 예시
+        // 미연결 확인 시 정지 후(AudioRecorderManager.RecordView.pause())에  아래 LayerMessageBox 호출해야함
+    	// AudioRecorderManager.RecordView.pause();
+    	// LayerMessageBox.open({
+    	// 	type : 'alert',
+    	// 	message : '마이크를 연결하거나, 마이크 액세스를 허용 해 주세요.\n마이크 액세스 허용은 브라우저의 마이크 허용 버튼을\n눌러 확인하실 수 있습니다.',
+    	// 	custom : true,
+    	// 	button : [
+    	// 		{
+    	// 			target : '.layer_submit',
+    	// 			label : '해결 방법 보기',
+    	// 			event : function(){
+    	// 				// TODO 마이크 해결 방법 보기 클릭 시 이벤트 작성 영역
+    	// 				// ........
+    	// 			},
+    	// 		},
+    	// 		{
+    	// 			target : '.layer_close',
+    	// 			event : function(){
+    	// 				// TODO 레이어팝업 닫을 때(X 버튼 클릭) 이벤트 작성 영역
+    	// 				// 1. 녹음 버튼 disabled 예시
+    	// 				// $('.btn_record').prop('disabled', true);
+
+    	// 				// 2. 레이어 팝업 닫기 예시
+    	// 				LayerMessageBox.close();
+    	// 			}
+    	// 		}
+    	// 	]
+    	// });
+    </script>
+    <!-- // TODO 녹음기 사용 참고 예시 코드 입니다. ====================== -->
+
+</body>
+</html>

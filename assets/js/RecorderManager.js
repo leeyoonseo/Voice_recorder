@@ -1,19 +1,20 @@
 /**
- * ������, �÷��̾� ������ �Ŵ���
- * @author Lee Yoon Seo (2019.09)
- * @update Lee Yoon Seo (2020.08)
- * @version 1.1.0
+ * 녹음기, 플레이어 페이지 매니저
+ * @author Lee Yoon Seo (2019.09~)
+ * @version 1.2.0
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
 
 'use strict';
 
+const VERSION = '1.2.0';
+
 var DEFAULT = {
-    TIME_LIMIT : 6000, // default : 60000
+    TIME_LIMIT : 180000, // 1000 = 1초
     TIME_FORMAT : 'mm:ss',
 };
 
-// AudioRecorderManager ���� ����Ŭ
+// RecorderManager 진행 사이클
 var RM_CYCLE = {
     RECORDER_READY : 'rm-recorder-ready',
     RECORDER_RECORD : 'rm-recorder-record',
@@ -29,12 +30,12 @@ var RM_CYCLE = {
 };
 
 /**
- * ������, �÷��̾� �Ŵ���
- * @status ������ ���� (*RM_CYCLE ����)
+ * 녹음기, 플레이어 매니저
+ * @status 녹음기 상태 (*RM_CYCLE 참고)
  */
 window.AudioRecorderManager = {
     name : "AudioRecorderManager",
-    version : "1.1.0",
+    version : VERSION,
     status : RM_CYCLE.WAITING,
     options : {
         autoStart : false,
@@ -108,10 +109,10 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     /**
-     * ������ �غ�
-     * @param {Object} options - �ڵ����ۿ���, �÷��̾� �ڵ� ��ȯ���ε��� �ɼǰ��� ��� ��ü
-     * @param {boolean} options.autoStart - �ڵ����� ����
-     * @param {boolean} options.autoNextStep - �÷��̾� �ڵ���ȯ ����
+     * 녹음기 준비
+     * @param {Object} options - 자동시작여부, 플레이어 자동 전환여부등의 옵션값이 담긴 객체
+     * @param {boolean} options.autoStart - 자동시작 여부
+     * @param {boolean} options.autoNextStep - 플레이어 자동전환 여부
      */
     var ready = function(options){
         AudioRecorderManager.status = RM_CYCLE.RECORDER_READY;
@@ -137,20 +138,20 @@ AudioRecorderManager.RecordView = (function(){
 
     var attachEvent = function(){
         $UI.show()
-           .find('.control_btns').find('button').show().end()
-           .find('.btn_record').on('click', handlerResume).show().end()
-           .find('.btn_stop').on('click', handlerStop).show().end();
+        .find('.control_btns').find('button').show().end()
+        .find('.btn_record').on('click', handlerResume).show().end()
+        .find('.btn_stop').on('click', handlerStop).show().end();
 
-           return this;
+        return this;
     };
 
     var dettachEvent = function(){
         $UI.addClass('init').hide()
-           .find('.pie_pointer').hide().end()
-           .find('.btn_stop').prop('disabled', true).end()
-           .find('button').off('click').hide();
+        .find('.pie_pointer').hide().end()
+        .find('.btn_stop').prop('disabled', true).end()
+        .find('button').off('click').hide();
 
-           return this;
+        return this;
     };
 
     var record = function(){
@@ -158,18 +159,18 @@ AudioRecorderManager.RecordView = (function(){
         timer.start();
 
         $UI.removeClass('init').addClass('active')
-           .find('.btn_stop').attr('disabled', false).end()
-           .find('.pie_pointer').show();
+        .find('.btn_stop').attr('disabled', false).end()
+        .find('.pie_pointer').show();
 
-       $(document).trigger(RM_CYCLE.RECORDER_RECORD, $UI);
+    $(document).trigger(RM_CYCLE.RECORDER_RECORD, $UI);
 
-       return this;
+    return this;
     };
 
     /**
-     * ���� �� Ÿ�̸�, ���� �ٸ� ���� �Լ�
-     * @param {Number} time - �ð� �� 
-     * @param {String} format - Ÿ�̸� ����
+     * 녹음 중 타이머, 진행 바를 설정 함수
+     * @param {Number} time - 시간 값 
+     * @param {String} format - 타이머 포맷
      */
     var recording = function(time, format){
         progressbar.setUp(time);
@@ -183,11 +184,11 @@ AudioRecorderManager.RecordView = (function(){
         timer.stop();
 
         $UI.removeClass('active')
-           .find('.btn_record').show();
+        .find('.btn_record').show();
 
-       $(document).trigger(RM_CYCLE.RECORDER_PAUSE, $UI);
+    $(document).trigger(RM_CYCLE.RECORDER_PAUSE, $UI);
 
-       return this;
+    return this;
     };
 
     var stop = function(){
@@ -218,7 +219,7 @@ AudioRecorderManager.RecordView = (function(){
     };
 
     /**
-     * ����ũ ���� ��
+     * 마이크 볼륨 값
      * @param {Number} volume 
      */
     function inputMicVolume(volume){
@@ -242,9 +243,9 @@ AudioRecorderManager.RecordView = (function(){
 //FoxRecordUI.RecordView
 
 /**
-* ��� ȭ��
-* @constructor AudioRecorderManager
-*/
+ * 재생 화면
+ * @constructor AudioRecorderManager
+ */
 AudioRecorderManager.PlayerView = (function(){
     var $UI = $('#playerArea');
 
@@ -276,11 +277,11 @@ AudioRecorderManager.PlayerView = (function(){
 
     var player = {
         init : function(audioSrc){
-            // TODO audioSrc ���� �� �Ʒ� if�� ���� ��û
+            // TODO audioSrc 삽입 후 아래 if문 삭제 요청
             if(!audioSrc || $.trim(audioSrc)){
                 audioSrc = '../recorder/sample/audio0.mp3';
             }
-            // // TODO audioSrc ���� �� �Ʒ� if�� ���� ��û
+            // // TODO audioSrc 삽입 후 아래 if문 삭제 요청
 
             this.node = this.node || new AudioPlayer();
             this.node.init({
@@ -319,7 +320,7 @@ AudioRecorderManager.PlayerView = (function(){
 
                 progressbar.draw((currentTime / duration) * (barW - thumbW));
                 $UI.find('.timer, .current_time')
-                   .html(StringUtils.makeTimeString(currentTime * 1000, DEFAULT.TIME_FORMAT));
+                .html(StringUtils.makeTimeString(currentTime * 1000, DEFAULT.TIME_FORMAT));
             });
 
             this.node.setEnded(function(){
@@ -361,14 +362,14 @@ AudioRecorderManager.PlayerView = (function(){
     };
 
     /**
-     * @param {String} audioSrc - ����� ��� 
+     * @param {String} audioSrc - 오디오 경로 
      */
     var ready = function(audioSrc){
         AudioRecorderManager.status = RM_CYCLE.PLAYER_READY;
 
         progressbar.init();
 
-        // TODO ����� ��ũ �߰�
+        // TODO 오디오 링크 추가
         player.init(audioSrc).setLifeCycle();
 
         AudioRecorderManager.RecordView.init();
@@ -440,7 +441,7 @@ AudioRecorderManager.PlayerView = (function(){
         return this;
     };
 
-    // TODO LSCH-181 HTML5 ������ �ۺ����� ���� �� ����߰�(�����)
+    // TODO LSCH-181 HTML5 녹음기 퍼블리싱 수정 및 기능추가(재녹음)
     var restart = function(){
         stop();
         dettachEvent();
@@ -453,7 +454,7 @@ AudioRecorderManager.PlayerView = (function(){
         player.getPlayStatus() ? pause() : play();
     }
 
-    // TODO LSCH-181 HTML5 ������ �ۺ����� ���� �� ����߰�(�����)
+    // TODO LSCH-181 HTML5 녹음기 퍼블리싱 수정 및 기능추가(재녹음)
     return {
         restart,
         init,

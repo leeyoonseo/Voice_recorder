@@ -1,5 +1,5 @@
 /**
- * ¿Àµğ¿À ÆäÀÌÁö ¸Å´ÏÀú
+ * ì˜¤ë””ì˜¤ í˜ì´ì§€ ë§¤ë‹ˆì €
  * @author Lee Yoon Seo (2019.09)
  * @version 1.1.0
  * @see utils.StringUtil.js
@@ -8,7 +8,7 @@
  * @support Chrome | fireFox | Edge | Safari | Opera
  */
 
-var PM_CYCLE = {
+ var PM_CYCLE = {
     WAITING : 'waiting',
     LOADED : 'loaded',
     TIME_UPDATE : 'timeupdate',
@@ -25,10 +25,10 @@ window.AudioPlayerManager = function(){
 window.AudioPlayerManager.prototype = {
     constructor : AudioPlayerManager,
     /**
-     * È£Ãâ ½Ã ¼¼ÆÃ
-     * @param {Object} opts  À¯Àú°¡ ¼Â¾÷ ½Ã »ğÀÔÇÏ´Â ¿É¼Ç °ª
-     * @param {String} opts.element  ÇÃ·¹ÀÌ¾î ÅÂ±×ÀÇ Å¬·¡½º³ª ¾ÆÀÌµğ
-     * @param {String} opts.timeFormat  Å¸ÀÌ¸Ó Æ÷¸Ë
+     * í˜¸ì¶œ ì‹œ ì„¸íŒ…
+     * @param {Object} opts  ìœ ì €ê°€ ì…‹ì—… ì‹œ ì‚½ì…í•˜ëŠ” ì˜µì…˜ ê°’
+     * @param {String} opts.element  í”Œë ˆì´ì–´ íƒœê·¸ì˜ í´ë˜ìŠ¤ë‚˜ ì•„ì´ë””
+     * @param {String} opts.timeFormat  íƒ€ì´ë¨¸ í¬ë§·
      */
     init : function(opts){
         this.options = $.extend(true, {
@@ -47,9 +47,9 @@ window.AudioPlayerManager.prototype = {
         return this;
     },
 
-    // AudioPlayer, ProgressBar »ı¼ºÀÚ È£Ãâ
+    // AudioPlayer, ProgressBar ìƒì„±ì í˜¸ì¶œ
     ready : function(){
-        // ie8ÀÌÇÏ return false;
+        // ie8ì´í•˜ return false;
         var isNotSupportBrowser = this.isNotSupportBrowser();
         if(isNotSupportBrowser) return false;
 
@@ -75,19 +75,19 @@ window.AudioPlayerManager.prototype = {
         return this;
     },
 
-    /* ¿Àµğ¿À »çÀÌÅ¬ callback ÇÔ¼ö ¼¼ÆÃ */
+    /* ì˜¤ë””ì˜¤ ì‚¬ì´í´ callback í•¨ìˆ˜ ì„¸íŒ… */
     setAudio : function(){
         var that = this;
         var barW = this.player.bar.outerWidth();
         var pointerWidth = this.player.pointer.outerWidth();
 
-        // ¿Àµğ¿À ·Îµå
+        // ì˜¤ë””ì˜¤ ë¡œë“œ
         this.player.setLoadeddata(function(duration){
             that.playerStatus = PM_CYCLE.LOADED;
             that.setTimer(duration * 1000, 0);
         });
 
-        // ¿Àµğ¿À Å¸ÀÌ¸Ó ÁøÇà
+        // ì˜¤ë””ì˜¤ íƒ€ì´ë¨¸ ì§„í–‰
         this.player.setTimeupdate(function(currentTime, duration){
             if(that.playerStatus === PM_CYCLE.STOP){
                 that.setTimer(duration * 1000, 0);
@@ -97,13 +97,13 @@ window.AudioPlayerManager.prototype = {
             }
         });
 
-        // ¿Àµğ¿À Á¾·á
+        // ì˜¤ë””ì˜¤ ì¢…ë£Œ
         this.player.setEnded(function(duration){
             that.playerStatus = PM_CYCLE.STOP;
             that.stop(duration);
         });
 
-        // ¿Àµğ¿À ¹Ù ÀÌº¥Æ®
+        // ì˜¤ë””ì˜¤ ë°” ì´ë²¤íŠ¸
         this.player.setBarEvent(function(e, audio){
             that.progressbar.input(e, audio);
             that.stopBtn.prop('disabled', false);
@@ -165,9 +165,9 @@ window.AudioPlayerManager.prototype = {
         return this;
     },
 
-    /** Å¸ÀÌ¸Ó ½Ã°£ °ª ¼ÂÆÃ
-     * @param {Number} time ½Ã°£ °ª
-     * @param {Number} currentW ¹Ù¸¦ ±×¸®±â À§ÇÑ ½Ã°£ ´ç width °ª
+    /** íƒ€ì´ë¨¸ ì‹œê°„ ê°’ ì…‹íŒ…
+     * @param {Number} time ì‹œê°„ ê°’
+     * @param {Number} currentW ë°”ë¥¼ ê·¸ë¦¬ê¸° ìœ„í•œ ì‹œê°„ ë‹¹ width ê°’
      */
     setTimer : function(time, currentW){
         this.progressbar.draw(currentW);
@@ -177,19 +177,19 @@ window.AudioPlayerManager.prototype = {
     },
 
     /**
-     * ÇÏÀ§ ºê¶ó¿ìÀú¸¦ ºĞ±âÇÏ¿© Å¬¸¯ ÀÌº¥Æ®¿¡ ¾È³» ¾Ë¸²Ã¢ ¶ç¿ì±â
-     * @return {Boolean} IE8ÀÌÇÏ ºê¶ó¿ìÀú ¿©ºÎ
+     * í•˜ìœ„ ë¸Œë¼ìš°ì €ë¥¼ ë¶„ê¸°í•˜ì—¬ í´ë¦­ ì´ë²¤íŠ¸ì— ì•ˆë‚´ ì•Œë¦¼ì°½ ë„ìš°ê¸°
+     * @return {Boolean} IE8ì´í•˜ ë¸Œë¼ìš°ì € ì—¬ë¶€
      */
     isNotSupportBrowser : function(){
         var isNotSupport = ($('html').hasClass('lt-ie9')) ? true : false;
 
         if(isNotSupport){
             this.bar.on('click', function(){
-                alert("Áö¿øÇÏÁö ¾Ê´Â ÀÎÅÍ³İ ºê¶ó¿ìÀúÀÔ´Ï´Ù.\n³ìÀ½±â ¼­ºñ½º´Â Å©·Ò¿¡ ÃÖÀûÈ­ µÇ¾î ÀÖ½À´Ï´Ù.")
+                alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¸í„°ë„· ë¸Œë¼ìš°ì €ì…ë‹ˆë‹¤.\në…¹ìŒê¸° ì„œë¹„ìŠ¤ëŠ” í¬ë¡¬ì— ìµœì í™” ë˜ì–´ ìˆìŠµë‹ˆë‹¤.")
             });
 
             this.playBtn.on('click', function(){
-                alert("Áö¿øÇÏÁö ¾Ê´Â ÀÎÅÍ³İ ºê¶ó¿ìÀúÀÔ´Ï´Ù.\n³ìÀ½±â ¼­ºñ½º´Â Å©·Ò¿¡ ÃÖÀûÈ­ µÇ¾î ÀÖ½À´Ï´Ù.")
+                alert("ì§€ì›í•˜ì§€ ì•ŠëŠ” ì¸í„°ë„· ë¸Œë¼ìš°ì €ì…ë‹ˆë‹¤.\në…¹ìŒê¸° ì„œë¹„ìŠ¤ëŠ” í¬ë¡¬ì— ìµœì í™” ë˜ì–´ ìˆìŠµë‹ˆë‹¤.")
             });
 
             return true;

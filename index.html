@@ -1,199 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="Cache-Control" content="No-Cache">
-    <meta HTTP-EQUIV="Expires" CONTENT="-1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./assets/libs/LayerMessageBox/css/LayerMessageBox.css">
-    <link rel="stylesheet" href="./assets/css/recorder.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <title>Recorder</title>
+    <title>녹음기 데모 페이지</title>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <div id="section">
+        <h1>DEMO</h1>
+
+        <div class="box">
+            <h2>녹음기</h2>
+            <span>
+                <button 
+                    data-src="./recorder/recorder.html" 
+                    data-size="620,420"
+                >
+                    OPEN
+                </button>
+            </span>
+        </div>
     
-    <section class="demo_wrap">
-        <h1>Recorder Demo</h1>
+        <div class="box">
+            <h2>
+                학생상세정보 Recordings 탭 플레이어
+            </h2>
+            <span>
+                <button 
+                    data-src="./recorder/history.html" 
+                    data-size="950,800"
+                >
+                    OPEN
+                </button>
+            </span>
+        </div>
+    </div>
 
-        <article>
-            <h2>Default <strong>Recorder</strong>, Player</h2>
-
-            <div id="recorderArea" class="recorder_wrap ui_box">
-                <div class="ui_box_inner">
-                    <div class="ui_timer_wrap">
-                        <h3 class="hidden">타이머 영역</h3>
-                        <div class="pie_bg">
-                            <div class="pie_wrap">
-                                <div class="pie"></div>
-                                <div class="pie_shadow recording_c"></div>
-                                <div class="pie_pointer"><span></span></div>
-                            </div>
-                        </div>
-        
-                        <div class="timer">00:00</div>
+    <!-- [D] 페이지 내 공통 레이어팝업 -->
+    <div class="layer_message_popup">
+        <div class="layer_inner">
+            <div class="layer_container">
+                <div class="layer_contents">
+                    <div class="layer_title">
+                        <h2 class="layer_h2">알림</h2>
+                        <button class="layer_close"><span class="hidden">닫기</span></button>
                     </div>
-        
-                    <div class="controls_wrap">
-                        <div class="control_btns">
-                            <h3 class="hidden">컨트롤 버튼 영역</h3>
-                            <button type="button" class="btns_bg btn_record">
-                                <span class="hidden">녹음, 일시정지 버튼</span>
-                            </button>
-                            <button type="button" class="btns_bg btn_stop" disabled>
-                                <span class="hidden">정지 버튼</span>
-                            </button>
-                            <button type="button" class="btns_bg btn_play" disabled>
-                                <span class="hidden">재생 버튼</span>
-                            </button>
-                        </div>
-        
-                        <div class="ui_status_bar">
-                            <h3 class="hidden">상태바 영역</h3>
-                            <div class="status_bg"></div>
-                            <div class="status_bar"></div>
-                        </div>
+                    <div class="layer_main"><p class="message_text"></p></div>
+                    <div class="layer_btns">
+                        <button type="button" class="layer_submit">확인</button>
+                        <button type="button" class="layer_cancel">취소</button>
                     </div>
-                </div>
-            </div>
-
-        </article>
-
-        <article>
-            <h2>Default Recorder, <strong>Player</strong></h2>
-
-            <div id="playerArea" class="player_wrap ui_box">
-                <div class="ui_box_inner">
-                    <div class="ui_timer_wrap">
-                        <div class="pie_bg">
-                            <div class="pie_shadow playing_c"></div>
-                        </div>
-                    </div>
-        
-                    <div class="controls_wrap">
-                        <div class="control_btns">
-                            <h3 class="hidden">컨트롤 버튼 영역</h3>
-                            <button type="button" class="btns_bg btn_record" disabled>
-                                <span class="hidden">녹음, 일시정지 버튼</span>
-                            </button>
-                            <button type="button" class="btns_bg btn_stop" disabled>
-                                <span class="hidden">정지 버튼</span>
-                            </button>
-                            <button type="button" class="btns_bg btn_play">
-                                <span class="hidden">재생 버튼</span>
-                            </button>
-                        </div>
-        
-                        <div class="ui_status_bar">
-                            <h3 class="hidden">타이머 및 상태바 영역</h3>
-                            <div class="current_time">00:00</div>
-                            <div class="status_bar">
-                                <span class="playing">
-                                    <span class="status_pointer"></span>
-                                </span>
-                            </div>
-                            <div class="total_time">00:00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </section>
-    
-
-
-    <!-- 녹음기 -->
-    <!-- <div id="recorderArea" class="recorder ui_box ui_type1">
-        <h3 class="hidden">녹음기</h3>
-
-        <div class="ui_box_inner">
-            <div class="ui_timer_wrap">
-                <div class="pie_bg">
-                    <div class="pie_wrap">
-                        <div class="pie"></div>
-                        <div class="pie_shadow recording_c"></div>
-                        <div class="pie_pointer"><span></span></div>
-                    </div>
-                </div>
-
-                <div class="timer">00:00</div>
-            </div>
-
-            <div class="controls_wrap">
-                <div class="control_btns">
-                    <button type="button" class="btns_bg btn_record">
-                        <span class="hidden">녹음, 일시정지 버튼</span>
-                    </button>
-                    <button type="button" class="btns_bg btn_stop" disabled>
-                        <span class="hidden">정지 버튼</span>
-                    </button>
-                    <button type="button" class="btns_bg btn_play" disabled>
-                        <span class="hidden">재생 버튼</span>
-                    </button>
-                </div>
-
-                <div class="ui_status_bar">
-                    <div class="status_bg"></div>
-                    <div class="status_bar"></div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
+    <!-- // [D] 페이지 내 공통 레이어팝업 -->
 
-    <!-- [D] 플레이어 -->
-    <!-- <div id="playerArea" class="player ui_box ui_type1">
-        <h3 class="hidden">플레이어</h3>
+    <script 
+        src="https://code.jquery.com/jquery-1.12.4.min.js" 
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+        crossorigin="anonymous"
+    ></script>
+    <script src="./recorder/js/LayerMessageBox.js"></script>
 
-        <div class="ui_box_inner">
-            <div class="ui_timer_wrap">
-                <div class="pie_bg">
-                    <div class="pie_shadow playing_c"></div>
-                </div>
-            </div>
+<!-- TODO 팝업 테스트를 위한 코드들 -->
+<script>
+    $('#btn').on('click', function(){
+        LayerMessageBox.open({
+            type : 'alert'
+        }, '녹음된 내용이 저장되지 않습니다.\n다시 녹음 할까요?', function(isState){
+            if(!isState) return false;
+        });
+    });
 
-            <div class="controls_wrap">
-                <div class="control_btns">
-                    <button type="button" class="btns_bg btn_record" disabled>
-                        <span class="hidden">녹음, 일시정지 버튼</span>
-                    </button>
-                    <button type="button" class="btns_bg btn_stop" disabled>
-                        <span class="hidden">정지 버튼</span>
-                    </button>
-                    <button type="button" class="btns_bg btn_play">
-                        <span class="hidden">재생 버튼</span>
-                    </button>
-                </div>
+    $('button:not(#btn)').on('click', function(){
+        var popSrc = $(this).attr('data-src');
+        var popSize = $(this).attr('data-size');
+        var width = popSize.split(',')[0];
+        var height = popSize.split(',')[1];
 
-                <div class="ui_status_bar">
-                    <div class="current_time">00:00</div>
-                    <div class="status_bar">
-                        <span class="playing">
-                            <span class="status_pointer"></span>
-                        </span>
-                    </div>
-                    <div class="total_time">00:00</div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+        setAlignCenter(width, height, popSrc);
+    });
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+    function setAlignCenter(width, height, href) {
+        var xPos = getXposition(width);
+        var yPos = getYposition(height);
 
-<script src="./assets/libs/CheckBrowser.js"></script>
-<script src="./assets/libs/LayerMessageBox/LayerMessageBox.js"></script>
-<script src="./assets/libs/LayerMessageBox/LoadingIndicator.js"></script>
-<script src="./assets/libs/LayerMessageBox/ProgressBar.js"></script>
+        window.open(href, '_blank', 'width=' + width + ', height=' + height + ', left=' + xPos + ', top=' + yPos + ', toolbars=no, resizable=yes, scrollbars=no, location=no');
+    }
 
-<script src="./assets/js/AudioPlayer.js"></script>
-<script src="./assets/js/AudioRecorderManager.js"></script>
+    function getXposition(width){
+        return ((document.body.clientWidth / 2) - (width / 2)) + window.screenLeft;
+    }
 
-<script src="./assets/libs/LayerMessageBox/ProgressBar.js"></script>
-<script src="./assets/libs/LayerMessageBox/TimeManager.js"></script>
-<script src="./assets/libs/LayerMessageBox/StringUtil.js"></script>
-
+    function getYposition(height){
+        return ((screen.availHeight / 2) - (height / 2)) +  window.screenTop;
+    }
+</script>
+<!-- // TODO 팝업 테스트를 위한 코드들 -->
 </body>
 </html>

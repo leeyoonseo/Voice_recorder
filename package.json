@@ -1,0 +1,20 @@
+{
+  "name": "voice_recorder",
+  "version": "1.0.0",
+  "description": "<pre><code>\r // 녹음기 옵션 설정 및 이벤트 바인딩등의 준비 작업\r AudioRecorderManager.RecordView.ready();",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeyoonseo/Voice_recorder.git"
+  },
+  "author": "okayoon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leeyoonseo/Voice_recorder/issues"
+  },
+  "homepage": "https://github.com/leeyoonseo/Voice_recorder#readme"
+}
